@@ -35,7 +35,7 @@
 
 package com.bordengrammar.bordengrammarapp;
 
-import android.annotation.SuppressLint;  //Imports
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
@@ -52,7 +52,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 
 public class MainActivity extends FragmentActivity implements

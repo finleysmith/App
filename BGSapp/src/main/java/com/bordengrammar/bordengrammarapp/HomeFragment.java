@@ -52,6 +52,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
             }
         });
+        return rootView;
     }
 
 	@Override
