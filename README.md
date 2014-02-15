@@ -22,3 +22,6 @@ To download and view code in android studio:
 
 
 Thanks for checking out this project!
+
+![ScreenShot](https://raw2.github.com/epicfinley/Borden-App/master/Res/screenh.png)
+![ScreenShot](https://raw2.github.com/epicfinley/Borden-App/master/Res/screenv.png)
