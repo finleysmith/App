@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:background="#FFFFFF"
-    android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="22dp"
-        android:text="@string/welcomeinfo"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/textView1"
@@ -28,39 +19,50 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="334dp"
+        android:layout_height="43dp"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="@string/welcomeinfo"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_weight="0.13"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="18dp"
         android:text="@string/links"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginLeft="15dp" />
 
-    <Button
-        android:id="@+id/news"
-        android:layout_width="wrap_content"
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="14dp"
-        android:text="@string/news" />
+        android:layout_marginLeft="15dp">
 
-    <Button
-        android:id="@+id/canteen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/news"
-        android:layout_toRightOf="@+id/news"
-        android:text="@string/canteen" />
+        <Button
+            android:id="@+id/canteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/canteen" />
 
-    <Button
-        android:id="@+id/moodle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/canteen"
-        android:layout_alignBottom="@+id/canteen"
-        android:layout_toRightOf="@+id/canteen"
-        android:text="@string/moodle" />
+        <Button
+            android:id="@+id/moodle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moodle" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/news" />
+
+    </TableRow>
+
+</LinearLayout>
