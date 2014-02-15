@@ -2,11 +2,11 @@
 //	Borden Grammar School App
 //	Build 1 rev 43
 //	(C) Borden Grammar School 2014
-//	DO NOT DISTIRBUTE OR MODIFY CODE
-//  Made By Finley Smith (epicfinley@gmail.com) using Eclipse With ADT
+//
+//  Made By Finley Smith (epicfinley@gmail.com) using Android Studio
 // WEBSITE website.bordengrammar.kent.sch.uk
 /*
- * Copyright (C) 2011-2013 Borden Grammar School, school@bordengrammar.kent.sch.uk
+ * Copyright (C) 2011-2014 Borden Grammar School, school@bordengrammar.kent.sch.uk
  * 
  * This file is part of BGS APP)
  * 
@@ -35,7 +35,7 @@
 
 package com.bordengrammar.bordengrammarapp;
 
-import android.annotation.SuppressLint;
+import android.annotation.SuppressLint;  //Imports
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
@@ -63,22 +63,22 @@ public class MainActivity extends FragmentActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
-	private String[] tabs = { "Home", "Parents", "Students", "About" };
+	private String[] tabs = { "Home", "Parents", "Students" }; //Create an array of tabs
 
 	@SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "onCreate");
 		final String PREFS_NAME = "MyPrefsFile";
 		
-		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //Starts settings file
 		
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_main);
 		
-		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+		boolean tabletSize = getResources().getBoolean(R.bool.isTablet); //Get the tablet from values
 		
-		if (tabletSize) {
+		if (tabletSize) { //if statment for the tablet
 			Log.i(TAG, "IS TABLET");
 			if (settings.getBoolean("knowtablet", true)) {
 				new AlertDialog.Builder(this)
@@ -101,12 +101,12 @@ public class MainActivity extends FragmentActivity implements
 			}
 						
 		} else {
-			Log.i(TAG, "IS NOT TABLET");
+			Log.i(TAG, "IS NOT TABLET"); //log not tablet
 		}
 
 		
 
-		if (settings.getBoolean("my_first_time", true)) {
+		if (settings.getBoolean("my_first_time", true)) { //work if it is a first time is true
 		    //the app is being launched for first time, do something        
 		    Log.d("Comments", "First time");
 		    // first time task
@@ -116,13 +116,13 @@ public class MainActivity extends FragmentActivity implements
 		    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int which) { 
 		            dialog.cancel();
-		            Toast.makeText(getApplicationContext(),"The welcome message will no longer show up at startup!", Toast.LENGTH_LONG).show();
+		            Toast.makeText(getApplicationContext(),"The welcome message will no longer show", Toast.LENGTH_SHORT).show();
 		        }
 		     })		    
 		     .show();
 
 		    // record the fact that the amp has been started at least once
-		    settings.edit().putBoolean("my_first_time", false).commit(); 
+		    settings.edit().putBoolean("my_first_time", false).commit(); //set it to false
 		}
 		
 		
@@ -173,7 +173,7 @@ public class MainActivity extends FragmentActivity implements
 	    return super.onCreateOptionsMenu(menu);
 	}
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item){
+	public boolean onOptionsItemSelected(MenuItem item){ //add the facebook and website browser and menu with about
 		switch (item.getItemId())
 		{
 			case R.id.facebook:
@@ -192,11 +192,11 @@ public class MainActivity extends FragmentActivity implements
 		    .setTitle("About")
 		    .setMessage("(C) Borden Grammar School 2014. Borden Grammar School: website.bordengrammar.kent.sch.uk")
 		    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
-		        public void onClick(DialogInterface dialog, int which) { 
-		            dialog.cancel();
-		            Toast.makeText(getApplicationContext(),"About box closed", Toast.LENGTH_SHORT).show();
-		        }
-		     })
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                    Toast.makeText(getApplicationContext(), "About box closed", Toast.LENGTH_SHORT).show();
+                }
+            })
 		     .show();
 			default:
 				return super.onOptionsItemSelected(item);

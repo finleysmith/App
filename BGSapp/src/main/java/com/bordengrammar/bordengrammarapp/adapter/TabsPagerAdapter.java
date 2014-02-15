@@ -3,8 +3,6 @@ package com.bordengrammar.bordengrammarapp.adapter;
 import com.bordengrammar.bordengrammarapp.GamesFragment;
 import com.bordengrammar.bordengrammarapp.HomeFragment;
 import com.bordengrammar.bordengrammarapp.StudentsFragment;
-import com.bordengrammar.bordengrammarapp.AboutFragment;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -28,10 +26,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		case 2:
 			// Students? fragment activity
 			return new StudentsFragment();
-		case 3:
-			//About Fragment Activity
-			return new AboutFragment();
-			
 		}
 
 		return null;
@@ -40,7 +34,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// get item count - equal to number of tabs
-		return 4;
+		return 3;
 	}
 
 }
