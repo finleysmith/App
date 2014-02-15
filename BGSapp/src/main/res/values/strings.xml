@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BGS App</string>
+    <string name="action_settings">About</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Welcome!</string>
+    <string name="facebook">Facebook</string>
+    <string name="website">Website</string>
+    <string name="welcomeinfo">"This is the official app for Borden Grammar School. The school is a selective boy's grammar school located in Kent."</string>
+    <string name="title_activity_about_fragment">About</string>
+    <string name="news">News</string>
+    <string name="canteen">Canteen Top-Up</string>
+    <string name="moodle">VLE</string>
+    <string name="links">Quick Links</string>
+    <string name="tablet">Tablet</string>
+
+</resources>
