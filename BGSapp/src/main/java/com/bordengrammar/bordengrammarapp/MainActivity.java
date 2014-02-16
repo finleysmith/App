@@ -184,6 +184,7 @@ public class MainActivity extends FragmentActivity implements
             case android.R.id.home:
                 viewPager.setCurrentItem(0);
                 Toast.makeText(getApplicationContext(), "Borden Grammar School App (C) 2014", Toast.LENGTH_SHORT).show(); //WHY YOU GO TO FACEBBOK
+                break;
             case R.id.facebook:
 				Log.i(TAG, "Facebook clicked");
 				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
@@ -209,7 +210,8 @@ public class MainActivity extends FragmentActivity implements
             default:
 				return super.onOptionsItemSelected(item);
 		}
-	}
+        return false;
+    }
 
     /*
     * Random other code used for the tab stuff that i had to put to solve bugs
