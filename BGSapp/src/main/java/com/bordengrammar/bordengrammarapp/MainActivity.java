@@ -7,31 +7,33 @@
 // WEBSITE website.bordengrammar.kent.sch.uk
 /*
  * Copyright (C) 2011-2014 Borden Grammar School, school@bordengrammar.kent.sch.uk
- * 
+ *
  * This file is part of BGS APP)
- * 
+ *
  * BGS APP is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This source code is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this source code; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- * 
- * 
+ *
+ *
  * If you are reading this, then thank you! For reading ma code!
- * 
+ *
  * Sorry about the lack of code
- * 
- * 
- * 
+ *
+ *
+ *
  */
+
+//viewPager.setCurrentItem(X);   -={x=0 will make home tab x=1 will make parents x=2 will make students
 
 package com.bordengrammar.bordengrammarapp;
 
@@ -133,8 +135,8 @@ public class MainActivity extends FragmentActivity implements
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
-		actionBar.setHomeButtonEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
+		actionBar.setHomeButtonEnabled(true); //just expermenting with turning this to true IF BROKEN TURN TO FALSE
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
@@ -146,8 +148,8 @@ public class MainActivity extends FragmentActivity implements
 		 * on swiping the viewpager make respective tab selected
 		 * */
 		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
 
-			@Override
 			public void onPageSelected(int position) {
 				// on changing the page
 				// make respected tab selected
@@ -171,39 +173,51 @@ public class MainActivity extends FragmentActivity implements
 	    inflater.inflate(R.menu.main_activity_actions, menu);
 	    return super.onCreateOptionsMenu(menu);
 	}
+
+    /*
+    This is the calss for the options on the top left
+     */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){ //add the facebook and website browser and menu with about
 		switch (item.getItemId())
 		{
-			case R.id.facebook:
+            case android.R.id.home:
+                viewPager.setCurrentItem(0);
+                Toast.makeText(getApplicationContext(), "Borden Grammar School App (C) 2014", Toast.LENGTH_SHORT).show(); //WHY YOU GO TO FACEBBOK
+            case R.id.facebook:
 				Log.i(TAG, "Facebook clicked");
-				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
-				startActivity(faceBrowserIntent);
+				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
+				startActivity(faceBrowserIntent); //Start that intent
 			return true;
 			case R.id.website:
 				Log.i(TAG, "Website Clicked");
-				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
+				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
 				startActivity(websiteBrowserIntent);	
 			return true;
 			case R.id.action_settings:
-				Log.i(TAG, "About Clicked");
-				new AlertDialog.Builder(this)
-		    .setTitle("About")
-		    .setMessage("(C) Borden Grammar School 2014. Borden Grammar School: website.bordengrammar.kent.sch.uk")
-		    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                    Toast.makeText(getApplicationContext(), "About box closed", Toast.LENGTH_SHORT).show();
-                }
-            })
-		     .show();
-			default:
+				Log.i(TAG, "About Clicked"); //About thing
+                AlertDialog show = new AlertDialog.Builder(this) //Declare a new dialog variable
+                        .setTitle("About") //Add title
+                        .setMessage("(C) Borden Grammar School 2014. Borden Grammar School: website.bordengrammar.kent.sch.uk") //Add content
+                        .setPositiveButton("Close", new DialogInterface.OnClickListener() { //set postive button to close
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                // Toast.makeText(getApplicationContext(), "About box closed", Toast.LENGTH_SHORT).show(); ------------ This was just to much
+                            }
+                        })
+                        .show();
+            default:
 				return super.onOptionsItemSelected(item);
 		}
 	}
 
+    /*
+    * Random other code used for the tab stuff that i had to put to solve bugs
+     */
+
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        Log.i(TAG, "User seems to be stupid, selecting already used tab!");
 	}
 
 	@Override
