@@ -234,6 +234,10 @@ public class MainActivity extends FragmentActivity implements
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 
+    public void logIt(String it) {
+        Log.i(TAG, it);
+    }
+
 }
 
 
