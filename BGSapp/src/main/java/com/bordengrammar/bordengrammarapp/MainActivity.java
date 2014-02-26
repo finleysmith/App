@@ -45,6 +45,7 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -55,6 +56,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
+import android.graphics.drawable.ColorDrawable;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -125,18 +127,18 @@ public class MainActivity extends FragmentActivity implements
 		    // record the fact that the amp has been started at least once
 		    settings.edit().putBoolean("my_first_time", false).commit(); //set it to false
 		}
-		
-		
+
+
 		//Initilization
-		
+
 		
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-
-		viewPager.setAdapter(mAdapter);
+        viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(true); //just expermenting with turning this to true IF BROKEN TURN TO FALSE
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        logIt("actionbarinit");
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
@@ -183,7 +185,7 @@ public class MainActivity extends FragmentActivity implements
 		{
             case android.R.id.home:
                 viewPager.setCurrentItem(0);
-                Toast.makeText(getApplicationContext(), "Borden Grammar School App (C) 2014", Toast.LENGTH_SHORT).show(); //WHY YOU GO TO FACEBBOK
+                logIt("Used home button");
                 break;
             case R.id.facebook:
 				Log.i(TAG, "Facebook clicked");
