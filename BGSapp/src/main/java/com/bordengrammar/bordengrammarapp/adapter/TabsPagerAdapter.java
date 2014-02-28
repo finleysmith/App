@@ -1,6 +1,6 @@
 package com.bordengrammar.bordengrammarapp.adapter;
 
-import com.bordengrammar.bordengrammarapp.GamesFragment;
+import com.bordengrammar.bordengrammarapp.ParentsFragment;
 import com.bordengrammar.bordengrammarapp.HomeFragment;
 import com.bordengrammar.bordengrammarapp.StudentsFragment;
 import android.support.v4.app.Fragment;
@@ -22,7 +22,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 			return new HomeFragment();
 		case 1:
 			// Parents fragment activity
-			return new GamesFragment();
+			return new ParentsFragment();
 		case 2:
 			// Students? fragment activity
 			return new StudentsFragment();
