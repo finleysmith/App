@@ -45,7 +45,6 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -56,15 +55,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
-import android.graphics.drawable.ColorDrawable;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
 
 	private ViewPager viewPager;
 	private final String TAG = "MainActivity";
-	private TabsPagerAdapter mAdapter;
-	private ActionBar actionBar;
+    private ActionBar actionBar;
 	// Tab titles
 	private String[] tabs = { "Home", "Parents", "Students" }; //Create an array of tabs
 
@@ -134,7 +131,7 @@ public class MainActivity extends FragmentActivity implements
 		
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
-		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(true); //just expermenting with turning this to true IF BROKEN TURN TO FALSE
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
