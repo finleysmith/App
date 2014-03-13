@@ -14,5 +14,6 @@
     <string name="moodle">VLE</string>
     <string name="links">Quick Links</string>
     <string name="tablet">Tablet</string>
+    <string name="title_activity_splash">BGS App</string>
 
 </resources>
