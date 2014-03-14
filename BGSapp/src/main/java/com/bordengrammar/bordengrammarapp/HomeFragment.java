@@ -22,6 +22,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        assert rootView != null;
         btn = (Button) rootView.findViewById(R.id.news);
         btn.setOnClickListener(new OnClickListener() {
 
@@ -57,7 +58,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+		/* TODO Auto-generated method stub */
 		
 	}
 }
