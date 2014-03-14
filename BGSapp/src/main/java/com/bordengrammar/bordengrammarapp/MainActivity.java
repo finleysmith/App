@@ -42,6 +42,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,58 +57,31 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 
+
+import fr.nicolaspomepuy.discreetapprate.AppRate;
+import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
+
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
-
+    public static String PACKAGE_NAME;
 	private ViewPager viewPager;
 	private final String TAG = "MainActivity";
     private ActionBar actionBar;
-	// Tab titles
 	private String[] tabs = { "Home", "Parents", "Students" }; //Create an array of tabs
-
 	@SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "onCreate");
 		final String PREFS_NAME = "MyPrefsFile";
-		
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //Starts settings file
-		
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_main);
-		
+        //noinspection ConstantConditions
+        PACKAGE_NAME = getApplicationContext().getPackageName();
 		boolean tabletSize = getResources().getBoolean(R.bool.isTablet); //Get the tablet from values
-		
 		if (tabletSize) { //if statment for the tablet
 			Log.i(TAG, "IS TABLET");
-			if (settings.getBoolean("knowtablet", true)) {
-				new AlertDialog.Builder(this)
-			    .setTitle(getString(R.string.tablet))
-			    .setMessage("You are using a tablet, the app was designed for phones so there may be more whitespace")
-			    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			        public void onClick(DialogInterface dialog, int which) { 
-			            dialog.cancel();		            
-			        }
-			     })		
-			     .setNegativeButton("Why?", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						Toast.makeText(getApplicationContext(),"The app was designed for tablet as the majority of users are on phone", Toast.LENGTH_LONG).show();
-					}
-				})
-			     .show();
-				settings.edit().putBoolean("knowtablet", false).commit();
-			}else{
-				Log.i(TAG, "They have already seen that it is tablet, so not showing message");
 			}
-						
-		} else {
-			Log.i(TAG, "IS NOT TABLET"); //log not tablet
-		}
-
-		
-
-		if (settings.getBoolean("my_first_time", true)) { //work if it is a first time is true
-		    //the app is being launched for first time, do something        
+		if (settings.getBoolean("my_first_time", true)) {
 		    Log.d("Comments", "First time");
 		    // first time task
 		    new AlertDialog.Builder(this)
@@ -116,19 +90,44 @@ public class MainActivity extends FragmentActivity implements
 		    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int which) { 
 		            dialog.cancel();
-		            Toast.makeText(getApplicationContext(),"The welcome message will no longer show", Toast.LENGTH_SHORT).show();
+		            Toast.makeText(getApplicationContext(),"Use the send feedback to report bugs or ask questions, in the menu.", Toast.LENGTH_SHORT).show();
 		        }
 		     })		    
 		     .show();
 
 		    // record the fact that the amp has been started at least once
 		    settings.edit().putBoolean("my_first_time", false).commit(); //set it to false
-		}
+		} else {
+            logIt("Has done before, going to ask to rate");
+            AppRate.with(this).text("Help Borden by rating the app!");
+            AppRate.with(this).delay(5000);
+            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL);
+            AppRate.with(this).checkAndShow();
+            AppRate.with(this).listener(new AppRate.OnShowListener() {
+                @Override
+                public void onRateAppShowing() {
+                    // View is shown
+                }
 
+                @Override
+                public void onRateAppDismissed() {
+                    // User has dismissed it
+                }
 
-		//Initilization
+                @Override
+                public void onRateAppClicked() {
+                    // User has clicked the rate part
+                    Uri uri = Uri.parse("market://details?id=" + PACKAGE_NAME);
+                    Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                    try {
+                        startActivity(goToMarket);
+                    } catch (ActivityNotFoundException e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
+                    }
+                }
+            });
 
-		
+        }
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
         TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
@@ -136,35 +135,30 @@ public class MainActivity extends FragmentActivity implements
 		actionBar.setHomeButtonEnabled(true); //just expermenting with turning this to true IF BROKEN TURN TO FALSE
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         logIt("actionbarinit");
-
 		// Adding Tabs
 		for (String tab_name : tabs) {
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
 		}
-
 		/**
 		 * on swiping the viewpager make respective tab selected
 		 * */
 		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-
 			public void onPageSelected(int position) {
 				// on changing the page
 				// make respected tab selected
 				actionBar.setSelectedNavigationItem(position);
 			}
-
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 			}
-
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
         //other oncreate methods
-	}
+    }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    // Inflate the menu items for use in the action bar
@@ -196,7 +190,7 @@ public class MainActivity extends FragmentActivity implements
 			return true;
 			case R.id.action_settings:
 				Log.i(TAG, "About Clicked"); //About thing
-                AlertDialog show = new AlertDialog.Builder(this) //Declare a new dialog variable
+                new AlertDialog.Builder(this) //Declare a new dialog variable
                         .setTitle("About") //Add title
                         .setMessage("(C) Borden Grammar School 2014. Borden Grammar School: website.bordengrammar.kent.sch.uk") //Add content
                         .setPositiveButton("Close", new DialogInterface.OnClickListener() { //set postive button to close
