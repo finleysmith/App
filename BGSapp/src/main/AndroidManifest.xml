@@ -2,9 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bordengrammar.bordengrammarapp"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1">
 
     <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="com.bordengrammar.bordengrammarapp.permission.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION_LOCATION" />
+
+
+	<permission
+		android:name="com.bordengrammar.bordengrammarapp.permission.C2D_MESSAGE"
+		android:protectionLevel="signature" />
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -34,6 +46,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+		<receiver android:name="com.urbanairship.CoreReceiver" />
+		<receiver
+			android:name="com.urbanairship.push.GCMPushReceiver"
+			android:permission="com.google.android.c2dm.permission.SEND" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+				<!-- MODIFICATION REQUIRED - Use your package name as the category -->
+				<category android:name="com.urbanairship.push.sample" />
+			</intent-filter>
+			<!-- REQUIRED for detecting when the application is upgraded so it can request a new GCM ID -->
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+				<data android:scheme="package" />
+			</intent-filter>
+		</receiver>
+		<service
+			android:name="com.urbanairship.push.PushService"
+			android:label="Push Notification Service" />
+		<service
+			android:name="com.urbanairship.analytics.EventService"
+			android:label="Event Service" />
+		<provider
+			android:name="com.urbanairship.UrbanAirshipProvider"
+			android:authorities="com.bordengrammar.bordengrammarapp.urbanairship.provider"
+			android:exported="false"
+			android:multiprocess="true" />
+		<service android:name="com.urbanairship.richpush.RichPushUpdateService"/>
+		<receiver android:name="com.urbanairship.push.sample.IntentReceiver" />
+
+	</application>
 
 </manifest>

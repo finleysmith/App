@@ -39,6 +39,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.Application;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -61,6 +62,13 @@ import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.suredigit.inappfeedback.FeedbackDialog; //Feedback
 import fr.nicolaspomepuy.discreetapprate.AppRate; //Apprate thing
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy; //So i can use a expodential retry rate
+import com.urbanairship.Logger; //push messaging for all of these
+import com.urbanairship.UAirship;
+import com.urbanairship.push.PushManager;
+import com.urbanairship.push.PushPreferences;
+import com.urbanairship.Options;
+import com.urbanairship.AirshipConfigOptions;
+
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -73,6 +81,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private FeedbackDialog feedBack; //Feedback
     private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
 
+
     //onCreate Method - Majority of code
 
     @Override
@@ -83,6 +92,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
         setContentView(R.layout.activity_main);//make it use the layout
+
+	    //Push notifcations
+	    AirshipConfigOptions options = AirshipConfigOptions.loadDefaultOptions(this);
+	    options.developmentAppKey = "GRxJ8vguRXKAXVNzJXNnrQ";
+	    options.productionAppKey = "Your production app key";
+	    options.inProduction = false; //determines which app key to use
+	    UAirship.takeOff(this, options);
+	    PushManager.enablePush();
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             logIt("First time");
