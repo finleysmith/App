@@ -56,8 +56,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
-
-
+import com.suredigit.inappfeedback.FeedbackDialog;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
 
@@ -67,6 +66,7 @@ public class MainActivity extends FragmentActivity implements
 	private ViewPager viewPager;
 	private final String TAG = "MainActivity";
     private ActionBar actionBar;
+    private FeedbackDialog feedBack;
 	private String[] tabs = { "Home", "Parents", "Students" }; //Create an array of tabs
 	@SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +158,7 @@ public class MainActivity extends FragmentActivity implements
 			}
 		});
         //other oncreate methods
+        feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A");
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -192,7 +193,7 @@ public class MainActivity extends FragmentActivity implements
 				Log.i(TAG, "About Clicked"); //About thing
                 new AlertDialog.Builder(this) //Declare a new dialog variable
                         .setTitle("About") //Add title
-                        .setMessage("(C) Borden Grammar School 2014. Borden Grammar School: website.bordengrammar.kent.sch.uk") //Add content
+                        .setMessage("(C) Borden Grammar School 2014.") //Add content
                         .setPositiveButton("Close", new DialogInterface.OnClickListener() { //set postive button to close
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -200,6 +201,10 @@ public class MainActivity extends FragmentActivity implements
                             }
                         })
                         .show();
+            case R.id.action_feedback:
+                logIt("feedback");
+                feedBack.show();
+            return true;
             default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -209,6 +214,10 @@ public class MainActivity extends FragmentActivity implements
     /*
     * Random other code used for the tab stuff that i had to put to solve bugs
      */
+    public void onPause() {
+        super.onPause();
+        feedBack.dismiss();
+    }
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {

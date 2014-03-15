@@ -33,4 +33,5 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'fr.nicolaspomepuy:discreetapprate:1.0.+@aar'
+    compile files ('libs/feedback_v5.jar')
 }

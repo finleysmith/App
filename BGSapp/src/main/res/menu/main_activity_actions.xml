@@ -5,6 +5,11 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_feedback"
+        android:title="Send feedback"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
     <!-- Facebook, should appear as action button -->
     <item android:id="@+id/facebook"
           android:icon="@drawable/ic_facebook"
