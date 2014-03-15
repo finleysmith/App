@@ -1,24 +1,26 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/action_settings" />
     <item
         android:id="@+id/action_feedback"
-        android:title="Send feedback"
         android:orderInCategory="100"
-        android:showAsAction="never"/>
+        android:showAsAction="never"
+        android:title="Send feedback" />
     <!-- Facebook, should appear as action button -->
-    <item android:id="@+id/facebook"
-          android:icon="@drawable/ic_facebook"
-          android:title="@string/facebook"
-          android:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/facebook"
+        android:icon="@drawable/ic_facebook"
+        android:showAsAction="ifRoom"
+        android:title="@string/facebook" />
     <!--  Website : websites.bordengrammar.kent.sch.uk -->
-    <item android:id="@+id/website"
-          android:icon="@drawable/ic_action_web_site"
-          android:title="@string/website"
-          android:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/website"
+        android:icon="@drawable/ic_action_web_site"
+        android:showAsAction="ifRoom"
+        android:title="@string/website" />
 
 </menu>

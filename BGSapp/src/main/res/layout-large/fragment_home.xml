@@ -24,12 +24,12 @@
         android:layout_height="43dp"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:text="@string/welcomeinfo"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_weight="0.13"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp" />
+        android:layout_weight="0.13"
+        android:text="@string/welcomeinfo"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView3"
@@ -37,9 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
+        android:layout_marginLeft="15dp"
         android:text="@string/links"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginLeft="15dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -67,9 +67,9 @@
     </TableRow>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView" />
+        android:text="New Text" />
 
 </LinearLayout>

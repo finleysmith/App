@@ -18,7 +18,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -28,8 +28,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
             @Override
             public void onClick(View arg0) {
-            	Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/index.php?option=com_content&view=category&layout=blog&id=36&Itemid=193"));
-				startActivity(websiteBrowserIntent);	                
+                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/index.php?option=com_content&view=category&layout=blog&id=36&Itemid=193"));
+                startActivity(websiteBrowserIntent);
 
             }
         });
@@ -38,8 +38,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
             @Override
             public void onClick(View arg0) {
-            	Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.squidcard.com/independentcatering.html"));
-				startActivity(websiteBrowserIntent);	                
+                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.squidcard.com/independentcatering.html"));
+                startActivity(websiteBrowserIntent);
 
             }
         });
@@ -48,17 +48,17 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
             @Override
             public void onClick(View arg0) {
-            	Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://vle.bordengrammar.kent.sch.uk"));
-				startActivity(websiteBrowserIntent);	                
+                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://vle.bordengrammar.kent.sch.uk"));
+                startActivity(websiteBrowserIntent);
 
             }
         });
         return rootView;
     }
 
-	@Override
-	public void onClick(View v) {
-		/* TODO Auto-generated method stub */
-		
-	}
+    @Override
+    public void onClick(View v) {
+        /* TODO Auto-generated method stub */
+
+    }
 }

@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 
 public class StudentsFragment extends Fragment {
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_students, container, false);
-	}
+    }
 
 }
 

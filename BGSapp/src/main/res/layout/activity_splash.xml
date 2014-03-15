@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ab_solid_example" >
+    android:background="@drawable/ab_solid_example">
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -14,11 +14,11 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="14dp"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:text="Borden Grammar School App" />
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:text="Borden Grammar School App"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp" />
 
 </RelativeLayout>
