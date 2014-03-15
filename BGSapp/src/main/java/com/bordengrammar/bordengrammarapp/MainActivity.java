@@ -25,9 +25,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  *
- * If you are reading this, then thank you! For reading ma code!
+ * All of the code is commented
  *
- * Sorry about the lack of code
+ *
  *
  *
  *
@@ -35,7 +35,6 @@
 package com.bordengrammar.bordengrammarapp;
 
 //android imports
-import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
@@ -56,34 +55,38 @@ import android.widget.Toast;
 
 //Internal Imports
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
+
 //Imports for libaries
+
 import com.suredigit.inappfeedback.FeedbackDialog; //Feedback
 import fr.nicolaspomepuy.discreetapprate.AppRate; //Apprate thing
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy; //So i can use a expodential retry rate
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
-    public static String PACKAGE_NAME;
-    private String TAG = "MainActivity";
-    private ViewPager viewPager;
-    private ActionBar actionBar;
-    private FeedbackDialog feedBack;
-    private String[] tabs = {"Home", "Parents", "Students"};
+    // Variable/Object Declaration
 
-    @SuppressLint("NewApi")
+    public static String PACKAGE_NAME; //Used to for apprate to send it to approaite app in play store
+    private String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
+    private ViewPager viewPager; //For the viewpager used to render the swyping
+    private ActionBar actionBar; //Action bar
+    private FeedbackDialog feedBack; //Feedback
+    private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
+
+    //onCreate Method - Majority of code
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        final String PREFS_NAME = "MyPrefsFile";
-        PACKAGE_NAME = getApplicationContext().getPackageName();
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        super.onCreate(savedInstanceState);//get the saved state
+        final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
+        PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
         setContentView(R.layout.activity_main);//make it use the layout
 
-        if (settings.getBoolean("my_first_time", true)) {
-            Log.d("Comments", "First time");
-            // first time task
-            new AlertDialog.Builder(this)
+        if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
+            logIt("First time");
+            new AlertDialog.Builder(this) //create a alert dialog
                     .setTitle("Welcome!")
                     .setMessage("To navigate, swipe left and right or use the tabs")
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -98,11 +101,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             settings.edit().putBoolean("my_first_time", false).commit(); //set it to false
         } else {
             logIt("Has done before, going to ask to rate");
-            AppRate.with(this).text("Help Borden by rating the app!");
-            AppRate.with(this).delay(5000);
-            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL);
-            AppRate.with(this).checkAndShow();
-            AppRate.with(this).listener(new AppRate.OnShowListener() {
+            AppRate.with(this).text("Help Borden by rating the app!"); //Title
+            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL); //make it expodential
+            AppRate.with(this).checkAndShow(); //create the dialog
+            AppRate.with(this).listener(new AppRate.OnShowListener() { //create a listener to see what they click
                 @Override
                 public void onRateAppShowing() {
                     // abstract view blah blah blah I HATE RED BUGS
@@ -114,33 +116,29 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 @Override
                 public void onRateAppClicked() {
                     // User has clicked the rate part
-                    Uri uri = Uri.parse("market://details?id=" + PACKAGE_NAME);
-                    Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                    Uri uri = Uri.parse("market://details?id=" + PACKAGE_NAME); //create variable uri which is our app due to package_name
+                    Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri); //create the intent
                     try {
-                        startActivity(goToMarket);
+                        startActivity(goToMarket); //if is true go to the market
                     } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME))); //if it fails go to the market anyway :)
                     }
                 }
             });
 
         }
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        actionBar = getActionBar();
-        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(mAdapter);
-        actionBar.setHomeButtonEnabled(true); //just expermenting with turning this to true IF BROKEN TURN TO FALSE
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        logIt("actionbarinit");
-        // Adding Tabs
-        for (String tab_name : tabs) {
+        viewPager = (ViewPager) findViewById(R.id.pager); //create a viewpager for rendering the swyping
+        actionBar = getActionBar(); //define the actionBar variable as actionbar
+        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager()); //use the our tab page adapter
+        viewPager.setAdapter(mAdapter); //set our tabadapter to what we just set mAdapter to
+        actionBar.setHomeButtonEnabled(true); //Make it so we can click on the logo on action bar
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS); //set the action bar mode to tabbed
+        for (String tab_name : tabs) { //for loop to add the tabs
             actionBar.addTab(actionBar.newTab().setText(tab_name)
                     .setTabListener(this));
         }
-        /**
-         * on swiping the viewpager make respective tab selected
-         * */
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            //This makes the viewpager display the right fragment(tab) when we swype or use the tabs
             @Override
             public void onPageSelected(int position) {
                 // on changing the page
@@ -156,53 +154,46 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-        //other oncreate methods
-        feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A");
+        feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A"); //defining our feedback with api key(go ahead try and use the api key, but i put security on it so HAH
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_actions, menu);
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater(); //get the menu items
+        inflater.inflate(R.menu.main_activity_actions, menu); //inflate tgem into the menu
+        return super.onCreateOptionsMenu(menu); //reurn that we created then and to go the next method
     }
 
-    /*
-    This is the calss for the options on the top left
-     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { //add the facebook and website browser and menu with about
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                viewPager.setCurrentItem(0);
-                logIt("Used home button");
-                break;
-            case R.id.facebook:
-                Log.i(TAG, "Facebook clicked");
+    public boolean onOptionsItemSelected(MenuItem item) { //after the menu has been inflated
+        switch (item.getItemId()) { //get the id fors the menus from our menu.xml
+            case android.R.id.home: //if it is home
+                viewPager.setCurrentItem(0); //set the tab to home
+                logIt("Used home button"); //then logit
+                break; //break it so it does not go onto next case
+            case R.id.facebook: //if it is facebook button
+                logIt("Facebook button clicked"); //logit
                 Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
                 startActivity(faceBrowserIntent); //Start that intent
                 return true;
-            case R.id.website:
+            case R.id.website: //if they clicked they
                 Log.i(TAG, "Website Clicked");
                 Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
                 startActivity(websiteBrowserIntent);
                 return true;
-            case R.id.action_settings:
-                Log.i(TAG, "About Clicked"); //About thing
+            case R.id.action_settings: //action settings actually about, can't change it now
+                logIt("clicked about");
                 new AlertDialog.Builder(this) //Declare a new dialog variable
                         .setTitle("About") //Add title
                         .setMessage("(C) Borden Grammar School 2014.") //Add content
                         .setPositiveButton("Close", new DialogInterface.OnClickListener() { //set postive button to close
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
-                                // Toast.makeText(getApplicationContext(), "About box closed", Toast.LENGTH_SHORT).show(); ------------ This was just to much
                             }
                         })
                         .show();
-            case R.id.action_feedback:
+            case R.id.action_feedback: //if they clciked send feedback
                 logIt("feedback");
-                feedBack.show();
+                feedBack.show(); //show the feedback that we declared
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -210,9 +201,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         return false;
     }
 
-    /*
-    * Random other code used for the tab stuff that i had to put to solve bugs
-     */
     public void onPause() {
         super.onPause();
         feedBack.dismiss();
@@ -220,15 +208,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        Log.i(TAG, "User seems to be stupid, selecting already used tab!");
     }
 
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        Log.i(TAG, "onTabSelected");
-        // on tab selected
-        // show respected fragment view
-        viewPager.setCurrentItem(tab.getPosition());
+        viewPager.setCurrentItem(tab.getPosition()); //set the current to fragment in the viewpager to what is currently selected
     }
 
     @Override
@@ -237,7 +221,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     public void logIt(String it) {
         Log.i(TAG, it);
-    }
+    } // the function for the logit thing i use. Q:Why log all the time? A: It is usefull for debugging so you know what the user was doing at the time
 
 }
 
