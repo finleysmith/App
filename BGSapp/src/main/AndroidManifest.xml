@@ -34,7 +34,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Example">
-        <activity
+        <!-- <activity
             android:name="com.bordengrammar.bordengrammarapp.splash"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar">
@@ -43,7 +43,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> -->
         <activity
             android:name="com.bordengrammar.bordengrammarapp.MainActivity"
             android:label="@string/app_name">
