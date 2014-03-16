@@ -39,7 +39,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
-import android.app.Application;
+//import android.app.Application;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -62,17 +62,16 @@ import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.suredigit.inappfeedback.FeedbackDialog; //Feedback
 import fr.nicolaspomepuy.discreetapprate.AppRate; //Apprate thing
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy; //So i can use a expodential retry rate
-import com.urbanairship.Logger; //push messaging for all of these
-import com.urbanairship.UAirship;
-import com.urbanairship.push.PushManager;
-import com.urbanairship.push.PushPreferences;
-import com.urbanairship.Options;
-import com.urbanairship.AirshipConfigOptions;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     // Variable/Object Declaration
+
 
     public static String PACKAGE_NAME; //Used to for apprate to send it to approaite app in play store
     private String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
@@ -86,20 +85,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+	    ParseAnalytics.trackAppOpened(getIntent());
 
-        super.onCreate(savedInstanceState);//get the saved state
+
+	    super.onCreate(savedInstanceState);//get the saved state
         final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
         PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
         setContentView(R.layout.activity_main);//make it use the layout
 
-	    //Push notifcations
-	    AirshipConfigOptions options = AirshipConfigOptions.loadDefaultOptions(this);
-	    options.developmentAppKey = "GRxJ8vguRXKAXVNzJXNnrQ";
-	    options.productionAppKey = "Your production app key";
-	    options.inProduction = false; //determines which app key to use
-	    UAirship.takeOff(this, options);
-	    PushManager.enablePush();
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             logIt("First time");
@@ -186,7 +180,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             case android.R.id.home: //if it is home
                 viewPager.setCurrentItem(0); //set the tab to home
                 logIt("Used home button"); //then logit
-                break; //break it so it does not go onto next case
+                return true; //break it so it does not go onto next case
             case R.id.facebook: //if it is facebook button
                 logIt("Facebook button clicked"); //logit
                 Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
@@ -208,6 +202,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             }
                         })
                         .show();
+	            return true;
             case R.id.action_feedback: //if they clciked send feedback
                 logIt("feedback");
                 feedBack.show(); //show the feedback that we declared
@@ -215,7 +210,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             default:
                 return super.onOptionsItemSelected(item);
         }
-        return false;
+
     }
 
     public void onPause() {

@@ -8,8 +8,9 @@
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/logo" />
+		android:src="@drawable/logo"
+		android:layout_centerVertical="true"
+		android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -19,6 +20,16 @@
         android:gravity="center_horizontal"
         android:text="Borden Grammar School App"
         android:textColor="#FFFFFF"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+		android:id="@+id/textView" />
+
+	<ProgressBar
+		style="?android:attr/progressBarStyleLarge"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/progressBar"
+		android:layout_above="@+id/textView"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="42dp" />
 
 </RelativeLayout>
