@@ -70,7 +70,7 @@ import com.parse.PushService;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
-    // Variable/Object Declaration
+    /* Variable/Object Declaration */
 
 
     public static String PACKAGE_NAME; //Used to for apprate to send it to approaite app in play store
@@ -86,6 +86,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	    ParseAnalytics.trackAppOpened(getIntent());
+
 
 
 	    super.onCreate(savedInstanceState);//get the saved state
