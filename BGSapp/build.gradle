@@ -33,6 +33,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'fr.nicolaspomepuy:discreetapprate:1.0.+@aar'
+    compile 'com.android.support:support-v4:18.0.0'
     compile files('libs/feedback_v5.jar')
     compile files('libs/Parse-1.4.1.jar')
 }

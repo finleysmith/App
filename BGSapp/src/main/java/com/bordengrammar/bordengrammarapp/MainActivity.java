@@ -74,7 +74,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
     public static String PACKAGE_NAME; //Used to for apprate to send it to approaite app in play store
-    private String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
+    public String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
     private ViewPager viewPager; //For the viewpager used to render the swyping
     private ActionBar actionBar; //Action bar
     private FeedbackDialog feedBack; //Feedback
@@ -98,19 +98,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             logIt("First time");
-            new AlertDialog.Builder(this) //create a alert dialog
-                    .setTitle("Welcome!")
-                    .setMessage("To navigate, swipe left and right or use the tabs")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                            Toast.makeText(getApplicationContext(), "Use the send feedback to report bugs or ask questions, in the menu.", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .show();
-
-            // record the fact that the app has been started at least once
-            settings.edit().putBoolean("my_first_time", false).commit(); //set it to false
+            settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */
         } else {
             logIt("Has done before, going to ask to rate");
             AppRate.with(this).text("Help Borden by rating the app!"); //Title
@@ -194,15 +182,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 return true;
             case R.id.action_settings: //action settings actually about, can't change it now
                 logIt("clicked about");
-                new AlertDialog.Builder(this) //Declare a new dialog variable
-                        .setTitle("About") //Add title
-                        .setMessage("(C) Borden Grammar School 2014.") //Add content
-                        .setPositiveButton("Close", new DialogInterface.OnClickListener() { //set postive button to close
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                        .show();
+	            Intent i = new Intent(MainActivity.this, AboutActivity.class);
+	            startActivity(i);
+
 	            return true;
             case R.id.action_feedback: //if they clciked send feedback
                 logIt("feedback");

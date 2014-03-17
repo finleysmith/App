@@ -1,0 +1,80 @@
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:weightSum="1">
+
+	<ImageView
+		android:layout_width="131dp"
+		android:layout_height="131dp"
+		android:id="@+id/imageView"
+		android:layout_gravity="center_horizontal"
+		android:src="@drawable/logo"
+		android:layout_marginTop="25dp"
+		android:contentDescription="@string/app_name"
+		android:clickable="false"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="@string/aboutdetail"
+		android:id="@+id/textView"
+		android:layout_gravity="center_horizontal"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="10dp"
+		android:text="@string/copyright"
+		android:id="@+id/textView2"
+		android:layout_gravity="center"
+		android:layout_marginTop="-2dip"/>
+
+	<RelativeLayout
+		android:layout_width="350dp"
+		android:layout_height="2dip"
+		android:background="#a5a8ae"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="10dip">
+	</RelativeLayout>
+
+	<TableRow
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dip"
+		android:layout_gravity="center_horizontal">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="@string/website"
+			android:id="@+id/textView3"
+			android:layout_marginRight="30dp"
+			android:password="false"
+			android:phoneNumber="false"
+			android:singleLine="false"
+			android:clickable="true"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="@string/facebook"
+			android:id="@+id/textView4"/>
+	</TableRow>
+
+	<Button
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="115dp"
+		android:layout_height="wrap_content"
+		android:text="Source Code on GitHub"
+		android:id="@+id/button"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="30dp"
+		/>
+
+
+</LinearLayout>
