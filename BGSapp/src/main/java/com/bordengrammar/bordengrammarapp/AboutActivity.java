@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.suredigit.inappfeedback.FeedbackDialog;
 
@@ -66,6 +67,21 @@ public class AboutActivity extends Activity {
 	}
 	public void logIt(String it) {
 		Log.i(TAG, it);
+	}
+
+	/* now for all the buttons a different way */
+
+	public void website(View view) {
+		Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/index.php"));
+		startActivity(websiteBrowserIntent);
+	}
+	public void facebook(View view) {
+		Intent facebookbrowserintent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://wwww.facebook.com/BordenGrammarSchool"));
+		startActivity(facebookbrowserintent);
+	}
+	public void sourcecode(View view) {
+		Intent sourcecodeintent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.github.com/epicfinley/Borden-App"));
+		startActivity(sourcecodeintent);
 	}
 
 }
