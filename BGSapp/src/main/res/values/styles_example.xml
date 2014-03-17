@@ -78,5 +78,6 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Example</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Example</item>
     </style>
+	<color name="darkgray">#ADADAD</color>
 
 </resources>
