@@ -8,20 +8,31 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.app.ActionBar;
 import com.suredigit.inappfeedback.FeedbackDialog;
+import com.suredigit.inappfeedback.FeedbackSettings;
 
 
 public class AboutActivity extends Activity {
 	public String TAG = "MainActivity";
 	private FeedbackDialog feedBack;
+	private ActionBar actionBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A");
+	    FeedbackSettings feedbackSettings = new FeedbackSettings();
+	    feedbackSettings.setCancelButtonText("Cancel");
+	    feedbackSettings.setSendButtonText("Send");
+	    feedbackSettings.setText("Send feedback to improve the app");
+	    feedbackSettings.setTitle("Feedback");
+	    feedbackSettings.setToast("We value your feedback");
+	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+	    actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
 

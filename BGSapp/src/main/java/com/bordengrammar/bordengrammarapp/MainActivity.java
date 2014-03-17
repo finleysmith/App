@@ -66,6 +66,7 @@ import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
+import com.suredigit.inappfeedback.FeedbackSettings;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -86,6 +87,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	    ParseAnalytics.trackAppOpened(getIntent());
+
+
 
 
 
@@ -154,7 +157,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-        feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A"); //defining our feedback with api key(go ahead try and use the api key, but i put security on it so HAH
+
+	    //feedback ***
+         //defining our feedback with api key(go ahead try and use the api key, but i put security on it so HAH
+	    FeedbackSettings feedbackSettings = new FeedbackSettings();
+	    feedbackSettings.setCancelButtonText("Cancel");
+	    feedbackSettings.setSendButtonText("Send");
+	    feedbackSettings.setText("Send feedback to improve the app");
+	    feedbackSettings.setTitle("Feedback");
+	    feedbackSettings.setToast("We value your feedback");
+	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
