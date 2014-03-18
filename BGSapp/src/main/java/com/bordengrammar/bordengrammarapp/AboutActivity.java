@@ -1,6 +1,7 @@
 package com.bordengrammar.bordengrammarapp;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,11 +13,15 @@ import android.app.ActionBar;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
+import fr.nicolaspomepuy.discreetapprate.AppRate;
+import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
+
 
 public class AboutActivity extends Activity {
 	public String TAG = "MainActivity";
 	private FeedbackDialog feedBack;
 	private ActionBar actionBar;
+	public static String PACKAGE_NAME;
 
 
     @Override
@@ -32,6 +37,8 @@ public class AboutActivity extends Activity {
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 	    actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+	    PACKAGE_NAME = getApplicationContext().getPackageName();
+
 
     }
 
@@ -93,6 +100,13 @@ public class AboutActivity extends Activity {
 	public void sourcecode(View view) {
 		Intent sourcecodeintent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.github.com/epicfinley/Borden-App"));
 		startActivity(sourcecodeintent);
+	}
+	public void rateapp(View view) {
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
+
+	}
+	public void feedbackapp(View view) {
+		feedBack.show();
 	}
 
 }

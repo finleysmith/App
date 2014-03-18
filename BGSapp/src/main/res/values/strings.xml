@@ -19,7 +19,7 @@
     <string name="title_item_detail">Item Detail</string>
 	<string name="title_activity_about">About</string>
 	<string name="aboutdetail">Borden Grammar School App</string>
-	<string name="copyright">Copyright (C) 2014 Finley Smith</string>
-	<string name="build">v0.6</string>
+	<string name="copyright">© 2014 Finley Smith</string>
+	<string name="build">v0.7</string>
 
 </resources>

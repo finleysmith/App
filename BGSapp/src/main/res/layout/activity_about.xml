@@ -1,27 +1,28 @@
 <ScrollView
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/scrollView">
 
 	<LinearLayout
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="fill_parent"
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:weightSum="1"
 		android:clickable="false"
 		>
 
 	<ImageView
-		android:layout_width="131dp"
-		android:layout_height="131dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:id="@+id/imageView"
 		android:layout_gravity="center_horizontal"
 		android:src="@drawable/logo"
 		android:layout_marginTop="25dp"
 		android:contentDescription="@string/app_name"
-		android:clickable="false"/>
+		android:clickable="false"
+		/>
 
 	<TextView
 		android:layout_width="wrap_content"
@@ -38,20 +39,25 @@
 		android:text="@string/copyright"
 		android:id="@+id/textView2"
 		android:layout_gravity="center"
-		android:layout_marginTop="-2dip"/>
+		android:layout_marginTop="-2dip"
+		android:password="false"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@android:color/darker_gray"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"/>
 
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:text="@string/website"
+			android:text="This is the offical Borden Grammar School App. This app is licensed under the GPLv2 License."
 			android:id="@+id/textView3"
-			android:password="false"
-			android:phoneNumber="false"
-			android:singleLine="false"
-			android:clickable="true"
-			android:onClick="website"
-			android:layout_gravity="center_horizontal"/>
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="25dip"
+			android:layout_marginRight="25dip"/>
 
 		<Button
 		style="?android:attr/buttonStyleSmall"
@@ -60,9 +66,29 @@
 		android:text="Source Code on GitHub"
 		android:id="@+id/button"
 		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="250dp"
+		android:layout_marginTop="175dip"
 		android:onClick="sourcecode"
 		/>
+
+		<Button
+			style="?android:attr/buttonStyleSmall"
+			android:layout_width="188dp"
+			android:layout_height="35dp"
+			android:text="Send feedback"
+			android:id="@+id/button2"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="0dp"
+			android:onClick="feedbackapp"/>
+
+		<Button
+			style="?android:attr/buttonStyleSmall"
+			android:layout_width="188dp"
+			android:layout_height="35dp"
+			android:text="Rate App"
+			android:id="@+id/button3"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="0dp"
+			android:onClick="rateapp"/>
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -71,7 +97,7 @@
 			android:text="@string/build"
 			android:id="@+id/textView5"
 			android:layout_gravity="center_horizontal|bottom"
-			android:layout_marginTop="25dip"
+			android:layout_marginTop="15dip"
 			android:textColor="@color/darkgray"
 			android:layout_weight="0.26"/>
 
