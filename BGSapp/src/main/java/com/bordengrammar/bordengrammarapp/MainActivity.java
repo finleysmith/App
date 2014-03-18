@@ -46,6 +46,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -86,7 +87,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-	    ParseAnalytics.trackAppOpened(getIntent());
+	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
+	    Boolean push = mainsettings.getBoolean("example_checkbox", false);
+	    if(push == true) {
+		    ParseAnalytics.trackAppOpened(getIntent());
+	    } else {
+		    Log.e(TAG , "Push notifcations disabled");
+	    }
+
 
 
 
@@ -96,6 +104,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
         PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
+
         setContentView(R.layout.activity_main);//make it use the layout
 
 
@@ -130,11 +139,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             });
 
         }
-	    if(settings.getBoolean("example_checkbox", true)) {
-		    logIt("checked");
-	    } else {
-		    logIt("not checked");
-	    }
+
+
 	    viewPager = (ViewPager) findViewById(R.id.pager); //create a viewpager for rendering the swyping
         actionBar = getActionBar(); //define the actionBar variable as actionbar
         TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager()); //use the our tab page adapter

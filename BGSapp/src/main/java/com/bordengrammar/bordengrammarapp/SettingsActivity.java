@@ -61,32 +61,11 @@ public class SettingsActivity extends PreferenceActivity {
 			return;
 		}
 
-		// In the simplified UI, fragments are not used at all and we instead
-		// use the older PreferenceActivity APIs.
 
-		// Add 'general' preferences.
 
 		addPreferencesFromResource(R.xml.pref_general);
 
-		// Add 'notifications' preferences, and a corresponding header.
-		//PreferenceCategory fakeHeader = new PreferenceCategory(this);
-		//fakeHeader.setTitle(R.string.pref_header_about);
-		//getPreferenceScreen().addPreference(fakeHeader);
-		//addPreferencesFromResource(R.xml.pref_about);
 
-		// Add 'data and sync' preferences, and a corresponding header.
-		//fakeHeader = new PreferenceCategory(this);
-		//fakeHeader.setTitle(R.string.pref_header_data_sync);
-		//getPreferenceScreen().addPreference(fakeHeader);
-		//addPreferencesFromResource(R.xml.pref_data_sync);
-
-		// Bind the summaries of EditText/List/Dialog/Ringtone preferences to
-		// their values. When their values change, their summaries are updated
-		// to reflect the new value, per the Android Design guidelines.
-		//bindPreferenceSummaryToValue(findPreference("example_text"));
-		//bindPreferenceSummaryToValue(findPreference("example_list"));
-		//bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
-		//
 	}
 
 	/**
@@ -97,22 +76,13 @@ public class SettingsActivity extends PreferenceActivity {
 		return isXLargeTablet(this) && !isSimplePreferences(this);
 	}
 
-	/**
-	 * Helper method to determine if the device has an extra-large screen. For
-	 * example, 10" tablets are extra-large.
-	 */
+
 	private static boolean isXLargeTablet(Context context) {
 		return (context.getResources().getConfiguration().screenLayout
-				& Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+				& Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
 	}
 
-	/**
-	 * Determines whether the simplified settings UI should be shown. This is
-	 * true if this is forced via {@link #ALWAYS_SIMPLE_PREFS}, or the device
-	 * doesn't have newer APIs like {@link PreferenceFragment}, or the device
-	 * doesn't have an extra-large screen. In these cases, a single-pane
-	 * "simplified" settings UI should be shown.
-	 */
+
 	private static boolean isSimplePreferences(Context context) {
 		return ALWAYS_SIMPLE_PREFS
 				|| Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
@@ -130,10 +100,7 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 	}
 
-	/**
-	 * A preference value change listener that updates the preference's summary
-	 * to reflect its new value.
-	 */
+
 	private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
 		@Override
 		public boolean onPreferenceChange(Preference preference, Object value) {
