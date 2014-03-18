@@ -7,8 +7,8 @@
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.bordengrammar.bordengrammarapp.SettingsActivity$NotificationPreferenceFragment"
-        android:title="@string/pref_header_notifications" />
+        android:fragment="com.bordengrammar.bordengrammarapp.SettingsActivity$AboutPreferenceFragment"
+        android:title="@string/pref_header_about" />
 
 
 
