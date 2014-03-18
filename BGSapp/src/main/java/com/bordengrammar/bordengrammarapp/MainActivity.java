@@ -203,6 +203,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 logIt("feedback");
                 feedBack.show(); //show the feedback that we declared
                 return true;
+	        case R.id.action_realsettings:
+		        logIt("settings");
+		        Intent s = new Intent(MainActivity.this, SettingsActivity.class);
+		        startActivity(s);
+		        return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

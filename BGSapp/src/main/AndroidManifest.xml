@@ -91,6 +91,10 @@
             android:name="com.bordengrammar.bordengrammarapp.AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity
+            android:name="com.bordengrammar.bordengrammarapp.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>
