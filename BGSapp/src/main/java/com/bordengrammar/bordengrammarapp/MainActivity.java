@@ -130,7 +130,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             });
 
         }
-        viewPager = (ViewPager) findViewById(R.id.pager); //create a viewpager for rendering the swyping
+	    if(settings.getBoolean("example_checkbox", true)) {
+		    logIt("checked");
+	    } else {
+		    logIt("not checked");
+	    }
+	    viewPager = (ViewPager) findViewById(R.id.pager); //create a viewpager for rendering the swyping
         actionBar = getActionBar(); //define the actionBar variable as actionbar
         TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager()); //use the our tab page adapter
         viewPager.setAdapter(mAdapter); //set our tabadapter to what we just set mAdapter to
