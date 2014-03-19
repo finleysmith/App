@@ -60,9 +60,6 @@ import com.suredigit.inappfeedback.FeedbackSettings;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
 
-//import android.app.Application;
-//Internal Imports
-//Imports for libaries
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -104,10 +101,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
-            logIt("First time");
             settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */
         } else {
-            logIt("Has done before, going to ask to rate");
             AppRate.with(this).text("Help Borden by rating the app!"); //Title
             AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL); //make it expodential
             AppRate.with(this).checkAndShow(); //create the dialog
@@ -239,7 +234,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     public void logIt(String it) {
-        Log.i(TAG, it);
+        Log.w(TAG, it);
     } // the function for the logit thing i use. Q:Why log all the time? A: It is usefull for debugging so you know what the user was doing at the time
 
 }
