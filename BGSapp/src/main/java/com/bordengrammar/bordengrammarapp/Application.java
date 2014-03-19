@@ -1,11 +1,10 @@
 package com.bordengrammar.bordengrammarapp;
+
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.parse.Parse;
-import com.parse.ParseInstallation;
 import com.parse.PushService;
 
 public class Application extends android.app.Application {

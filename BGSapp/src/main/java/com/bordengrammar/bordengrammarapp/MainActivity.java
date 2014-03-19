@@ -35,13 +35,11 @@
 package com.bordengrammar.bordengrammarapp;
 
 //android imports
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.AlertDialog;
 import android.app.FragmentTransaction;
-//import android.app.Application;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -53,21 +51,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-//Internal Imports
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
-
-//Imports for libaries
-
-import com.suredigit.inappfeedback.FeedbackDialog; //Feedback
-import fr.nicolaspomepuy.discreetapprate.AppRate; //Apprate thing
-import fr.nicolaspomepuy.discreetapprate.RetryPolicy; //So i can use a expodential retry rate
-import com.parse.Parse;
 import com.parse.ParseAnalytics;
-import com.parse.ParseInstallation;
-import com.parse.PushService;
+import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
+
+import fr.nicolaspomepuy.discreetapprate.AppRate;
+import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
+
+//import android.app.Application;
+//Internal Imports
+//Imports for libaries
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {

@@ -1,46 +1,86 @@
 package com.bordengrammar.bordengrammarapp;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.suredigit.inappfeedback.FeedbackDialog;
+import com.suredigit.inappfeedback.FeedbackSettings;
 
 import java.util.List;
 
-/**
- * A {@link PreferenceActivity} that presents a set of application settings. On
- * handset devices, settings are presented as a single list. On tablets,
- * settings are split by category, with category headers shown to the left of
- * the list of settings.
- * <p>
- * See <a href="http://developer.android.com/design/patterns/settings.html">
- * Android Design: Settings</a> for design guidelines and the <a
- * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
- * API Guide</a> for more information on developing a Settings UI.
- */
-public class SettingsActivity extends PreferenceActivity {
-	/**
-	 * Determines whether to always show the simplified settings UI, where
-	 * settings are presented in a single list. When false, settings are shown
-	 * as a master/detail two-pane view on tablets. When true, a single pane is
-	 * shown on tablets.
-	 */
-	private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
+public class SettingsActivity extends PreferenceActivity {
+
+	private static final boolean ALWAYS_SIMPLE_PREFS = false;
+	private ActionBar actionBar;
+	private FeedbackDialog feedBack;
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-
 		setupSimplePreferencesScreen();
+		actionBar = getActionBar();
+		assert actionBar != null;
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		FeedbackSettings feedbackSettings = new FeedbackSettings();
+		feedbackSettings.setCancelButtonText("Cancel");
+		feedbackSettings.setSendButtonText("Send");
+		feedbackSettings.setText("Send feedback to improve the app");
+		feedbackSettings.setTitle("Feedback");
+		feedbackSettings.setToast("We value your feedback");
+		feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_activity_actions, menu);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { //after the menu has been inflated
+		switch (item.getItemId()) { //get the id fors the menus from our menu.xml
+			case android.R.id.home: //if it is home
+				Intent l = new Intent(SettingsActivity.this, MainActivity.class);
+				startActivity(l);
+				return true; //break it so it does not go onto next case
+			case R.id.facebook: //if it is facebook button
+
+				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
+				startActivity(faceBrowserIntent); //Start that intent
+				return true;
+			case R.id.website: //if they clicked they
+
+				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
+				startActivity(websiteBrowserIntent);
+				return true;
+			case R.id.action_settings: //action settings actually about, can't change it now
+
+				Intent i = new Intent(SettingsActivity.this, AboutActivity.class);
+				startActivity(i);
+
+				return true;
+			case R.id.action_feedback: //if they clciked send feedback
+
+				feedBack.show(); //show the feedback that we declared
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+
 	}
 
 	@TargetApi(Build.VERSION_CODES.KITKAT)
@@ -50,22 +90,11 @@ public class SettingsActivity extends PreferenceActivity {
 		return GeneralPreferenceFragment.class.getName().equals(fragmentName) ||
 				super.isValidFragment(fragmentName);
 	}
-
-	/**
-	 * Shows the simplified settings UI if the device configuration if the
-	 * device configuration dictates that a simplified, single-pane UI should be
-	 * shown.
-	 */
 	private void setupSimplePreferencesScreen() {
 		if (!isSimplePreferences(this)) {
 			return;
 		}
-
-
-
 		addPreferencesFromResource(R.xml.pref_general);
-
-
 	}
 
 	/**
@@ -128,21 +157,12 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 	};
 
-	/**
-	 * Binds a preference's summary to its value. More specifically, when the
-	 * preference's value is changed, its summary (line of text below the
-	 * preference title) is updated to reflect the value. The summary is also
-	 * immediately updated upon calling this method. The exact display format is
-	 * dependent on the type of preference.
-	 *
-	 * @see #sBindPreferenceSummaryToValueListener
-	 */
+
 	private static void bindPreferenceSummaryToValue(Preference preference) {
 		// Set the listener to watch for value changes.
 		preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
-		// Trigger the listener immediately with the preference's
-		// current value.
+
 		sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
 				PreferenceManager
 						.getDefaultSharedPreferences(preference.getContext())
@@ -150,10 +170,7 @@ public class SettingsActivity extends PreferenceActivity {
 		);
 	}
 
-	/**
-	 * This fragment shows general preferences only. It is used when the
-	 * activity is showing a two-pane settings UI.
-	 */
+
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public static class GeneralPreferenceFragment extends PreferenceFragment {
 		@Override
@@ -161,12 +178,7 @@ public class SettingsActivity extends PreferenceActivity {
 			super.onCreate(savedInstanceState);
 			addPreferencesFromResource(R.xml.pref_general);
 
-			// Bind the summaries of EditText/List/Dialog/Ringtone preferences
-			// to their values. When their values change, their summaries are
-			// updated to reflect the new value, per the Android Design
-			// guidelines.
-			//bindPreferenceSummaryToValue(findPreference("example_text"));
-			//bindPreferenceSummaryToValue(findPreference("example_list"));
+
 		}
 	}
 }

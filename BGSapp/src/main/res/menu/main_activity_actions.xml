@@ -2,17 +2,17 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="99"
         android:showAsAction="never"
         android:title="@string/action_settings" />
     <item
         android:id="@+id/action_feedback"
-        android:orderInCategory="99"
+        android:orderInCategory="98"
         android:showAsAction="never"
         android:title="Send feedback" />
 	<item
 		android:id="@+id/action_realsettings"
-		android:orderInCategory="98"
+		android:orderInCategory="100"
 		android:showAsAction="never"
 		android:title="Settings" />
 
