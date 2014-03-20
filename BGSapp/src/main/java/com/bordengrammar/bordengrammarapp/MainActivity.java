@@ -77,6 +77,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     //onCreate Method - Majority of code
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);

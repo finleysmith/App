@@ -19,17 +19,17 @@ public class Application extends android.app.Application {
 		super.onCreate();
 
 		// Initialize the Parse SDK.
+		Parse.initialize(this, "yovKfUASIkl14OmRLMT5sXSJvrySDoS8MLwJ7pAA", "mnVmfBTnSzYneOxuf3jUiRKNs9P53ipsdkSwt5dq");
 
 
 		// Specify an Activity to handle all pushes by default.
 
 		SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
 		Boolean push = mainsettings.getBoolean("example_checkbox", false);
-		if(push == true) {
-			Parse.initialize(this, "yovKfUASIkl14OmRLMT5sXSJvrySDoS8MLwJ7pAA", "mnVmfBTnSzYneOxuf3jUiRKNs9P53ipsdkSwt5dq");
-			PushService.setDefaultPushCallback(this, MainActivity.class);
-		} else {
+		if(push == false) {
 			Log.e(TAG , "Push notifcations disabled");
+		} else {
+			PushService.setDefaultPushCallback(this, MainActivity.class);
 		}
 	}
 }

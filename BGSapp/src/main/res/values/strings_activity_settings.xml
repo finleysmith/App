@@ -7,7 +7,7 @@
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable push messaging</string>
-    <string name="pref_description_social_recommendations">Messages sent directly to your device</string>
+    <string name="pref_description_social_recommendations">Allow Borden to send messages directly to your device</string>
 
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_default_display_name">John Smith</string>
