@@ -36,4 +36,5 @@ dependencies {
     compile 'com.android.support:support-v4:19.0.1'
     compile files('libs/feedback_v5.jar')
     compile files('libs/Parse-1.4.1.jar')
+    compile files('libs/twitter4j-core-4.0.1.jar')
 }

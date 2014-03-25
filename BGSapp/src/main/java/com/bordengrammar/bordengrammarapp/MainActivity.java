@@ -35,6 +35,7 @@
 package com.bordengrammar.bordengrammarapp;
 
 //android imports
+import java.util.List;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -59,6 +60,13 @@ import com.suredigit.inappfeedback.FeedbackSettings;
 
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
+
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+
+
 
 
 
@@ -161,6 +169,30 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedbackSettings.setTitle("Feedback");
 	    feedbackSettings.setToast("We value your feedback");
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+
+
+	    //now for the twitter BULLSHIT API V1.1 WHY THE FUCK DO I HAVE TO USE OAUTH OH MY GAWDDDDD
+	    Twitter twitter = new TwitterFactory().getInstance();
+	    try {
+		    List<Status> statuses;
+		    String user;
+		    if (args.length == 1) {
+			    user = args[0];
+			    statuses = twitter.getUserTimeline(user);
+		    } else {
+			    user = twitter.verifyCredentials().getScreenName();
+			    statuses = twitter.getUserTimeline();
+		    }
+		    System.out.println("Showing @" + user + "'s user timeline.");
+		    for (Status status : statuses) {
+			    System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+		    }
+	    } catch (TwitterException te) {
+		    te.printStackTrace();
+		    System.out.println("Failed to get timeline: " + te.getMessage());
+		    System.exit(-1);
+	    }
+    }
 
     }
     @Override
