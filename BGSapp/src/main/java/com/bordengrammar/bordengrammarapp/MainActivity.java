@@ -45,6 +45,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -52,6 +53,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.parse.ParseAnalytics;
@@ -65,9 +67,7 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-
-
-
+import twitter4j.conf.ConfigurationBuilder;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -81,6 +81,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ActionBar actionBar; //Action bar
     private FeedbackDialog feedBack; //Feedback
     private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
+	private String TWEET;
 
 
     //onCreate Method - Majority of code
@@ -90,7 +91,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onCreate(Bundle savedInstanceState) {
 	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
 	    Boolean push = mainsettings.getBoolean("example_checkbox", false);
-	    if(push == true) {
+	    if(push) {
 		    ParseAnalytics.trackAppOpened(getIntent());
 	    } else {
 		    Log.e(TAG , "Push notifcations disabled");
@@ -100,6 +101,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
         setContentView(R.layout.activity_main);//make it use the layout
+	    if (android.os.Build.VERSION.SDK_INT > 9) {
+		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		    StrictMode.setThreadPolicy(policy);
+	    }
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */
@@ -172,27 +177,37 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
 	    //now for the twitter BULLSHIT API V1.1 WHY THE FUCK DO I HAVE TO USE OAUTH OH MY GAWDDDDD
-	    Twitter twitter = new TwitterFactory().getInstance();
+	    ConfigurationBuilder cb = new ConfigurationBuilder();
+	    cb.setDebugEnabled(true)
+			    .setOAuthConsumerKey("Toqp03fcUErG5P8e9nhfsw")
+			    .setOAuthConsumerSecret(
+					    "SEqktstO9h7SqSm7zmcuWlH3bOtElJm1Ds2TFSwFBc")
+			    .setOAuthAccessToken(
+					    "2245935685-U5LMfl4oEcOv6Khw58JZqRdcH2PlABEeUP2JeXj")
+			    .setOAuthAccessTokenSecret(
+					    "uFcGRpCx8aGXdv3AiAkfVImnoLrlNNCUnZ2UtE76Zbnpa");
+	    TwitterFactory tf = new TwitterFactory(cb.build());
+	    Twitter twitter = tf.getInstance();
 	    try {
 		    List<Status> statuses;
 		    String user;
-		    if (args.length == 1) {
-			    user = args[0];
-			    statuses = twitter.getUserTimeline(user);
-		    } else {
-			    user = twitter.verifyCredentials().getScreenName();
-			    statuses = twitter.getUserTimeline();
-		    }
-		    System.out.println("Showing @" + user + "'s user timeline.");
-		    for (Status status : statuses) {
-			    System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
-		    }
+		    user = "epicfinley";
+		    statuses = twitter.getUserTimeline(user);
+		    Log.i("Status Count", statuses.size() + " Feeds");
+		    Status status = statuses.get(1);
+		    Log.i(TAG, status.getText());
+		    TWEET = status.getText();
+		    TextView textElement = (TextView) findViewById(R.id.textView3);
+		    textElement.setText(TWEET);
+
+
+		    //for (int i = 0; i < statuses.size(); i++) {
+			//    Status status = statuses.get(i);
+			//    Log.i("Tweet Count " + (i + 1), status.getText() + "\n\n");
+		    //}
 	    } catch (TwitterException te) {
 		    te.printStackTrace();
-		    System.out.println("Failed to get timeline: " + te.getMessage());
-		    System.exit(-1);
 	    }
-    }
 
     }
     @Override
