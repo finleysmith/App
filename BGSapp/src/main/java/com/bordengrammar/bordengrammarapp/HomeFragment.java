@@ -18,6 +18,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        //test
 
         assert rootView != null;
 	    //TextView textElement = (TextView) rootView.findViewById(R.id.textView3);

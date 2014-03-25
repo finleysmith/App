@@ -177,37 +177,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
 	    //now for the twitter BULLSHIT API V1.1 WHY THE FUCK DO I HAVE TO USE OAUTH OH MY GAWDDDDD
-	    ConfigurationBuilder cb = new ConfigurationBuilder();
-	    cb.setDebugEnabled(true)
-			    .setOAuthConsumerKey("Toqp03fcUErG5P8e9nhfsw")
-			    .setOAuthConsumerSecret(
-					    "SEqktstO9h7SqSm7zmcuWlH3bOtElJm1Ds2TFSwFBc")
-			    .setOAuthAccessToken(
-					    "2245935685-U5LMfl4oEcOv6Khw58JZqRdcH2PlABEeUP2JeXj")
-			    .setOAuthAccessTokenSecret(
-					    "uFcGRpCx8aGXdv3AiAkfVImnoLrlNNCUnZ2UtE76Zbnpa");
-	    TwitterFactory tf = new TwitterFactory(cb.build());
-	    Twitter twitter = tf.getInstance();
-	    try {
-		    List<Status> statuses;
-		    String user;
-		    user = "epicfinley";
-		    statuses = twitter.getUserTimeline(user);
-		    Log.i("Status Count", statuses.size() + " Feeds");
-		    Status status = statuses.get(1);
-		    Log.i(TAG, status.getText());
-		    TWEET = status.getText();
-		    TextView textElement = (TextView) findViewById(R.id.textView3);
-		    textElement.setText(TWEET);
 
-
-		    //for (int i = 0; i < statuses.size(); i++) {
-			//    Status status = statuses.get(i);
-			//    Log.i("Tweet Count " + (i + 1), status.getText() + "\n\n");
-		    //}
-	    } catch (TwitterException te) {
-		    te.printStackTrace();
-	    }
 
     }
     @Override
@@ -276,6 +246,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void logIt(String it) {
         Log.w(TAG, it);
     } // the function for the logit thing i use. Q:Why log all the time? A: It is usefull for debugging so you know what the user was doing at the time
+	public tweet
 
 }
 
