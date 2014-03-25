@@ -87,19 +87,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    } else {
 		    Log.e(TAG , "Push notifcations disabled");
 	    }
-
-
-
-
-
-
 	    super.onCreate(savedInstanceState);//get the saved state
         final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
         PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
-
         setContentView(R.layout.activity_main);//make it use the layout
-
 
         if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */

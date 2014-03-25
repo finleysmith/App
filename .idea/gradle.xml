@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/BGSapp" />
+            <option value="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp" />
+            <option value="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp" />
           </set>
         </option>
       </GradleProjectSettings>

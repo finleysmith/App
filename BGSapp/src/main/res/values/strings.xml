@@ -7,7 +7,7 @@
     <string name="welcome">Welcome!</string>
     <string name="facebook">Facebook</string>
     <string name="website">Website</string>
-    <string name="welcomeinfo">"This is the official app for Borden Grammar School. The school is a selective boy's grammar school located in Kent."</string>
+    <string name="welcomeinfo">"This is the official app for Borden Grammar School. The school is a selective boy's grammar school located in Kent. It is amazing etc..."</string>
     <string name="title_activity_about_fragment">About</string>
     <string name="news">News</string>
     <string name="canteen">Canteen Top-Up</string>
@@ -20,6 +20,7 @@
 	<string name="title_activity_about">About</string>
 	<string name="aboutdetail">Borden Grammar School App</string>
 	<string name="copyright">© 2014 Finley Smith</string>
-	<string name="build">v0.7</string>
+	<string name="build">Devloper Edition</string>
+	<string name="where">Where we are</string>
 
 </resources>

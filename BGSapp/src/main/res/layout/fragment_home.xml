@@ -27,43 +27,26 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="0.13"
+        android:layout_weight="0.04"
         android:text="@string/welcomeinfo"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="2dp"
+		android:background="@android:color/darker_gray"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"
+		/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginLeft="15dp"
-        android:text="@string/links"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp">
-
-        <Button
-            android:id="@+id/canteen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/canteen" />
-
-        <Button
-            android:id="@+id/moodle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moodle" />
-
-        <Button
-            android:id="@+id/news"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/news" />
-
-    </TableRow>
+	<TextView
+		android:id="@+id/textView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginLeft="15dp"
+		android:layout_marginTop="7.5dp"
+		android:text="@string/where"
+		android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 </LinearLayout>
