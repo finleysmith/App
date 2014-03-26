@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
 					    twitter4j.Status status = statuses.get(0);
 					    TWEET = status.getText();
 
+
 				    } catch (TwitterException te) {
 					    te.printStackTrace();
 				    }
@@ -58,9 +59,8 @@ public class HomeFragment extends Fragment {
 				    e.printStackTrace();
 			    }
 		    }
-
-
 	    });
+
 	    TextView t;
 	    assert myInflatedView != null;
 	    t = (TextView) myInflatedView.findViewById(R.id.textView3);
@@ -71,22 +71,17 @@ public class HomeFragment extends Fragment {
 	    } else {
 		    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		    String name = sp.getString("TWEETY", "First time? Explore all the tabs!");
-		    t.setText(name);
-		    //t.setVisibility(View.INVISIBLE);
+		    if (name != null && !name.isEmpty()) {
+			    t.setText(name);
+
+		    } else {
+			    t.setVisibility(View.INVISIBLE);
+		    }
 	    }
-
-
 	    thread.start();
-
-
-
-
 	    return myInflatedView;
-
-
-
-
     }
+
 
 	private void savePrefs(String key, String value) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
