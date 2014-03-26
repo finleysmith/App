@@ -35,11 +35,8 @@
 package com.bordengrammar.bordengrammarapp;
 
 //android imports
-import java.util.List;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -54,7 +51,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.parse.ParseAnalytics;
@@ -63,12 +59,6 @@ import com.suredigit.inappfeedback.FeedbackSettings;
 
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
-
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.conf.ConfigurationBuilder;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -125,10 +115,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 @Override
                 public void onRateAppClicked() {
                     // User has clicked the rate part
-                    Uri uri = Uri.parse("market://details?id=" + PACKAGE_NAME); //create variable uri which is our app due to package_name
-                    Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri); //create the intent
                     try {
-                        startActivity(goToMarket); //if is true go to the market
+	                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
                     } catch (ActivityNotFoundException e) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME))); //if it fails go to the market anyway :)
                     }
@@ -247,8 +235,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     public void logIt(String it) {
         Log.w(TAG, it);
-    } // the function for the logit thing i use. Q:Why log all the time? A: It is usefull for debugging so you know what the user was doing at the time
-
+    }
+	private void savePrefs(String key, String value) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor edit = sp.edit();
+		edit.putString(key, value);
+		edit.commit();
+	}
 
 }
 

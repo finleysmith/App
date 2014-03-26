@@ -2,42 +2,31 @@ package com.bordengrammar.bordengrammarapp;
 
 
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
 
-import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 
-public class HomeFragment extends Fragment implements OnClickListener {
+public class HomeFragment extends Fragment {
 	public static String TWEET;
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-	    // -- inflate the layout for this fragment
-	    //SharedPreferences mainsettings = this.getActivity().getSharedPreferences("twitter", 0);
 	    View myInflatedView = inflater.inflate(R.layout.fragment_home, container,false);
-
-
-
-	    // Set the Text to try this out
 	    Thread thread = new Thread(new Runnable(){
 		    @Override
 		    public void run() {
@@ -59,13 +48,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 					    String user;
 					    user = "epicfinley";
 					    statuses = twitter.getUserTimeline(user);
-					    Log.i("Status Count", statuses.size() + " Feeds");
-					    twitter4j.Status status = statuses.get(1);
+					    twitter4j.Status status = statuses.get(0);
 					    TWEET = status.getText();
-
-
-
-
 
 				    } catch (TwitterException te) {
 					    te.printStackTrace();
@@ -78,12 +62,17 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
 	    });
 	    TextView t;
+	    assert myInflatedView != null;
 	    t = (TextView) myInflatedView.findViewById(R.id.textView3);
 	    if(TWEET != null && !TWEET.isEmpty()){
-		    t.setVisibility(View.VISIBLE);
+		    //t.setVisibility(View.VISIBLE);
 		    t.setText(TWEET);
+		    savePrefs("TWEETY", TWEET);
 	    } else {
-		    t.setVisibility(View.INVISIBLE);
+		    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		    String name = sp.getString("TWEETY", "First time? Explore all the tabs!");
+		    t.setText(name);
+		    //t.setVisibility(View.INVISIBLE);
 	    }
 
 
@@ -99,14 +88,17 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
     }
 
+	private void savePrefs(String key, String value) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		SharedPreferences.Editor edit = sp.edit();
+		edit.putString(key, value);
+		edit.commit();
+	}
 
 
 
 
 
-	@Override
-    public void onClick(View v) {
-        /* TODO Auto-generated method stub */
 
-    }
+
 }
