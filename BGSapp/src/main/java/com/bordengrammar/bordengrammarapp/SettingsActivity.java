@@ -138,7 +138,7 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 	}
 
-	//1212111121221211221121211211112222212211112222211111212221111212121212111212222212121121222222211
+
 
 
 	private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {

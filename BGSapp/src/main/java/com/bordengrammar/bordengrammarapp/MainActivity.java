@@ -39,6 +39,7 @@ import java.util.List;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -176,10 +177,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 
 
-	    //now for the twitter BULLSHIT API V1.1 WHY THE FUCK DO I HAVE TO USE OAUTH OH MY GAWDDDDD
 
 
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater(); //get the menu items
@@ -246,7 +248,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void logIt(String it) {
         Log.w(TAG, it);
     } // the function for the logit thing i use. Q:Why log all the time? A: It is usefull for debugging so you know what the user was doing at the time
-	public tweet
+
 
 }
 
