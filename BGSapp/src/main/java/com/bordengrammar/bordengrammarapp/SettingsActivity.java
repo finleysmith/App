@@ -133,7 +133,6 @@ public class SettingsActivity extends PreferenceActivity {
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void onBuildHeaders(List<Header> target) {
 		if (!isSimplePreferences(this)) {
-			logIt("load headers");
 			loadHeadersFromResource(R.xml.pref_headers, target);
 		}
 	}

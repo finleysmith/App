@@ -35,6 +35,7 @@
 package com.bordengrammar.bordengrammarapp;
 
 //android imports
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -85,7 +86,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    if(push) {
 		    ParseAnalytics.trackAppOpened(getIntent());
 	    } else {
-		    Log.e(TAG , "Push notifcations disabled");
+		    Log.e(TAG , "Annoymous user anylitic disabled");
 	    }
 	    super.onCreate(savedInstanceState);//get the saved state
         final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
@@ -236,12 +237,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void logIt(String it) {
         Log.w(TAG, it);
     }
-	private void savePrefs(String key, String value) {
-		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-		SharedPreferences.Editor edit = sp.edit();
-		edit.putString(key, value);
-		edit.commit();
-	}
+
+
+
+
 
 }
 
