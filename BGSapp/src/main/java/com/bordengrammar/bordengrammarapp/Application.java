@@ -2,7 +2,6 @@ package com.bordengrammar.bordengrammarapp;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.parse.Parse;
 import com.parse.PushService;
@@ -26,10 +25,10 @@ public class Application extends android.app.Application {
 
 		SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
 		Boolean push = mainsettings.getBoolean("example_checkbox", false);
-		if(push == false) {
-			Log.e(TAG , "Push notifcations disabled");
-		} else {
+		if(push) {
 			PushService.setDefaultPushCallback(this, MainActivity.class);
+		} else {
+			PushService.setDefaultPushCallback(this, null);
 		}
 	}
 }
