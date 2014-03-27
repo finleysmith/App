@@ -82,11 +82,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
-	    Boolean push = mainsettings.getBoolean("example_checkbox", false);
-	    if(push) {
+	    Boolean stats = mainsettings.getBoolean("stats", false);
+	    if(stats) {
 		    ParseAnalytics.trackAppOpened(getIntent());
 	    } else {
-		    Log.e(TAG , "Annoymous user anylitic disabled");
+		    Log.e(TAG , "Annoymous user anylitics disabled");
 	    }
 	    super.onCreate(savedInstanceState);//get the saved state
         final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
@@ -97,8 +97,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		    StrictMode.setThreadPolicy(policy);
 	    }
+	    
 
-        if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
+	    if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
             settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */
         } else {
             AppRate.with(this).text("Help Borden by rating the app!"); //Title

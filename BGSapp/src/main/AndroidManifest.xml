@@ -31,11 +31,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Example">
+        android:theme="@style/Theme.Example" >
 
-        <!--
+
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.splash"
+            android:name="com.bordengrammar.bordengrammarapp.SplashActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
@@ -44,15 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        -->
+
         <activity
             android:name="com.bordengrammar.bordengrammarapp.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service android:name="com.parse.PushService" />
@@ -75,7 +70,6 @@
             </intent-filter>
         </receiver>
 
-
         <activity
             android:name="com.bordengrammar.bordengrammarapp.AboutActivity"
             android:label="@string/title_activity_about" >
@@ -84,6 +78,7 @@
             android:name="com.bordengrammar.bordengrammarapp.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+
     </application>
 
 </manifest>
