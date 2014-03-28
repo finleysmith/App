@@ -1,3 +1,20 @@
+<!-- Copyright (C) 2014.  Finley Smith -->
+<!-- -->
+<!-- This program is free software; you can redistribute it and/or -->
+<!-- modify it under the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation; either version 2 -->
+<!-- of the License, or (at your option) any later version. -->
+<!-- -->
+<!-- This program is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+<!-- -->
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with this program; if not, write to the Free Software -->
+<!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
+<!-- Also add information on how to contact you by electronic and paper mail. -->
+
 <ScrollView
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="fill_parent"
@@ -6,7 +23,7 @@
 	android:id="@+id/scrollView"
 	tools:context=".MainActivity">
 
-	<LinearLayout
+	<RelativeLayout
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
@@ -29,33 +46,30 @@
 
 		<TextView
 			android:id="@+id/textView2"
-			android:layout_width="wrap_content"
+			android:layout_width="601dp"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="15dp"
-			android:layout_marginRight="15dp"
-			android:layout_marginTop="5dp"
-			android:layout_weight="0.08"
+			android:layout_marginTop="47dp"
 			android:text="@string/welcomeinfo"
-			android:textAppearance="?android:attr/textAppearanceSmall" />
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"/>
 
 		<TextView
 			android:id="@+id/textView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignParentLeft="true"
-			android:layout_alignParentTop="true"
-			android:layout_marginLeft="10dp"
-			android:layout_marginTop="15dp"
 			android:text="@string/where"
-			android:textAppearance="?android:attr/textAppearanceLarge"/>
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_alignTop="@+id/textView1"
+			android:layout_toRightOf="@+id/textView2"/>
 		<fragment
 			android:id="@+id/map"
 			android:layout_width="match_parent"
-			android:layout_height="200dp"
+			android:layout_height="500dp"
 			class="com.google.android.gms.maps.SupportMapFragment"
-			android:layout_marginTop="5dp"
-			android:layout_marginLeft="15dp"
-			android:layout_marginRight="15dp"/>
+			android:layout_below="@+id/textView"
+			android:layout_toRightOf="@+id/textView2"/>
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -63,22 +77,23 @@
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:text="Latest Tweet"
 			android:id="@+id/textView4"
-			android:layout_marginLeft="10dp"
-			android:layout_marginTop="15dp"/>
+			android:layout_below="@+id/textView2"
+			android:layout_alignLeft="@+id/textView1"
+			android:layout_alignStart="@+id/textView1"/>
 
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="New Text"
 			android:id="@+id/textView3"
-			android:layout_gravity="center_horizontal|left"
 			android:textSize="25dp"
 			android:textStyle="bold"
-			android:layout_marginTop="5dp"
-			android:layout_marginLeft="15dp"
-			android:layout_marginRight="15dp"/>
+			android:layout_gravity="left"
+			android:layout_below="@+id/textView4"
+			android:layout_alignLeft="@+id/textView2"
+			android:layout_alignStart="@+id/textView2"/>
 
-	</LinearLayout>
+	</RelativeLayout>
 
 
 

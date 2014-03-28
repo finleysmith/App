@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class HomeFragment extends Fragment {
 					    .fromResource(R.drawable.ic_launcher)));
 
 	    // Move the camera instantly to hamburg with a zoom of 15.
-	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
+	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN , 15));
 
 	    // Zoom in, animating the camera.
 	    map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
@@ -58,6 +59,18 @@ public class HomeFragment extends Fragment {
 
 	    return myInflatedView;
     }
+	public void onDestroyView() {
+		super.onDestroyView();
+
+		try {
+			Fragment fragment = (getFragmentManager().findFragmentById(R.id.map));
+			FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+			ft.remove(fragment);
+			ft.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public String readPrefs(String key) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		return sp.getString(key, "An error occured whilst fetching twitter feed");
