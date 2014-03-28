@@ -21,7 +21,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class SplashActivity extends Activity {
 
-	String tweet;
+
 	public String LOG_TAG = "SplashActivity.java";
 
 	@Override
@@ -81,6 +81,7 @@ public class SplashActivity extends Activity {
 				} catch (TwitterException e) {
 					e.printStackTrace();
 				}
+				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
 				savePrefs("twitter", status.getText());
 			} else {

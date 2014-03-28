@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class HomeFragment extends Fragment {
-	public static String TWEET;
+
 
 
     @Override
@@ -25,6 +25,7 @@ public class HomeFragment extends Fragment {
 
 
 	    TextView t;
+	    assert myInflatedView != null;
 	    t = (TextView) myInflatedView.findViewById(R.id.textView3);
 	    t.setText('"' + readPrefs("twitter") + '"');
 

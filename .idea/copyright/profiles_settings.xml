@@ -1,5 +1,8 @@
 <component name="CopyrightManager">
-  <settings default="">
+  <settings default="Defauly">
+    <module2copyright>
+      <element module="All" copyright="Defauly" />
+    </module2copyright>
     <LanguageOptions name="__TEMPLATE__">
       <option name="block" value="false" />
     </LanguageOptions>

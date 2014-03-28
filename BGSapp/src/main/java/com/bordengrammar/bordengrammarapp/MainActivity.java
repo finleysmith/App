@@ -8,7 +8,7 @@
 /*
  * Copyright (C) 2011-2014 Borden Grammar School, school@bordengrammar.kent.sch.uk
  *
- * This file is part of BGS APP)
+ * This file is part of BGS APP
  *
  * BGS APP is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ActionBar actionBar; //Action bar
     private FeedbackDialog feedBack; //Feedback
     private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
-	private String TWEET;
+
 
 
     //onCreate Method - Majority of code
@@ -85,42 +85,39 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    Boolean stats = mainsettings.getBoolean("stats", false);
 	    if(stats) {
 		    ParseAnalytics.trackAppOpened(getIntent());
-	    } else {
-		    Log.e(TAG , "Annoymous user anylitics disabled");
 	    }
-	    super.onCreate(savedInstanceState);//get the saved state
-        final String PREFS_NAME = "MyPrefsFile"; //defining the settings file
-        PACKAGE_NAME = getApplicationContext().getPackageName(); //fill the pacakage_name variable with the pacakage name
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0); //retrive the settings file
-        setContentView(R.layout.activity_main);//make it use the layout
+	    super.onCreate(savedInstanceState);
+        final String PREFS_NAME = "MyPrefsFile";
+        PACKAGE_NAME = getApplicationContext().getPackageName();
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        setContentView(R.layout.activity_main);
 	    if (android.os.Build.VERSION.SDK_INT > 9) {
 		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		    StrictMode.setThreadPolicy(policy);
 	    }
 	    
 
-	    if (settings.getBoolean("my_first_time", true)) { //if the settings my_first_time is true
-            settings.edit().putBoolean("my_first_time", false).commit(); /* set it to false */
+	    if (settings.getBoolean("my_first_time", true)) {
+            settings.edit().putBoolean("my_first_time", false).commit();
         } else {
-            AppRate.with(this).text("Help Borden by rating the app!"); //Title
-            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL); //make it expodential
+            AppRate.with(this).text("Help Borden by rating the app!");
+            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL);
             AppRate.with(this).checkAndShow(); //create the dialog
-            AppRate.with(this).listener(new AppRate.OnShowListener() { //create a listener to see what they click
+            AppRate.with(this).listener(new AppRate.OnShowListener() {
                 @Override
                 public void onRateAppShowing() {
-                    // abstract view blah blah blah I HATE RED BUGS
+
                 }
                 @Override
                 public void onRateAppDismissed() {
-                    //have to put this for no reason
+
                 }
                 @Override
                 public void onRateAppClicked() {
-                    // User has clicked the rate part
                     try {
 	                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
                     } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME))); //if it fails go to the market anyway :)
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
                     }
                 }
             });
@@ -128,22 +125,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
 
 
-	    viewPager = (ViewPager) findViewById(R.id.pager); //create a viewpager for rendering the swyping
-        actionBar = getActionBar(); //define the actionBar variable as actionbar
-        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager()); //use the our tab page adapter
-        viewPager.setAdapter(mAdapter); //set our tabadapter to what we just set mAdapter to
-        actionBar.setHomeButtonEnabled(true); //Make it so we can click on the logo on action bar
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS); //set the action bar mode to tabbed
-        for (String tab_name : tabs) { //for loop to add the tabs
+	    viewPager = (ViewPager) findViewById(R.id.pager);
+        actionBar = getActionBar();
+        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mAdapter);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        for (String tab_name : tabs) {
             actionBar.addTab(actionBar.newTab().setText(tab_name)
                     .setTabListener(this));
         }
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            //This makes the viewpager display the right fragment(tab) when we swype or use the tabs
             @Override
             public void onPageSelected(int position) {
-                // on changing the page
-                // make respected tab selected
                 actionBar.setSelectedNavigationItem(position);
             }
 
@@ -155,9 +149,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-
-	    //feedback ***
-         //defining our feedback with api key(go ahead try and use the api key, but i put security on it so HAH
 	    FeedbackSettings feedbackSettings = new FeedbackSettings();
 	    feedbackSettings.setCancelButtonText("Cancel");
 	    feedbackSettings.setSendButtonText("Send");
@@ -165,46 +156,42 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedbackSettings.setTitle("Feedback");
 	    feedbackSettings.setToast("We value your feedback");
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
-
-
-
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater(); //get the menu items
-        inflater.inflate(R.menu.main_activity_actions, menu); //inflate tgem into the menu
-        return super.onCreateOptionsMenu(menu); //reurn that we created then and to go the next method
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { //after the menu has been inflated
-        switch (item.getItemId()) { //get the id fors the menus from our menu.xml
-            case android.R.id.home: //if it is home
-                viewPager.setCurrentItem(0); //set the tab to home
-                logIt("Used home button"); //then logit
-                return true; //break it so it does not go onto next case
-            case R.id.facebook: //if it is facebook button
-                logIt("Facebook button clicked"); //logit
-                Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
-                startActivity(faceBrowserIntent); //Start that intent
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                viewPager.setCurrentItem(0);
+                logIt("Used home button");
                 return true;
-            case R.id.website: //if they clicked they
+            case R.id.facebook:
+                logIt("Facebook button clicked");
+                Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
+                startActivity(faceBrowserIntent);
+                return true;
+            case R.id.website:
                 Log.i(TAG, "Website Clicked");
-                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
+                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
                 startActivity(websiteBrowserIntent);
                 return true;
-            case R.id.action_settings: //action settings actually about, can't change it now
+            case R.id.action_settings:
                 logIt("clicked about");
 	            Intent i = new Intent(MainActivity.this, AboutActivity.class);
 	            startActivity(i);
 
 	            return true;
-            case R.id.action_feedback: //if they clciked send feedback
+            case R.id.action_feedback:
                 logIt("feedback");
-                feedBack.show(); //show the feedback that we declared
+                feedBack.show();
                 return true;
 	        case R.id.action_realsettings:
 		        logIt("settings");
@@ -228,7 +215,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(tab.getPosition()); //set the current to fragment in the viewpager to what is currently selected
+        viewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
