@@ -10,8 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 
 public class HomeFragment extends Fragment {
+	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
+	private GoogleMap map;
 
 
 
@@ -20,6 +30,22 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 	    View myInflatedView = inflater.inflate(R.layout.fragment_home, container,false);
+
+	    map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+			    .getMap();
+
+
+	    Marker borden = map.addMarker(new MarkerOptions()
+			    .position(BORDEN)
+			    .title("Borden Grammar School")
+			    .icon(BitmapDescriptorFactory
+					    .fromResource(R.drawable.ic_launcher)));
+
+	    // Move the camera instantly to hamburg with a zoom of 15.
+	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
+
+	    // Zoom in, animating the camera.
+	    map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
 
 
