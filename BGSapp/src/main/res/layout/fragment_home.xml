@@ -51,11 +51,11 @@
 		<fragment
 			android:id="@+id/map"
 			android:layout_width="match_parent"
-			android:layout_height="200dp"
+			android:layout_height="250dp"
 			class="com.google.android.gms.maps.SupportMapFragment"
 			android:layout_marginTop="5dp"
 			android:layout_marginLeft="15dp"
-			android:layout_marginRight="15dp"/>
+			android:layout_marginRight="50dp"/>
 
 		<TextView
 			android:layout_width="wrap_content"
