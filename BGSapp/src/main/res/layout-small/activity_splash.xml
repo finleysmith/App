@@ -27,27 +27,25 @@
 		android:layout_height="300dp"
 		android:src="@drawable/logo"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="50dp"
+		android:layout_marginTop="25dp"
 		android:layout_marginRight="10dp"/>
 
 	
 
 	<ProgressBar
-		style="?android:attr/progressBarStyleLarge"
+		style="?android:attr/progressBarStyle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/progressBar"
 		android:layout_below="@+id/imgLogo"
-		android:layout_alignRight="@+id/imgLogo"
-		android:layout_alignEnd="@+id/imgLogo"
-		android:layout_marginRight="110dp"
-		android:layout_marginTop="15dp"/>
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="5dp"/>
 
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Fetching Data..."
-		android:id="@+id/prog"
+		android:id="@+id/textView"
 		android:layout_below="@+id/progressBar"
 		android:layout_centerHorizontal="true"
 		android:textColor="@color/darkgray"

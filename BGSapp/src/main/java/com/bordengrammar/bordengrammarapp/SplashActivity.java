@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -23,12 +24,15 @@ import twitter4j.conf.ConfigurationBuilder;
 public class SplashActivity extends Activity {
 
 
-	public String LOG_TAG = "SplashActivity.java";
+	public String LOG_TAG = "SplashActivity";
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+		final TextView t = (TextView)findViewById(R.id.prog);
 
 		/**
 		 * Showing splashscreen while making network calls to download necessary
@@ -43,9 +47,11 @@ public class SplashActivity extends Activity {
 			public void run() {
 				if ( prefetchData.getStatus() == AsyncTask.Status.RUNNING )
 					prefetchData.cancel(true);
+					t.setText("Timeout");
 					if(readPrefs("twitter").isEmpty()){
 					savePrefs("twitter", "Timed out when getting tweets, do you have internet or is it slow?");
 					}
+					t.setText("Launching app...");
 					Intent i = new Intent(SplashActivity.this, MainActivity.class);
 					startActivity(i);
 					finish();
@@ -64,6 +70,8 @@ public class SplashActivity extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			// before making http calls
+			TextView t = (TextView)findViewById(R.id.prog);
+			t.setText("Fetching Twitter...");
 
 		}
 
@@ -80,6 +88,7 @@ public class SplashActivity extends Activity {
              * 5. etc.,
              */
 			if(isNetworkAvailable()) {
+
 				ConfigurationBuilder cb = new ConfigurationBuilder();
 				cb.setDebugEnabled(true)
 						.setOAuthConsumerKey("Toqp03fcUErG5P8e9nhfsw")
@@ -89,6 +98,7 @@ public class SplashActivity extends Activity {
 								"2245935685-U5LMfl4oEcOv6Khw58JZqRdcH2PlABEeUP2JeXj")
 						.setOAuthAccessTokenSecret(
 								"uFcGRpCx8aGXdv3AiAkfVImnoLrlNNCUnZ2UtE76Zbnpa");
+
 				TwitterFactory tf = new TwitterFactory(cb.build());
 				Twitter twitter = tf.getInstance();
 				List<twitter4j.Status> statuses = null;
@@ -99,9 +109,11 @@ public class SplashActivity extends Activity {
 				} catch (TwitterException e) {
 					e.printStackTrace();
 				}
+
 				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
 				savePrefs("twitter", status.getText());
+
 			} else {
 				Log.e(LOG_TAG, "No internet");
 
@@ -120,6 +132,8 @@ public class SplashActivity extends Activity {
 			if(readPrefs("twitter").isEmpty()){
 				savePrefs("twitter", "Error retriving tweets");
 			}
+			TextView t = (TextView)findViewById(R.id.prog);
+			t.setText("Launching App...");
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
 			startActivity(i);
 
