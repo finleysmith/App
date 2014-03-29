@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -33,7 +34,24 @@ public class SplashActivity extends Activity {
 		 * Showing splashscreen while making network calls to download necessary
 		 * data before launching the app Will use AsyncTask to make http call
 		 */
-		new PrefetchData().execute();
+		final PrefetchData prefetchData = new PrefetchData();
+		prefetchData.execute();
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable()
+		{
+			@Override
+			public void run() {
+				if ( prefetchData.getStatus() == AsyncTask.Status.RUNNING )
+					prefetchData.cancel(true);
+					if(readPrefs("twitter").isEmpty()){
+					savePrefs("twitter", "Timed out when getting tweets, do you have internet or is it slow?");
+					}
+					Intent i = new Intent(SplashActivity.this, MainActivity.class);
+					startActivity(i);
+					finish();
+			}
+		}, 3000 );
+
 
 	}
 
