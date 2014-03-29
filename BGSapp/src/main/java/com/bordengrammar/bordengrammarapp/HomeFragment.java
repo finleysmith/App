@@ -30,6 +30,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
 	    View myInflatedView = inflater.inflate(R.layout.fragment_home, container,false);
 
 	    map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
@@ -42,8 +43,8 @@ public class HomeFragment extends Fragment {
 			    .icon(BitmapDescriptorFactory
 					    .fromResource(R.drawable.ic_launcher)));
 
-	    // Move the camera instantly to hamburg with a zoom of 15.
-	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN , 15));
+	    // Move the camera instantly to borden with a zoom of 15.
+	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
 
 	    // Zoom in, animating the camera.
 	    map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);

@@ -54,6 +54,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.maps.MapsInitializer;
 import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
@@ -149,6 +151,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
+	    try {
+		    MapsInitializer.initialize(getApplicationContext());
+	    } catch (GooglePlayServicesNotAvailableException e) {
+		    e.printStackTrace();
+	    }
 	    FeedbackSettings feedbackSettings = new FeedbackSettings();
 	    feedbackSettings.setCancelButtonText("Cancel");
 	    feedbackSettings.setSendButtonText("Send");
