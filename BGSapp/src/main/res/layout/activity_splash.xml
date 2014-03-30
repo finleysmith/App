@@ -16,9 +16,10 @@
 <!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
 <!-- Also add information on how to contact you by electronic and paper mail. -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  	android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
 				android:background="@drawable/ab_solid_example" >
 
 	<ImageView
@@ -26,11 +27,12 @@
 		android:layout_width="300dp"
 		android:layout_height="300dp"
 		android:src="@drawable/logo"
+		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="50dp"
-		android:layout_marginRight="10dp"/>
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="50dp"/>
 
-	
+
 
 	<ProgressBar
 		style="?android:attr/progressBarStyleLarge"
@@ -40,8 +42,8 @@
 		android:layout_below="@+id/imgLogo"
 		android:layout_alignRight="@+id/imgLogo"
 		android:layout_alignEnd="@+id/imgLogo"
-		android:layout_marginRight="110dp"
-		android:layout_marginTop="15dp"/>
+		android:layout_marginTop="15dp"
+		android:layout_gravity="center_horizontal"/>
 
 	<TextView
 		android:layout_width="wrap_content"
@@ -50,16 +52,21 @@
 		android:id="@+id/prog"
 		android:layout_below="@+id/progressBar"
 		android:layout_centerHorizontal="true"
-		android:textColor="@color/darkgray"
-		android:layout_marginTop="10dp"/>
+		android:textColor="#4f4f52"
+		android:layout_marginTop="10dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginBottom="10dp"/>
 	<TextView
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="25dp"
+		android:layout_marginBottom="0dp"
 		android:textSize="14dp"
 		android:textColor="#FFFFFF"
 		android:gravity="center_horizontal"
 		android:layout_alignParentBottom="true"
-		android:text="Borden Grammar School App" />
+		android:text="Borden Grammar School App"
+		android:layout_gravity="center_horizontal|bottom"/>
 
-</RelativeLayout>
+
+
+</LinearLayout>
