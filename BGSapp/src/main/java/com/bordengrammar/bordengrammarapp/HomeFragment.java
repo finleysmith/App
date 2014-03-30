@@ -44,6 +44,8 @@ public class HomeFragment extends Fragment {
 					    .fromResource(R.drawable.ic_launcher)));
 
 	    // Move the camera instantly to borden with a zoom of 15.
+	    map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+	    map.setTrafficEnabled(true);
 	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
 
 	    // Zoom in, animating the camera.
