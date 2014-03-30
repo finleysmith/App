@@ -71,7 +71,7 @@ public class SplashActivity extends Activity {
 			super.onPreExecute();
 			// before making http calls
 			TextView t = (TextView)findViewById(R.id.prog);
-			t.setText("Fetching Twitter...");
+			t.setText("Fetching Web Data");
 
 		}
 
@@ -133,7 +133,7 @@ public class SplashActivity extends Activity {
 				savePrefs("twitter", "Error retriving tweets");
 			}
 			TextView t = (TextView)findViewById(R.id.prog);
-			t.setText("Launching App...");
+			t.setText("Launching App");
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
 			startActivity(i);
 
