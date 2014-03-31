@@ -25,9 +25,8 @@ public class Application extends android.app.Application {
 
 		SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
 		Boolean push = mainsettings.getBoolean("example_checkbox", false);
-		if(push) {
-			PushService.setDefaultPushCallback(this, MainActivity.class);
-		} else {
+		if(push) PushService.setDefaultPushCallback(this, SplashActivity.class);
+		else {
 			PushService.setDefaultPushCallback(this, null);
 		}
 	}
