@@ -24,18 +24,17 @@
 
 	<ImageView
 		android:id="@+id/imgLogo"
-		android:layout_width="300dp"
-		android:layout_height="300dp"
+		android:layout_width="350dp"
+		android:layout_height="350dp"
 		android:src="@drawable/logo"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="50dp"/>
+		/>
 
 
 
 	<ProgressBar
-		style="?android:attr/progressBarStyleLarge"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/progressBar"
@@ -48,11 +47,11 @@
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Fetching Data..."
+		android:text="Fetching Data"
 		android:id="@+id/prog"
 		android:layout_below="@+id/progressBar"
 		android:layout_centerHorizontal="true"
-		android:textColor="#4f4f52"
+		android:textColor="#7a7a7d"
 		android:layout_marginTop="10dp"
 		android:layout_gravity="center_horizontal"
 		android:layout_marginBottom="10dp"/>

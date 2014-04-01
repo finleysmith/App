@@ -14,6 +14,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import twitter4j.Twitter;
@@ -112,7 +114,9 @@ public class SplashActivity extends Activity {
 
 				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
+				Format formatter = new SimpleDateFormat("MMM d, K:mm a");
 				savePrefs("twitter", status.getText());
+				savePrefs("twittertime", formatter.format(status.getCreatedAt()));
 
 			} else {
 				Log.e(LOG_TAG, "No internet");
