@@ -46,7 +46,8 @@
 			android:layout_marginTop="15dp"
 			android:text="@string/where"
 			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_marginRight="25dp"/>
+			android:layout_marginRight="25dp"
+			android:onClick="getDriving()"/>
 		<fragment
 			android:id="@+id/map"
 			android:layout_width="match_parent"
