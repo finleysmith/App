@@ -2,6 +2,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:background="@drawable/main_selector"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/scrollView"
 	tools:context=".MainActivity">
@@ -13,49 +14,51 @@
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:clickable="false"
 		>
-		<TextView
-			android:id="@+id/textView1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentLeft="true"
-			android:layout_alignParentTop="true"
-			android:layout_marginLeft="10dp"
-			android:text="@string/welcome"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_marginRight="10dp"
-			android:layout_marginTop="10dp"
-			/>
-		<TextView
-			android:id="@+id/textView2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="50dp"
-			android:layout_marginTop="5dp"
-			android:text="@string/welcomeinfo"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:textColor="#353436"/>
+
+		<ImageView
+			android:layout_width="125dp"
+			android:layout_height="163dp"
+			android:id="@+id/imageView"
+			android:layout_gravity="center_horizontal"
+			android:src="@drawable/logo"/>
 
 		<TextView
-			android:id="@+id/textView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="BGS App"
+			android:id="@+id/title"
+			android:layout_gravity="center_horizontal"
+			android:textColor="#fffffc"
+			android:textSize="48dp"/>
+
+		<TextView
+			android:id="@+id/info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/welcomeinfo"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="#FFFFFF"
+			android:layout_marginLeft="25dp"
+			android:layout_marginRight="25dp"/>
+
+		<TextView
+			android:id="@+id/wheretitle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentLeft="true"
 			android:layout_alignParentTop="true"
-			android:layout_marginLeft="10dp"
-			android:layout_marginTop="15dp"
 			android:text="@string/where"
 			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_marginRight="25dp"
-			android:onClick="getDriving()"/>
+			android:onClick="getDriving()"
+			android:layout_gravity="center_horizontal"
+			android:textColor="#FFFFFF"/>
 		<fragment
 			android:id="@+id/map"
-			android:layout_width="match_parent"
+			android:layout_width="333dp"
 			android:layout_height="250dp"
 			class="com.google.android.gms.maps.SupportMapFragment"
-			android:layout_marginTop="5dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="55dp"/>
+			android:layout_gravity="center_horizontal"/>
 
 		<Button
 			android:layout_width="match_parent"
@@ -65,16 +68,6 @@
 			android:layout_marginLeft="10dp"
 			android:layout_marginRight="50dp"
 			android:onClick="getDriving()"/>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:text="Latest Tweet"
-			android:id="@+id/textView4"
-			android:layout_marginLeft="10dp"
-			android:layout_marginTop="15dp"
-			android:layout_marginRight="50dp"/>
 
 		<LinearLayout
 			android:orientation="horizontal"

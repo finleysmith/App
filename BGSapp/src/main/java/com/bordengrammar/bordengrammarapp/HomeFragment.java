@@ -4,6 +4,7 @@ package com.bordengrammar.bordengrammarapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -69,6 +70,15 @@ public class HomeFragment extends Fragment {
 		TextView t1;
 		t1 = (TextView) myInflatedView.findViewById(R.id.textView7);
 		t1.setText(readPrefs("twittertime"));
+
+		Typeface normal = Typeface.createFromAsset(getActivity().getAssets(), "fonts/normal.ttf");
+		Typeface light = Typeface.createFromAsset(getActivity().getAssets(), "fonts/light.tff");
+		Typeface extralight = Typeface.createFromAsset(getActivity().getAssets(), "fonts/extralight.tff");
+		TextView title = (TextView) myInflatedView.findViewById(R.id.title);
+		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
+		info.setTypeface(light);
+		title.setTypeface(extralight);
+		t1.setTypeface(extralight);
 
 
 		return myInflatedView;
