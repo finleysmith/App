@@ -1,8 +1,8 @@
 <ScrollView
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:background="@drawable/main_selector"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#f7ca18"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/scrollView"
 	tools:context=".MainActivity">
@@ -16,11 +16,11 @@
 		>
 
 		<ImageView
-			android:layout_width="125dp"
-			android:layout_height="163dp"
+			android:layout_width="150dp"
+			android:layout_height="150dp"
 			android:id="@+id/imageView"
 			android:layout_gravity="center_horizontal"
-			android:src="@drawable/logo"/>
+			android:src="@drawable/homelogo"/>
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
 			android:text="BGS App"
 			android:id="@+id/title"
 			android:layout_gravity="center_horizontal"
-			android:textColor="#fffffc"
+			android:textColor="#1b094f"
 			android:textSize="48dp"/>
 
 		<TextView
@@ -38,9 +38,11 @@
 			android:layout_height="wrap_content"
 			android:text="@string/welcomeinfo"
 			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:textColor="#FFFFFF"
+			android:textColor="#1b094f"
 			android:layout_marginLeft="25dp"
-			android:layout_marginRight="25dp"/>
+			android:layout_marginRight="25dp"
+			android:textAlignment="center"
+			android:gravity="center"/>
 
 		<TextView
 			android:id="@+id/wheretitle"
@@ -50,65 +52,85 @@
 			android:layout_alignParentTop="true"
 			android:text="@string/where"
 			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:onClick="getDriving()"
 			android:layout_gravity="center_horizontal"
-			android:textColor="#FFFFFF"/>
+			android:textColor="#1b094f"
+			android:textSize="48dp"/>
 		<fragment
 			android:id="@+id/map"
-			android:layout_width="333dp"
+			android:layout_width="fill_parent"
 			android:layout_height="250dp"
 			class="com.google.android.gms.maps.SupportMapFragment"
-			android:layout_gravity="center_horizontal"/>
-
-		<Button
-			android:layout_width="match_parent"
-			android:layout_height="36dp"
-			android:text="Get Directions"
-			android:id="@+id/button"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="50dp"
-			android:onClick="getDriving()"/>
+			android:layout_gravity="center_horizontal"
+			android:layout_marginLeft="50dp"
+			android:layout_marginRight="50dp"/>
 
 		<LinearLayout
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5dp">
+			android:layout_height="fill_parent">
 
-			<TextView
+			<ImageView
+				android:layout_width="61dp"
+				android:layout_height="49dp"
+				android:id="@+id/imageView2"
+				android:src="@drawable/bird"
+				android:layout_marginLeft="25dp"
+				android:layout_marginTop="25dp"
+				android:layout_marginRight="-35dp"/>
+			<Button
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceMedium"
-				android:text="Borden Grammar School"
-				android:id="@+id/textView5"
-				android:layout_marginLeft="10dp"
-				android:textStyle="bold"/>
+				android:layout_height="70dp"
+				android:rotation="270"
+				android:layout_marginTop="10.5dp"
+				android:background="@drawable/triangle"
+				android:layout_marginRight="3dp"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:text="@string/borden"
-				android:id="@+id/textView6"
-				android:layout_marginLeft="5dp"/>
+			<TableLayout
+				android:layout_width="match_parent"
+				android:layout_height="100dp"
+				android:background="@color/bordenpurple"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginRight="25dp">
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:id="@+id/textView7"
-				android:layout_marginLeft="5dp"/>
+				<TableRow
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="This is a very example tweet for me to use omg example tweety weety"
+						android:id="@+id/tweet"
+						android:layout_column="1"
+						android:layout_marginTop="5dp"
+						android:layout_marginLeft="5dp"
+						android:layout_marginRight="-20dp"
+						android:textColor="@color/bordenyellow"/>
+
+				</TableRow>
+
+				<TableRow
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="bordengrammar | Apr 3 12:40"
+						android:id="@+id/date"
+						android:layout_column="1"
+						android:textColor="@color/bordenyellow"
+						android:textStyle="bold"
+						android:layout_marginLeft="5dp"
+						android:layout_marginBottom="5dp"
+						android:layout_marginTop="5dp"
+						android:layout_marginRight="-20dp"/>
+				</TableRow>
+
+			</TableLayout>
+
 		</LinearLayout>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Could not fetch twitter feed"
-			android:id="@+id/textView3"
-			android:layout_gravity="center_horizontal|left"
-			android:textSize="20sp"
-			android:layout_marginTop="0dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="50dp"/>
 	</LinearLayout>
 </ScrollView>
