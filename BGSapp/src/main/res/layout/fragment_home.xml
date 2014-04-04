@@ -86,12 +86,13 @@
 				android:layout_marginRight="3dp"/>
 
 			<TableLayout
-				android:layout_width="match_parent"
+				android:layout_width="300dp"
 				android:layout_height="100dp"
 				android:background="@color/bordenpurple"
 				android:layout_marginTop="15dp"
 				android:layout_marginBottom="10dp"
-				android:layout_marginRight="25dp">
+				android:layout_marginRight="25dp"
+				>
 
 				<TableRow
 					android:layout_width="fill_parent"
