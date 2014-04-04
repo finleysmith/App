@@ -4,13 +4,13 @@ package com.bordengrammar.bordengrammarapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
 	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
 	private GoogleMap map;
 	private GMapV2Direction md;
+	public static LatLng fromvar;
 
 
 	@Override
@@ -65,20 +66,30 @@ public class HomeFragment extends Fragment {
 
 		TextView t;
 		assert myInflatedView != null;
-		t = (TextView) myInflatedView.findViewById(R.id.textView3);
+		t = (TextView) myInflatedView.findViewById(R.id.tweet);
 		t.setText('"' + readPrefs("twitter") + '"');
 		TextView t1;
-		t1 = (TextView) myInflatedView.findViewById(R.id.textView7);
-		t1.setText(readPrefs("twittertime"));
+		t1 = (TextView) myInflatedView.findViewById(R.id.date);
+		t1.setText("bordengrammar | " + readPrefs("twittertime"));
 
-		Typeface normal = Typeface.createFromAsset(getActivity().getAssets(), "fonts/normal.ttf");
-		Typeface light = Typeface.createFromAsset(getActivity().getAssets(), "fonts/light.tff");
-		Typeface extralight = Typeface.createFromAsset(getActivity().getAssets(), "fonts/extralight.tff");
-		TextView title = (TextView) myInflatedView.findViewById(R.id.title);
+		//Typeface normal = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/normal.ttf");
+		//Typeface light = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/light.tff");
+		//Typeface extralight = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/extralight.tff");
+		//TextView title = (TextView) myInflatedView.findViewById(R.id.title);
 		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
-		info.setTypeface(light);
-		title.setTypeface(extralight);
-		t1.setTypeface(extralight);
+		//info.setTypeface(light);
+		//title.setTypeface(extralight);
+		//t1.setTypeface(extralight);
+
+		//make text bold
+		String sourceString = "<b>" + "Borden Grammar School" + "</b> " + "is a selective boy's grammar school in Sittingbourne, with a fierce commitment to educate, inspire and prepare students academically and socially";
+		info.setText(Html.fromHtml(sourceString));
+
+
+
+
+
+		//getdriving();
 
 
 		return myInflatedView;
@@ -103,6 +114,9 @@ public class HomeFragment extends Fragment {
 
 	}
 
+
+
+
 	public void getdriving() {
 		LocationManager locationManager =
 				(LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -110,11 +124,10 @@ public class HomeFragment extends Fragment {
 		double longitude = location.getLongitude();
 		double latitude = location.getLatitude();
 		LatLng from = new LatLng(latitude, longitude);
-		directions(from);
+		real(from);
+
 	}
-
-
-	public void directions(LatLng from) {
+	public void real(LatLng from){
 		LatLng to = new LatLng(51.337692, 0.734823);
 		GoogleMap mMap = ((SupportMapFragment) getFragmentManager()
 				.findFragmentById(R.id.map)).getMap();
