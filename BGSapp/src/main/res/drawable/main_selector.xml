@@ -21,14 +21,16 @@
 	<item>
 		<shape>
 			<gradient
-				android:type="radial"
+				android:type="linear"
 				android:centerX="0.5"
-				android:centerY="3.8"
+				android:centerY="4.8"
 				android:startColor="#FFf0c600"
 				android:endColor="#FF1b084f"
-				android:gradientRadius="5000">
+				android:angle="90"
+				>
 
 				</gradient>
 		</shape>
 	</item>
 </selector>
+	<!-- android:gradientRadius="5000" -->
