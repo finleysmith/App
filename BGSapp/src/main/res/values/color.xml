@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014.  Finley Smith -->
+<!-- -->
+<!-- This program is free software; you can redistribute it and/or -->
+<!-- modify it under the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation; either version 2 -->
+<!-- of the License, or (at your option) any later version. -->
+<!-- -->
+<!-- This program is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+<!-- -->
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with this program; if not, write to the Free Software -->
+<!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
+<!-- Also add information on how to contact you by electronic and paper mail. -->
+
+
+<resources>
+	<color name="orange">#ff5500</color>
+	<color name="white">#ffffff</color>
+	<color name="transparent">#00000000</color>
+	<color name="date_color">#999999</color>
+	<color name="black">#000000</color>
+	<color name="gray">#999999</color>
+	<color name="blue">#0066cc</color>
+	<color name="gold">#e6b121</color>
+	<color name="blueback">#99FFFF</color>
+	<color name="articlecolor">#3399FF</color>
+	<color name="article_title">#3399FF</color>
+	<color name="cachecolor">#8ad0e8</color>
+	<color name="bordenyellow">#f7ca18</color>
+	<color name="bordenpurple">#1b094f</color>
+</resources>
