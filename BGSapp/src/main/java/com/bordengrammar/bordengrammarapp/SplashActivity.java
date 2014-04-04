@@ -114,7 +114,7 @@ public class SplashActivity extends Activity {
 
 				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
-				Format formatter = new SimpleDateFormat("MMM d, K:mm a");
+				Format formatter = new SimpleDateFormat("MMM d, K:mm");
 				savePrefs("twitter", status.getText());
 				savePrefs("twittertime", formatter.format(status.getCreatedAt()));
 
