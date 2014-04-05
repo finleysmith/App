@@ -1,3 +1,20 @@
+<!-- Copyright (C) 2014.  Finley Smith -->
+<!-- -->
+<!-- This program is free software; you can redistribute it and/or -->
+<!-- modify it under the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation; either version 2 -->
+<!-- of the License, or (at your option) any later version. -->
+<!-- -->
+<!-- This program is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+<!-- -->
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with this program; if not, write to the Free Software -->
+<!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
+<!-- Also add information on how to contact you by electronic and paper mail. -->
+
 <ScrollView
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -86,8 +103,8 @@
 				android:layout_marginRight="3dp"/>
 
 			<TableLayout
-				android:layout_width="300dp"
-				android:layout_height="100dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:background="@color/bordenpurple"
 				android:layout_marginTop="15dp"
 				android:layout_marginBottom="10dp"
@@ -101,13 +118,14 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="This is a very example tweet for me to use omg example tweety weety"
+						android:text="I really need to make a tweet that is a 140 characters to test something out some right now i am making and writing a tweet hi katie 8 donee"
 						android:id="@+id/tweet"
 						android:layout_column="1"
 						android:layout_marginTop="5dp"
+						android:textColor="@color/bordenyellow"
 						android:layout_marginLeft="5dp"
-						android:layout_marginRight="-20dp"
-						android:textColor="@color/bordenyellow"/>
+						android:layout_span="1"
+						android:layout_weight="1"/>
 
 				</TableRow>
 
@@ -124,9 +142,9 @@
 						android:textColor="@color/bordenyellow"
 						android:textStyle="bold"
 						android:layout_marginLeft="5dp"
-						android:layout_marginBottom="5dp"
 						android:layout_marginTop="5dp"
-						android:layout_marginRight="-20dp"/>
+						android:layout_marginRight="-20dp"
+						android:layout_marginBottom="5dp"/>
 				</TableRow>
 
 			</TableLayout>
