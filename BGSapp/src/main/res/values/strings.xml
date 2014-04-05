@@ -41,6 +41,6 @@
     <string name="where">Where we are</string>
     <string name="borden">"@borden  |"</string>
     <string name="error_when_retriving_data">Error.</string>
-    <string name="title_activity_twitter">TwitterActivity</string>
+    <string name="title_activity_twitter">Twitter Feed</string>
 
 </resources>
