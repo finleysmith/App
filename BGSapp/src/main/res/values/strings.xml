@@ -36,7 +36,7 @@
     <string name="title_activity_about">About</string>
     <string name="aboutdetail">Borden Grammar School App</string>
     <string name="copyright">© 2014 Finley Smith</string>
-    <string name="build">Devloper Edition</string>
+    <string name="build">v1.1 BETA</string>
     <string name="where">Where we are</string>
     <string name="borden">"@borden  |"</string>
     <string name="error_when_retriving_data">Error.</string>
