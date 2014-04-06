@@ -99,6 +99,10 @@ public class SettingsActivity extends PreferenceActivity {
 
 				feedBack.show();
 				return true;
+			case R.id.action_privacy:
+				Intent ss = new Intent(SettingsActivity.this, PrivacyActivity.class);
+				startActivity(ss);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}

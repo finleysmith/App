@@ -92,6 +92,10 @@ public class AboutActivity extends Activity {
 				logIt("feedback");
 				feedBack.show(); //show the feedback that we declared
 				return true;
+			case R.id.action_privacy:
+				Intent ss = new Intent(AboutActivity.this, PrivacyActivity.class);
+				startActivity(ss);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -119,6 +123,8 @@ public class AboutActivity extends Activity {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
 
 	}
+
+
 	public void feedbackapp(View view) {
 		feedBack.show();
 	}
