@@ -31,6 +31,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
@@ -52,12 +54,13 @@ public class TwitterActivity extends Activity {
 	private FeedbackDialog feedBack;
 	private ActionBar actionBar;
 	public static String PACKAGE_NAME;
+	ListView listView;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about);
+		setContentView(R.layout.activity_twitter);
 		FeedbackSettings feedbackSettings = new FeedbackSettings();
 		feedbackSettings.setCancelButtonText("Cancel");
 		feedbackSettings.setSendButtonText("Send");
@@ -106,11 +109,62 @@ public class TwitterActivity extends Activity {
 		twitter4j.Status status7 = statuses.get(6);
 		twitter4j.Status status8 = statuses.get(7);
 		twitter4j.Status status9 = statuses.get(8);
-		twitter4j.Status satus10 = statuses.get(9);
+		twitter4j.Status status10 = statuses.get(9);
+
+		TextView time1 = (TextView)findViewById(R.id.time1);
+		TextView time2 = (TextView)findViewById(R.id.time2);
+		TextView time3 = (TextView)findViewById(R.id.time3);
+		TextView time4 = (TextView)findViewById(R.id.time4);
+		TextView time5 = (TextView)findViewById(R.id.time5);
+		TextView time6 = (TextView)findViewById(R.id.time6);
+		TextView time7 = (TextView)findViewById(R.id.time7);
+		TextView time8 = (TextView)findViewById(R.id.time8);
+		TextView time9 = (TextView)findViewById(R.id.time9);
+		TextView time10 = (TextView)findViewById(R.id.time10);
+
+		time1.setText(formatter.format(status1.getCreatedAt()));
+		time2.setText(formatter.format(status2.getCreatedAt()));
+		time3.setText(formatter.format(status3.getCreatedAt()));
+		time4.setText(formatter.format(status4.getCreatedAt()));
+		time5.setText(formatter.format(status5.getCreatedAt()));
+		time6.setText(formatter.format(status6.getCreatedAt()));
+		time7.setText(formatter.format(status7.getCreatedAt()));
+		time8.setText(formatter.format(status8.getCreatedAt()));
+		time9.setText(formatter.format(status9.getCreatedAt()));
+		time10.setText(formatter.format(status10.getCreatedAt()));
+
+		TextView text1 = (TextView)findViewById(R.id.text1);
+		TextView text2 = (TextView)findViewById(R.id.text2);
+		TextView text3 = (TextView)findViewById(R.id.text3);
+		TextView text4 = (TextView)findViewById(R.id.text4);
+		TextView text5 = (TextView)findViewById(R.id.text5);
+		TextView text6 = (TextView)findViewById(R.id.text6);
+		TextView text7 = (TextView)findViewById(R.id.text7);
+		TextView text8 = (TextView)findViewById(R.id.text8);
+		TextView text9 = (TextView)findViewById(R.id.text9);
+		TextView text10 = (TextView)findViewById(R.id.text10);
+
+		text1.setText(status1.getText());
+		text2.setText(status2.getText());
+		text3.setText(status3.getText());
+		text4.setText(status4.getText());
+		text5.setText(status5.getText());
+		text6.setText(status6.getText());
+		text7.setText(status7.getText());
+		text8.setText(status8.getText());
+		text9.setText(status9.getText());
+		text10.setText(status10.getText());
+
+		/* i think i could have used a for loop... oh well i typed it all already. */
+
+
+
+
 
 
 
 	}
+
 
 
 	@Override
@@ -147,6 +201,10 @@ public class TwitterActivity extends Activity {
 			case R.id.action_feedback: //if they clciked send feedback
 				logIt("feedback");
 				feedBack.show(); //show the feedback that we declared
+				return true;
+			case R.id.action_privacy:
+				Intent ss = new Intent(TwitterActivity.this, PrivacyActivity.class);
+				startActivity(ss);
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

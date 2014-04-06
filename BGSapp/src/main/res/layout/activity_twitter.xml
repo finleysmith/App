@@ -15,8 +15,192 @@
 <!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
 <!-- Also add information on how to contact you by electronic and paper mail. -->
 
-<ListView
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/listView"></ListView>
+	android:background="@color/bordenyellow">
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text1"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time1"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text2"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time2"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text3"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time3"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text4"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time4"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text5"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time5"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text6"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time6"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text7"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time7"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text8"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time8"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text9"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time9"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Large Text"
+		android:id="@+id/text10"
+		android:paddingTop="5dp"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Small Text"
+		android:id="@+id/time10"
+		android:paddingLeft="10dp"
+		android:textColor="@color/bordenpurple"/>
+
+</LinearLayout>
