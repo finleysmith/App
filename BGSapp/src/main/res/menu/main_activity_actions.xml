@@ -32,6 +32,11 @@
 		android:orderInCategory="100"
 		android:showAsAction="never"
 		android:title="Settings" />
+	<item
+		android:id="@+id/action_privacy"
+		android:orderInCategory="101"
+		android:showAsAction="never"
+		android:title="Privacy Policy" />
 
     <!-- Facebook, should appear as action button -->
     <item
