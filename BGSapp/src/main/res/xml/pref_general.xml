@@ -24,8 +24,8 @@
         android:defaultValue="true" />
 	<CheckBoxPreference
 		android:key="stats"
-		android:title="Send anonymous user data"
-		android:summary="Send borden anonymous user stastics"
+		android:title="Share statistics"
+		android:summary="Borden will only use this infomation to analyse and improve the services made through this app. For more infomation see our privacy policy."
 		android:defaultValue="true" />
 
 
