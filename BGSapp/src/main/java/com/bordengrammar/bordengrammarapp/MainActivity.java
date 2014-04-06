@@ -31,11 +31,8 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -46,11 +43,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
@@ -200,6 +197,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		        Intent s = new Intent(MainActivity.this, SettingsActivity.class);
 		        startActivity(s);
 		        return true;
+	        case R.id.action_privacy:
+		        Intent ss = new Intent(MainActivity.this, PrivacyActivity.class);
+		        startActivity(ss);
+		        return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -227,6 +228,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void logIt(String it) {
         Log.w(TAG, it);
     }
+	public void twitactiv(View view){
+		Intent y = new Intent(MainActivity.this, TwitterActivity.class);
+		startActivity(y);
+		return;
+	}
+
 
 
 
