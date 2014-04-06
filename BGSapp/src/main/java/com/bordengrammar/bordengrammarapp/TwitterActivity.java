@@ -95,7 +95,6 @@ public class TwitterActivity extends Activity {
 		} catch (TwitterException e) {
 			e.printStackTrace();
 		}
-
 		assert statuses != null;
 		twitter4j.Status status1 = statuses.get(0);
 		Format formatter = new SimpleDateFormat("MMM d, K:mm");
@@ -110,7 +109,6 @@ public class TwitterActivity extends Activity {
 		twitter4j.Status status8 = statuses.get(7);
 		twitter4j.Status status9 = statuses.get(8);
 		twitter4j.Status status10 = statuses.get(9);
-
 		TextView time1 = (TextView)findViewById(R.id.time1);
 		TextView time2 = (TextView)findViewById(R.id.time2);
 		TextView time3 = (TextView)findViewById(R.id.time3);
@@ -121,7 +119,6 @@ public class TwitterActivity extends Activity {
 		TextView time8 = (TextView)findViewById(R.id.time8);
 		TextView time9 = (TextView)findViewById(R.id.time9);
 		TextView time10 = (TextView)findViewById(R.id.time10);
-
 		time1.setText(formatter.format(status1.getCreatedAt()));
 		time2.setText(formatter.format(status2.getCreatedAt()));
 		time3.setText(formatter.format(status3.getCreatedAt()));
@@ -132,7 +129,6 @@ public class TwitterActivity extends Activity {
 		time8.setText(formatter.format(status8.getCreatedAt()));
 		time9.setText(formatter.format(status9.getCreatedAt()));
 		time10.setText(formatter.format(status10.getCreatedAt()));
-
 		TextView text1 = (TextView)findViewById(R.id.text1);
 		TextView text2 = (TextView)findViewById(R.id.text2);
 		TextView text3 = (TextView)findViewById(R.id.text3);
@@ -143,7 +139,6 @@ public class TwitterActivity extends Activity {
 		TextView text8 = (TextView)findViewById(R.id.text8);
 		TextView text9 = (TextView)findViewById(R.id.text9);
 		TextView text10 = (TextView)findViewById(R.id.text10);
-
 		text1.setText(status1.getText());
 		text2.setText(status2.getText());
 		text3.setText(status3.getText());
@@ -154,15 +149,7 @@ public class TwitterActivity extends Activity {
 		text8.setText(status8.getText());
 		text9.setText(status9.getText());
 		text10.setText(status10.getText());
-
 		/* i think i could have used a for loop... oh well i typed it all already. */
-
-
-
-
-
-
-
 	}
 
 
