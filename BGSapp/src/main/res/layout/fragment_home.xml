@@ -78,15 +78,15 @@
 			android:layout_height="250dp"
 			class="com.google.android.gms.maps.SupportMapFragment"
 			android:layout_gravity="center_horizontal"
-			android:layout_marginLeft="50dp"
-			android:layout_marginRight="50dp"/>
+			android:layout_marginLeft="25dp"
+			android:layout_marginRight="25dp"/>
 
 		<LinearLayout
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="fill_parent"
 			android:onClick="twitactiv"
-			android:layout_marginRight="50dp">
+			android:layout_marginRight="25dp">
 
 			<ImageView
 				android:layout_width="61dp"
@@ -110,7 +110,6 @@
 				android:background="@color/bordenpurple"
 				android:layout_marginTop="15dp"
 				android:layout_marginBottom="10dp"
-				android:layout_marginRight="25dp"
 				>
 
 				<TableRow
