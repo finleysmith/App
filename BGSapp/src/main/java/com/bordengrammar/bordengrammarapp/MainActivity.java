@@ -155,6 +155,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedbackSettings.setTitle("Feedback");
 	    feedbackSettings.setToast("We value your feedback");
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+
     }
 
 
@@ -219,6 +220,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         viewPager.setCurrentItem(tab.getPosition());
+
     }
 
     @Override

@@ -17,6 +17,7 @@
 
 <ScrollView
 	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="#f7ca18"
@@ -39,7 +40,7 @@
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/homelogo"/>
 
-		<TextView
+		<com.devspark.robototextview.widget.RobotoTextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceLarge"
@@ -47,7 +48,8 @@
 			android:id="@+id/title"
 			android:layout_gravity="center_horizontal"
 			android:textColor="#1b094f"
-			android:textSize="48dp"/>
+			android:textSize="48dp"
+			app:typeface="roboto_light"/>
 
 		<TextView
 			android:id="@+id/info"
@@ -61,7 +63,7 @@
 			android:textAlignment="center"
 			android:gravity="center"/>
 
-		<TextView
+		<com.devspark.robototextview.widget.RobotoTextView
 			android:id="@+id/wheretitle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -71,7 +73,8 @@
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_gravity="center_horizontal"
 			android:textColor="#1b094f"
-			android:textSize="48dp"/>
+			android:textSize="48dp"
+			app:typeface="roboto_light"/>
 		<fragment
 			android:id="@+id/map"
 			android:layout_width="fill_parent"
@@ -116,7 +119,7 @@
 					android:layout_width="fill_parent"
 					android:layout_height="fill_parent">
 
-					<TextView
+					<com.devspark.robototextview.widget.RobotoTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="I really need to make a tweet that is a 140 characters to test something out some right now i am making and writing a tweet hi katie 8 donee"
@@ -126,7 +129,8 @@
 						android:textColor="@color/bordenyellow"
 						android:layout_marginLeft="5dp"
 						android:layout_span="1"
-						android:layout_weight="1"/>
+						android:layout_weight="1"
+						app:typeface="roboto_light"/>
 
 				</TableRow>
 
@@ -134,18 +138,18 @@
 					android:layout_width="fill_parent"
 					android:layout_height="fill_parent">
 
-					<TextView
+					<com.devspark.robototextview.widget.RobotoTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="bordengrammar | Apr 3 12:40"
 						android:id="@+id/date"
 						android:layout_column="1"
 						android:textColor="@color/bordenyellow"
-						android:textStyle="bold"
 						android:layout_marginLeft="5dp"
 						android:layout_marginTop="5dp"
 						android:layout_marginRight="-20dp"
-						android:layout_marginBottom="5dp"/>
+						android:layout_marginBottom="5dp"
+						app:typeface="roboto_bold"/>
 
 				</TableRow>
 
