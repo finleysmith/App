@@ -93,14 +93,9 @@ public class HomeFragment extends Fragment {
 
 
 
-		//Typeface normal = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/normal.ttf");
-		//Typeface light = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/light.tff");
-		//Typeface extralight = Typeface.createFromAsset(getActivity().getResources().getAssets(), "fonts/extralight.tff");
-		//TextView title = (TextView) myInflatedView.findViewById(R.id.title);
+
 		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
-		//info.setTypeface(light);
-		//title.setTypeface(extralight);
-		//t1.setTypeface(extralight);
+
 
 		//make text bold
 		String sourceString = "<b>" + "Borden Grammar School" + "</b> " + "is a selective boy's grammar school in Sittingbourne, with a fierce commitment to educate, inspire and prepare students academically and socially";
