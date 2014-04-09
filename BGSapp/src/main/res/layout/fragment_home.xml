@@ -88,7 +88,6 @@
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="fill_parent"
-			android:onClick="twitactiv"
 			android:layout_marginRight="25dp">
 
 			<ImageView
@@ -112,7 +111,6 @@
 				android:layout_height="wrap_content"
 				android:background="@color/bordenpurple"
 				android:layout_marginTop="15dp"
-				android:layout_marginBottom="10dp"
 				>
 
 				<TableRow
@@ -148,7 +146,7 @@
 						android:layout_marginLeft="5dp"
 						android:layout_marginTop="5dp"
 						android:layout_marginRight="-20dp"
-						android:layout_marginBottom="5dp"
+						android:layout_marginBottom="3dp"
 						app:typeface="roboto_bold"/>
 
 				</TableRow>
@@ -162,6 +160,29 @@
 			</TableLayout>
 
 		</LinearLayout>
+
+		<com.devspark.robototextview.widget.RobotoTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Read previous tweets..."
+			android:id="@+id/textView"
+			android:textSize="15dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginBottom="3dp"
+			app:typeface="roboto_bold"
+			android:clickable="true"
+			android:onClick="twitactiv"
+			android:textIsSelectable="false"
+			android:textColor="@color/bordenpurple"
+			android:layout_marginTop="3dp"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 
 	</LinearLayout>
 </ScrollView>
