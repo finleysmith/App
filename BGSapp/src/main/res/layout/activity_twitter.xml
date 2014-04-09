@@ -46,6 +46,17 @@
 			android:id="@+id/time1"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"/>
+
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -64,6 +75,15 @@
 			android:id="@+id/time2"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -82,6 +102,15 @@
 			android:id="@+id/time3"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -100,6 +129,15 @@
 			android:id="@+id/time4"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -118,6 +156,15 @@
 			android:id="@+id/time5"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -136,6 +183,15 @@
 			android:id="@+id/time6"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -154,6 +210,15 @@
 			android:id="@+id/time7"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -172,6 +237,15 @@
 			android:id="@+id/time8"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -190,6 +264,15 @@
 			android:id="@+id/time9"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -208,6 +291,15 @@
 			android:id="@+id/time10"
 			android:paddingLeft="10dp"
 			android:textColor="@color/bordenpurple"/>
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@color/bordenpurple"
+			android:layout_marginRight="25dp"
+			android:layout_marginLeft="25dp"
+			android:layout_marginTop="10dp"
+			android:clickable="true"
+			android:layout_marginBottom="10dp"/>
 
 	</LinearLayout>
 	</ScrollView>
