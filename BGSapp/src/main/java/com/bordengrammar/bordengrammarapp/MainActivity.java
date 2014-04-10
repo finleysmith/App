@@ -30,12 +30,10 @@ package com.bordengrammar.bordengrammarapp;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -46,14 +44,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.maps.MapsInitializer;
 import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
-
-import fr.nicolaspomepuy.discreetapprate.AppRate;
-import fr.nicolaspomepuy.discreetapprate.RetryPolicy;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -85,37 +78,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         PACKAGE_NAME = getApplicationContext().getPackageName();
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         setContentView(R.layout.activity_main);
-	    if (android.os.Build.VERSION.SDK_INT > 9) {
-		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		    StrictMode.setThreadPolicy(policy);
-	    }
+	    //if (android.os.Build.VERSION.SDK_INT > 9) {
+		//    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		//    StrictMode.setThreadPolicy(policy);
+	    //}
 	    
 
 	    if (settings.getBoolean("my_first_time", true)) {
             settings.edit().putBoolean("my_first_time", false).commit();
-        } else {
-            AppRate.with(this).text("Help Borden by rating the app!");
-            AppRate.with(this).retryPolicy(RetryPolicy.EXPONENTIAL);
-            AppRate.with(this).checkAndShow(); //create the dialog
-            AppRate.with(this).listener(new AppRate.OnShowListener() {
-                @Override
-                public void onRateAppShowing() {
-
-                }
-                @Override
-                public void onRateAppDismissed() {
-
-                }
-                @Override
-                public void onRateAppClicked() {
-                    try {
-	                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
-                    } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
-                    }
-                }
-            });
-
         }
 
 
@@ -143,11 +113,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-	    try {
-		    MapsInitializer.initialize(getApplicationContext());
-	    } catch (GooglePlayServicesNotAvailableException e) {
-		    e.printStackTrace();
-	    }
+
 	    FeedbackSettings feedbackSettings = new FeedbackSettings();
 	    feedbackSettings.setCancelButtonText("Cancel");
 	    feedbackSettings.setSendButtonText("Send");
