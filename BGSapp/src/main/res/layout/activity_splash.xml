@@ -55,17 +55,6 @@
 		android:layout_marginTop="10dp"
 		android:layout_gravity="center_horizontal"
 		android:layout_marginBottom="10dp"/>
-	<TextView
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginBottom="0dp"
-		android:textSize="14dp"
-		android:textColor="#FFFFFF"
-		android:gravity="center_horizontal"
-		android:layout_alignParentBottom="true"
-		android:text="Borden Grammar School App"
-		android:layout_gravity="center_horizontal|bottom"/>
-
 
 
 </LinearLayout>
