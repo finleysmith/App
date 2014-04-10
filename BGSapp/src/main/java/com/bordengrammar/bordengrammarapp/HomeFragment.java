@@ -48,37 +48,27 @@ public class HomeFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-
-
 		View myInflatedView = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-
 
 
 		map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
 				.getMap();
+		try {
+			Marker borden = map.addMarker(new MarkerOptions()
+					.position(BORDEN)
+					.title("Borden Grammar School")
+					.icon(BitmapDescriptorFactory
+							.fromResource(R.drawable.ic_launcher)));
+			map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+			map.setMyLocationEnabled(true);
+			map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
 
 
-
-
-		Marker borden = map.addMarker(new MarkerOptions()
-				.position(BORDEN)
-				.title("Borden Grammar School")
-				.icon(BitmapDescriptorFactory
-						.fromResource(R.drawable.ic_launcher)));
-
-
-		// Move the camera instantly to borden with a zoom of 15.
-		map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-		map.setMyLocationEnabled(true);
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(BORDEN, 15));
-
-
-		// Zoom in, animating the camera.
-		map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-
-
+			// Zoom in, animating the camera.
+			map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
 
 
 		TextView t;
