@@ -61,10 +61,10 @@ android {
 
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:+'
+
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.android.gms:play-services:4.3.23'
-    compile 'com.github.johnkil.android-robototextview:robototextview:2.0.0'
+    compile 'com.android.support:appcompat-v7:+'
     compile files('libs/feedback_v5.jar')
     compile files('libs/Parse-1.4.1.jar')
     compile files('libs/twitter4j-core-4.0.1.jar')
