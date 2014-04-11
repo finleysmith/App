@@ -52,6 +52,7 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		final TextView t = (TextView)findViewById(R.id.prog);
+		t.setText(".");
 
 		/**
 		 * Showing splashscreen while making network calls to download necessary
@@ -66,7 +67,7 @@ public class SplashActivity extends Activity {
 			public void run() {
 				if ( prefetchData.getStatus() == AsyncTask.Status.RUNNING )
 					prefetchData.cancel(true);
-					t.setText("Timeout");
+					t.setText("Timed out.");
 					if(readPrefs("twitter").isEmpty()){
 					savePrefs("twitter", "Timed out when getting tweets, do you have internet or is it slow?");
 					}
@@ -90,7 +91,7 @@ public class SplashActivity extends Activity {
 			super.onPreExecute();
 			// before making http calls
 			TextView t = (TextView)findViewById(R.id.prog);
-			t.setText("Fetching Web Data");
+			t.setText("..");
 
 		}
 
@@ -154,7 +155,7 @@ public class SplashActivity extends Activity {
 				savePrefs("twitter", "Error retriving tweets");
 			}
 			TextView t = (TextView)findViewById(R.id.prog);
-			t.setText("Launching App");
+			t.setText("...");
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
 			startActivity(i);
 
