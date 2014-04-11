@@ -1,0 +1,18 @@
+<resources>
+
+    <declare-styleable name="FancyTextView">
+        <attr name="typeface"/>
+    </declare-styleable>
+
+    
+
+    <!-- Changing the attribute must be reflected in the FancyTypefaceManager -->
+    <attr name="typeface" format="enum">
+        <enum name="SANS_EXTRALIGHT" value="0"/>
+        <enum name="SANS_LIGHT" value="1"/>
+        <enum name="SANS_REGULAR" value="2"/>
+        <enum name="SANS_SEMIBOLD" value="3"/>
+        <enum name="SANS_BOLD" value="4"/>        
+    </attr>
+
+</resources>

@@ -40,7 +40,7 @@
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/homelogo"/>
 
-		<com.devspark.robototextview.widget.RobotoTextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceLarge"
@@ -49,9 +49,9 @@
 			android:layout_gravity="center_horizontal"
 			android:textColor="#1b094f"
 			android:textSize="48dp"
-			app:typeface="roboto_light"/>
+			app:typeface="SANS_LIGHT"/>
 
-		<TextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
 			android:id="@+id/info"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -61,9 +61,10 @@
 			android:layout_marginLeft="25dp"
 			android:layout_marginRight="25dp"
 			android:textAlignment="center"
-			android:gravity="center"/>
+			android:gravity="center"
+			app:typeface="SANS_REGULAR"/>
 
-		<com.devspark.robototextview.widget.RobotoTextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
 			android:id="@+id/wheretitle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -74,7 +75,7 @@
 			android:layout_gravity="center_horizontal"
 			android:textColor="#1b094f"
 			android:textSize="48dp"
-			app:typeface="roboto_light"/>
+			app:typeface="SANS_LIGHT"/>
 		<fragment
 			android:id="@+id/map"
 			android:layout_width="fill_parent"
@@ -117,7 +118,7 @@
 					android:layout_width="fill_parent"
 					android:layout_height="fill_parent">
 
-					<com.devspark.robototextview.widget.RobotoTextView
+					<com.bordengrammar.bordengrammarapp.FancyTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="I really need to make a tweet that is a 140 characters to test something out some right now i am making and writing a tweet hi katie 8 donee"
@@ -128,7 +129,7 @@
 						android:layout_marginLeft="5dp"
 						android:layout_span="1"
 						android:layout_weight="1"
-						app:typeface="roboto_light"/>
+						app:typeface="SANS_LIGHT"/>
 
 				</TableRow>
 
@@ -136,7 +137,7 @@
 					android:layout_width="fill_parent"
 					android:layout_height="fill_parent">
 
-					<com.devspark.robototextview.widget.RobotoTextView
+					<com.bordengrammar.bordengrammarapp.FancyTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="bordengrammar | Apr 3 12:40"
@@ -147,7 +148,7 @@
 						android:layout_marginTop="5dp"
 						android:layout_marginRight="-20dp"
 						android:layout_marginBottom="3dp"
-						app:typeface="roboto_bold"/>
+						app:typeface="SANS_BOLD"/>
 
 				</TableRow>
 
@@ -161,7 +162,7 @@
 
 		</LinearLayout>
 
-		<com.devspark.robototextview.widget.RobotoTextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Read previous tweets..."
@@ -169,7 +170,7 @@
 			android:textSize="15dp"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginBottom="3dp"
-			app:typeface="roboto_bold"
+			app:typeface="SANS_BOLD"
 			android:clickable="true"
 			android:onClick="twitactiv"
 			android:textIsSelectable="false"
