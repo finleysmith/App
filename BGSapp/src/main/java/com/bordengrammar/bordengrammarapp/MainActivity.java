@@ -48,7 +48,6 @@ import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
-
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /* Variable/Object Declaration */
@@ -154,8 +153,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 return true;
             case R.id.facebook:
                 logIt("Facebook button clicked");
-                Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
-                startActivity(faceBrowserIntent);
+	            ChangeLogDialog dia = new ChangeLogDialog(this);
+	            dia.show();
+                //Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
+                //startActivity(faceBrowserIntent);
                 return true;
             case R.id.website:
                 Log.i(TAG, "Website Clicked");
