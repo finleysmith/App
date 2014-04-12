@@ -89,12 +89,21 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
 
 
+
+
+
 	    viewPager = (ViewPager) findViewById(R.id.pager);
-        actionBar = getActionBar();
         TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
+
+
+
+	    actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	    actionBar.setDisplayShowTitleEnabled(false);
+
+
         for (String tab_name : tabs) {
             actionBar.addTab(actionBar.newTab().setText(tab_name)
                     .setTabListener(this));
@@ -103,6 +112,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
+
+
+
             }
 
             @Override
@@ -113,6 +125,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             public void onPageScrollStateChanged(int arg0) {
             }
         });
+
 
 	    FeedbackSettings feedbackSettings = new FeedbackSettings();
 	    feedbackSettings.setCancelButtonText("Cancel");
