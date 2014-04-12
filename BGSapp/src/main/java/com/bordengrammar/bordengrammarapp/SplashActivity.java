@@ -18,6 +18,7 @@
 package com.bordengrammar.bordengrammarapp;
 
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -52,7 +53,17 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		final TextView t = (TextView) findViewById(R.id.splashprog);
-		t.setText("Loading ..");
+		t.setText("Loading");
+		ValueAnimator animator = ValueAnimator.ofInt(0, 100);
+		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				int currentValue = (Integer) animation.getAnimatedValue();
+				t.setText("Loading " + currentValue + "%");
+			}
+		});
+		animator.setDuration(2000);
+		animator.start();
 
 
 		/**
@@ -70,7 +81,7 @@ public class SplashActivity extends Activity {
 					prefetchData.cancel(true);
 					if(readPrefs("twitter").isEmpty()){
 					savePrefs("twitter", "Timed out when getting tweets, do you have internet or is it slow?");
-					t.setText("Error no internet connection");
+
 					}
 
 					Intent i = new Intent(SplashActivity.this, MainActivity.class);
@@ -121,8 +132,7 @@ public class SplashActivity extends Activity {
 				TwitterFactory tf = new TwitterFactory(cb.build());
 				Twitter twitter = tf.getInstance();
 				List<twitter4j.Status> statuses = null;
-				TextView t = (TextView) findViewById(R.id.splashprog);
-				t.setText("Loading ..");
+
 				String user;
 				user = "epicfinley";
 				try {
@@ -130,13 +140,13 @@ public class SplashActivity extends Activity {
 				} catch (TwitterException e) {
 					e.printStackTrace();
 				}
-				t.setText("Loading ...");
+
 				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
 				Format formatter = new SimpleDateFormat("MMM d, K:mm");
 				savePrefs("twitter", status.getText());
 				savePrefs("twittertime", formatter.format(status.getCreatedAt()));
-				t.setText("Loading .");
+
 
 			} else {
 				Log.e(LOG_TAG, "No internet");
@@ -156,8 +166,7 @@ public class SplashActivity extends Activity {
 			if(readPrefs("twitter").isEmpty()){
 				savePrefs("twitter", "Error retriving tweets");
 			}
-			TextView t = (TextView) findViewById(R.id.splashprog);
-			t.setText("Loading ..");
+
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
 			startActivity(i);
 
