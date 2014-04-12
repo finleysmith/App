@@ -54,6 +54,22 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         // THIS MUST EQUAL THE NUMBER OF TABS YOU HAVE
         return 3;
     }
+	public CharSequence getPageTitle(int position) {
+
+		if (position == 0)
+		{
+			return "Home";
+		}
+		if (position == 1)
+		{
+			return "Parents";
+		}
+		if (position == 2)
+		{
+			return "Students";
+		}
+		return null;
+	}
 
 }
 //random comment for video on git gui
