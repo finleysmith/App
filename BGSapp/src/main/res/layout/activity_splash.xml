@@ -17,44 +17,39 @@
 <!-- Also add information on how to contact you by electronic and paper mail. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
 			  	android:orientation="vertical"
-				android:layout_width="fill_parent"
-				android:layout_height="fill_parent"
-				android:background="@drawable/ab_solid_example" >
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@color/bordenyellow" >
 
 	<ImageView
-		android:id="@+id/imgLogo"
-		android:layout_width="350dp"
-		android:layout_height="350dp"
-		android:src="@drawable/logo"
+		android:id="@+id/splashlogo"
+		android:layout_width="250dp"
+		android:layout_height="250dp"
+		android:src="@drawable/homelogo"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center_horizontal"
-		/>
-
-
-
-	<ProgressBar
+		android:layout_marginTop="50dp"/>
+	<com.bordengrammar.bordengrammarapp.FancyTextView
+		android:id="@+id/splashtitle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:id="@+id/progressBar"
-		android:layout_below="@+id/imgLogo"
-		android:layout_alignRight="@+id/imgLogo"
-		android:layout_alignEnd="@+id/imgLogo"
-		android:layout_marginTop="15dp"
-		android:layout_gravity="center_horizontal"/>
-
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Fetching Data"
-		android:id="@+id/prog"
-		android:layout_below="@+id/progressBar"
-		android:layout_centerHorizontal="true"
-		android:textColor="#7a7a7d"
-		android:layout_marginTop="10dp"
+		android:text="@string/app_name"
 		android:layout_gravity="center_horizontal"
-		android:layout_marginBottom="10dp"/>
+		android:textColor="#1b094f"
+		android:textSize="48dp"
+		app:typeface="SANS_LIGHT"/>
+	<com.bordengrammar.bordengrammarapp.FancyTextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Loading ."
+		android:layout_gravity="center_horizontal"
+		android:textColor="#1b094f"
+		android:textSize="12dp"
+		app:typeface="SANS_LIGHT"
+		android:id="@+id/splashprog"/>
 
 
 </LinearLayout>
