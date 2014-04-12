@@ -42,10 +42,7 @@
 
     <uses-permission android:name="com.bordengrammar.bordengrammarapp.permission.MAPS_RECEIVE" />
 
-    <!--
-	  IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
-	  to match your app's package name + ".permission.C2D_MESSAGE".
-    -->
+
     <permission
         android:name="com.bordengrammar.bordengrammarapp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -91,8 +88,6 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
                 <category android:name="com.bordengrammar.bordengrammarapp" />
             </intent-filter>
         </receiver>
