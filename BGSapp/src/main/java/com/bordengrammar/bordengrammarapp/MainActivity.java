@@ -44,6 +44,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
+import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
@@ -67,6 +68,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+	    ut.startup();
 	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
 	    Boolean stats = mainsettings.getBoolean("stats", false);
 	    if(stats) {
@@ -149,14 +151,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         switch (item.getItemId()) {
             case android.R.id.home:
                 viewPager.setCurrentItem(0);
-                logIt("Used home button");
+                ut.logIt("Used home button");
                 return true;
             case R.id.facebook:
-                logIt("Facebook button clicked");
-	            ChangeLogDialog dia = new ChangeLogDialog(this);
-	            dia.show();
-                //Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
-                //startActivity(faceBrowserIntent);
+                ut.logIt("Facebook button clicked");
+                Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
+                startActivity(faceBrowserIntent);
                 return true;
             case R.id.website:
                 Log.i(TAG, "Website Clicked");
@@ -164,23 +164,27 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 startActivity(websiteBrowserIntent);
                 return true;
             case R.id.action_settings:
-                logIt("clicked about");
+                ut.logIt("clicked about");
 	            Intent i = new Intent(MainActivity.this, AboutActivity.class);
 	            startActivity(i);
 
 	            return true;
             case R.id.action_feedback:
-                logIt("feedback");
+                ut.logIt("feedback");
                 feedBack.show();
                 return true;
 	        case R.id.action_realsettings:
-		        logIt("settings");
+		        ut.logIt("settings");
 		        Intent s = new Intent(MainActivity.this, SettingsActivity.class);
 		        startActivity(s);
 		        return true;
 	        case R.id.action_privacy:
 		        Intent ss = new Intent(MainActivity.this, PrivacyActivity.class);
 		        startActivity(ss);
+		        return true;
+	        case R.id.action_change:
+		        ChangeLogDialog dia = new ChangeLogDialog(this);
+		        dia.show();
 		        return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -207,9 +211,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
 
-    public void logIt(String it) {
-        Log.w(TAG, it);
-    }
+
+    //public void logIt(String it) {
+    //    Log.w(TAG, it);
+    //}
 	public void twitactiv(View view){
 		Intent y = new Intent(MainActivity.this, TwitterActivity.class);
 		startActivity(y);

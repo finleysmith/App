@@ -113,8 +113,8 @@ public class ChangeLogDialog {
 		}
 		changelogBuilder.append("</ul>");
 	}
-
 	//CSS style for the html
+
 	private String getStyle() {
 		return String.format("<style type=\"text/css\">%s</style>", mStyle);
 	}
