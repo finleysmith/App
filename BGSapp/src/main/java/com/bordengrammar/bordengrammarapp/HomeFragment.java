@@ -71,9 +71,9 @@ public class HomeFragment extends Fragment {
 		}
 
 
-		TextView t;
+
 		assert myInflatedView != null;
-		t = (TextView) myInflatedView.findViewById(R.id.tweet);
+		TextView t = (TextView) myInflatedView.findViewById(R.id.tweet);
 		t.setText('"' + readPrefs("twitter") + '"');
 
 		TextView t1;
@@ -88,6 +88,7 @@ public class HomeFragment extends Fragment {
 
 
 		//make text bold
+		//using html
 		String sourceString = "<b>" + "Borden Grammar School" + "</b> " + "is a selective boy's grammar school in Sittingbourne, with a fierce commitment to educate, inspire and prepare students academically and socially";
 		info.setText(Html.fromHtml(sourceString));
 

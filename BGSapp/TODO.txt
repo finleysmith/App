@@ -1,12 +1,12 @@
 / = DONE - = NEARLY DONE
-1.	Fix push settings -
+/1.	Fix push settings -
 2. Add content(PHONE):
 	Home Tab:
-		Title
-		Text
-		Sperator
-		Map
-		Twitter
+//		Title
+//		Text
+//		Sperator
+//		Map
+//		Twitter
 		Contact
 	Parents TAB:
-		Latest news and letters
+//		Latest news and letters
