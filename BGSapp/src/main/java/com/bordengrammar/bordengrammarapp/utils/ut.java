@@ -43,7 +43,7 @@ public class ut {
 		logIt("-----------------------------------------------------");
 		logIt("-                                                   -");
 		String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-		logIt("-              " + mydate + "                   -");
+		logIt("-              " + mydate + "              -");
 		logIt("-----------------------------------------------------");
 
 	}
