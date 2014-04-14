@@ -42,15 +42,11 @@ public class HomeFragment extends Fragment {
 	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
 	private GoogleMap map;
 
-	public static LatLng fromvar;
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View myInflatedView = inflater.inflate(R.layout.fragment_home, container, false);
-
-
 		map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
 				.getMap();
 		try {
@@ -69,38 +65,15 @@ public class HomeFragment extends Fragment {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-
-
-
-		assert myInflatedView != null;
 		TextView t = (TextView) myInflatedView.findViewById(R.id.tweet);
 		t.setText('"' + readPrefs("twitter") + '"');
-
 		TextView t1;
 		t1 = (TextView) myInflatedView.findViewById(R.id.date);
 		String source2 = "&#64;";
 		t1.setText(Html.fromHtml(source2) + "bordengrammar | " + readPrefs("twittertime"));
-
-
-
-
 		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
-
-
-		//make text bold
-		//using html
 		String sourceString = "<b>" + "Borden Grammar School" + "</b> " + "is a selective boy's grammar school in Sittingbourne, with a fierce commitment to educate, inspire and prepare students academically and socially";
 		info.setText(Html.fromHtml(sourceString));
-
-
-
-
-
-
-
-		//getdriving();
-
-
 		return myInflatedView;
 	}
 
