@@ -45,7 +45,6 @@ import android.view.View;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.bordengrammar.bordengrammarapp.utils.ut;
-import com.parse.ParseAnalytics;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
@@ -54,7 +53,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     /* Variable/Object Declaration */
 
 
-    public static String PACKAGE_NAME; //Used to for apprate to send it to approaite app in play store
+
     public String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
     private ViewPager viewPager; //For the viewpager used to render the swyping
     private ActionBar actionBar; //Action bar
@@ -70,19 +69,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onCreate(Bundle savedInstanceState) {
 	    ut.startup();
 	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
+	    /*
 	    Boolean stats = mainsettings.getBoolean("stats", false);
+
 	    if(stats) {
 		    ParseAnalytics.trackAppOpened(getIntent());
 	    }
+	    */
 	    super.onCreate(savedInstanceState);
         final String PREFS_NAME = "MyPrefsFile";
-        PACKAGE_NAME = getApplicationContext().getPackageName();
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         setContentView(R.layout.activity_main);
-	    //if (android.os.Build.VERSION.SDK_INT > 9) {
-		//    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		//    StrictMode.setThreadPolicy(policy);
-	    //}
+	    /*
+	    if (android.os.Build.VERSION.SDK_INT > 9) {
+		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		    StrictMode.setThreadPolicy(policy);
+	    }
+	    */
 	    
 
 	    if (settings.getBoolean("my_first_time", true)) {
