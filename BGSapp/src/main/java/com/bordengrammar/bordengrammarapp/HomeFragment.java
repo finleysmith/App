@@ -18,15 +18,26 @@
 package com.bordengrammar.bordengrammarapp;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,6 +52,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class HomeFragment extends Fragment {
 	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
 	private GoogleMap map;
+	TextView contact;
+	TextView calltext;
+	TextView mailtext;
+	ImageView callimage;
+	ImageView mailimage;
+	LinearLayout call;
+	LinearLayout mail;
+	boolean click;
 
 
 	@Override
@@ -74,8 +93,128 @@ public class HomeFragment extends Fragment {
 		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
 		String sourceString = "<b>" + "Borden Grammar School" + "</b> " + "is a selective boy's grammar school in Sittingbourne, with a fierce commitment to educate, inspire and prepare students academically and socially";
 		info.setText(Html.fromHtml(sourceString));
+
+
+		//now for contact stuff
+		PhoneCallListener phoneListener = new PhoneCallListener();
+		TelephonyManager telephonyManager = (TelephonyManager) getActivity().getApplicationContext()
+				.getSystemService(Context.TELEPHONY_SERVICE);
+		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+		click = false;
+		mail = (LinearLayout) myInflatedView.findViewById(R.id.linmail);
+		call = (LinearLayout) myInflatedView.findViewById(R.id.lincall);
+		contact = (TextView) myInflatedView.findViewById(R.id.contacttext);
+		calltext = (TextView) myInflatedView.findViewById(R.id.calltext);
+		mailtext = (TextView) myInflatedView.findViewById(R.id.mailtext);
+		callimage = (ImageView) myInflatedView.findViewById(R.id.callimage);
+		mailimage = (ImageView) myInflatedView.findViewById(R.id.mailimage);
+		calltext.setVisibility(View.INVISIBLE);
+		mailtext.setVisibility(View.INVISIBLE);
+		callimage.setVisibility(View.INVISIBLE);
+		mailimage.setVisibility(View.INVISIBLE);
+		contact.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				if(!click){
+					calltext.setVisibility(View.VISIBLE);
+					mailtext.setVisibility(View.VISIBLE);
+					callimage.setVisibility(View.VISIBLE);
+					mailimage.setVisibility(View.VISIBLE);
+					contact.setVisibility(View.INVISIBLE);
+					click = true;
+				}
+			}
+		});
+		call.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent cally = new Intent(Intent.ACTION_CALL);
+				cally.setData(Uri.parse("tel:01795424192"));
+				startActivity(cally);
+			}
+		});
+		mail.setOnClickListener(new View.OnClickListener(){
+			@Override
+		    public void onClick(View arg0) {
+				AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+				alert.setTitle("Send a email to Borden Grammar");
+				alert.setMessage("Your Message:");
+
+				final EditText input = new EditText(getActivity());
+				alert.setView(input);
+
+				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						String value = input.getText().toString();
+						// Do something with value!
+						Intent email = new Intent(Intent.ACTION_SEND);
+						email.setType("plain/text");
+						email.putExtra(Intent.EXTRA_EMAIL, "epicfinley@gmail.com");
+						email.putExtra(Intent.EXTRA_SUBJECT, "Email(Sent from BGS APP)");
+						startActivity(Intent.createChooser(email,
+								"Choose an Email client :"));
+					}
+				});
+
+				alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// Canceled.
+					}
+				});
+
+				alert.show();
+
+			}
+
+		});
 		return myInflatedView;
 	}
+	private class PhoneCallListener extends PhoneStateListener {
+
+		private boolean isPhoneCalling = false;
+
+		String LOG_TAG = "LOGGING 123";
+
+		@Override
+		public void onCallStateChanged(int state, String incomingNumber) {
+
+			if (TelephonyManager.CALL_STATE_RINGING == state) {
+				// phone ringing
+				Log.i(LOG_TAG, "RINGING, number: " + incomingNumber);
+			}
+
+			if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
+				// active
+				Log.i(LOG_TAG, "OFFHOOK");
+
+				isPhoneCalling = true;
+			}
+
+			if (TelephonyManager.CALL_STATE_IDLE == state) {
+				// run when class initial and phone call ended,
+				// need detect flag from CALL_STATE_OFFHOOK
+				Log.i(LOG_TAG, "IDLE");
+
+				if (isPhoneCalling) {
+
+					Log.i(LOG_TAG, "restart app");
+
+					// restart app
+					Intent i = getActivity().getBaseContext().getPackageManager()
+							.getLaunchIntentForPackage(
+									getActivity().getBaseContext().getPackageName());
+					i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
+
+					isPhoneCalling = false;
+				}
+
+			}
+		}
+	}
+
 
 	public void onDestroyView() {
 		super.onDestroyView();

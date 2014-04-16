@@ -139,6 +139,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedbackSettings.setToast("We value your feedback");
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 
+
+
+
     }
 
 

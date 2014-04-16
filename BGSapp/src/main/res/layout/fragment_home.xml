@@ -92,13 +92,14 @@
 			android:layout_marginRight="25dp">
 
 			<ImageView
-				android:layout_width="61dp"
-				android:layout_height="49dp"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
 				android:id="@+id/imageView2"
 				android:src="@drawable/bird"
 				android:layout_marginLeft="25dp"
 				android:layout_marginTop="25dp"
-				android:layout_marginRight="-35dp"/>
+				android:layout_marginRight="-35dp"
+				android:padding="5dp"/>
 			<Button
 				android:layout_width="wrap_content"
 				android:layout_height="70dp"
@@ -121,7 +122,7 @@
 					<com.bordengrammar.bordengrammarapp.FancyTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="I really need to make a tweet that is a 140 characters to test something out some right now i am making and writing a tweet hi katie 8 donee"
+						android:text="this is a tweet.doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. WOW it is a big one delibratwely"
 						android:id="@+id/tweet"
 						android:layout_column="1"
 						android:layout_marginTop="5dp"
@@ -183,7 +184,88 @@
 			android:layout_marginRight="25dp"
 			android:layout_marginLeft="25dp"
 			android:clickable="true"
-			android:layout_marginBottom="10dp"/>
+			android:layout_marginBottom="5dp"
+			android:layout_marginTop="5dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/contacttext"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginLeft="25dp"
+			android:layout_marginRight="25dp"
+			android:text="Contact Us"
+			android:padding="5dp"/>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:weightSum="1"
+				android:id="@+id/lincall">
+				<ImageView
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:id="@+id/callimage"
+					android:layout_marginLeft="25dp"
+					android:layout_marginRight="25dp"
+					android:src="@drawable/call"
+					/>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:text="01795 424192"
+					android:id="@+id/calltext"
+					android:background="@color/bordenpurple"
+					android:clickable="false"
+					android:textColor="@color/bordenyellow"
+					android:paddingTop="7.5dp"
+					android:paddingRight="10dp"
+					android:paddingBottom="7.5dp"
+					android:paddingLeft="10dp"
+					android:layout_marginTop="5dp"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:id="@+id/linmail"
+				android:layout_height="fill_parent">
+
+				<ImageView
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:id="@+id/mailimage"
+					android:layout_marginLeft="25dp"
+					android:layout_marginRight="25dp"
+					android:src="@drawable/email"/>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:text="school@bordengrammar.kent.sch.uk"
+					android:id="@+id/mailtext"
+					android:background="@color/bordenpurple"
+					android:clickable="false"
+					android:textColor="@color/bordenyellow"
+					android:paddingTop="7.5dp"
+					android:paddingRight="10dp"
+					android:paddingBottom="7.5dp"
+					android:paddingLeft="10dp"
+					android:layout_marginTop="5dp"/>
+
+			</LinearLayout>
+		</LinearLayout>
+
 
 	</LinearLayout>
 </ScrollView>
