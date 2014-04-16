@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
@@ -61,34 +62,40 @@ public class PrivacyActivity extends Activity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) { //after the menu has been inflated
-		switch (item.getItemId()) { //get the id fors the menus from our menu.xml
-			case android.R.id.home: //if it is home
-				Intent l = new Intent(PrivacyActivity.this, MainActivity.class);
-				startActivity(l);
-				return true; //break it so it does not go onto next case
-			case R.id.facebook: //if it is facebook button
-				logIt("Facebook button clicked"); //logit
-				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
-				startActivity(faceBrowserIntent); //Start that intent
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.facebook:
+				ut.logIt("Facebook button clicked");
+				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
+				startActivity(faceBrowserIntent);
 				return true;
-			case R.id.website: //if they clicked they
+			case R.id.website:
 				Log.i(TAG, "Website Clicked");
-				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
+				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
 				startActivity(websiteBrowserIntent);
 				return true;
-			case R.id.action_settings: //action settings actually about, can't change it now
-				logIt("clicked about");
+			case R.id.action_settings:
+				ut.logIt("clicked about");
 				Intent i = new Intent(PrivacyActivity.this, AboutActivity.class);
 				startActivity(i);
 
 				return true;
-			case R.id.action_feedback: //if they clciked send feedback
-				logIt("feedback");
-				feedBack.show(); //show the feedback that we declared
+			case R.id.action_feedback:
+				ut.logIt("feedback");
+				feedBack.show();
+				return true;
+			case R.id.action_realsettings:
+				ut.logIt("settings");
+				Intent s = new Intent(PrivacyActivity.this, SettingsActivity.class);
+				startActivity(s);
 				return true;
 			case R.id.action_privacy:
-
+				Intent ss = new Intent(PrivacyActivity.this, PrivacyActivity.class);
+				startActivity(ss);
+				return true;
+			case R.id.action_change:
+				ChangeLogDialog dia = new ChangeLogDialog(this);
+				dia.show();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

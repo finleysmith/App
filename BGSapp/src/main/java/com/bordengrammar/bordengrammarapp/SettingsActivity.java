@@ -34,6 +34,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
 
+import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
@@ -75,33 +76,38 @@ public class SettingsActivity extends PreferenceActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case android.R.id.home:
-				Intent l = new Intent(SettingsActivity.this, MainActivity.class);
-				startActivity(l);
-				return true;
 			case R.id.facebook:
-
-				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));  //Create intent variable
+				ut.logIt("Facebook button clicked");
+				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
 				startActivity(faceBrowserIntent);
 				return true;
 			case R.id.website:
-
-				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/")); //Same as above
+				Log.i(TAG, "Website Clicked");
+				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
 				startActivity(websiteBrowserIntent);
 				return true;
 			case R.id.action_settings:
-
+				ut.logIt("clicked about");
 				Intent i = new Intent(SettingsActivity.this, AboutActivity.class);
 				startActivity(i);
 
 				return true;
 			case R.id.action_feedback:
-
+				ut.logIt("feedback");
 				feedBack.show();
+				return true;
+			case R.id.action_realsettings:
+				ut.logIt("settings");
+				Intent s = new Intent(SettingsActivity.this, SettingsActivity.class);
+				startActivity(s);
 				return true;
 			case R.id.action_privacy:
 				Intent ss = new Intent(SettingsActivity.this, PrivacyActivity.class);
 				startActivity(ss);
+				return true;
+			case R.id.action_change:
+				ChangeLogDialog dia = new ChangeLogDialog(this);
+				dia.show();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
