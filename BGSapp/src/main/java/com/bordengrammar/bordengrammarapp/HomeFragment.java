@@ -128,43 +128,48 @@ public class HomeFragment extends Fragment {
 		call.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				
-				Intent cally = new Intent(Intent.ACTION_CALL);
-				cally.setData(Uri.parse("tel:01795424192"));
-				startActivity(cally);
+				if(click){
+					Intent cally = new Intent(Intent.ACTION_CALL);
+					cally.setData(Uri.parse("tel:01795424192"));
+					startActivity(cally);
+				}
+
 			}
 		});
 		mail.setOnClickListener(new View.OnClickListener(){
 			@Override
 		    public void onClick(View arg0) {
-				AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+				if(click){
+					AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
-				alert.setTitle("Send a email to Borden Grammar");
-				alert.setMessage("Your Message:");
+					alert.setTitle("Send a email to Borden Grammar");
+					alert.setMessage("Your Message:");
 
-				final EditText input = new EditText(getActivity());
-				alert.setView(input);
+					final EditText input = new EditText(getActivity());
+					alert.setView(input);
 
-				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						String value = input.getText().toString();
-						// Do something with value!
-						Intent email = new Intent(Intent.ACTION_SEND);
-						email.setType("plain/text");
-						email.putExtra(Intent.EXTRA_EMAIL, "epicfinley@gmail.com");
-						email.putExtra(Intent.EXTRA_SUBJECT, "Email(Sent from BGS APP)");
-						startActivity(Intent.createChooser(email,
-								"Choose an Email client :"));
-					}
-				});
+					alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int whichButton) {
+							String value = input.getText().toString();
+							// Do something with value!
+							Intent email = new Intent(Intent.ACTION_SEND);
+							email.setType("plain/text");
+							email.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] { "epicfinley@gmail.com" });
+							email.putExtra(Intent.EXTRA_SUBJECT, "Email(Sent from BGS APP)");
+							email.putExtra(Intent.EXTRA_TEXT, value);
+							startActivity(Intent.createChooser(email,
+									"Choose an Email client :"));
+						}
+					});
 
-				alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						// Canceled.
-					}
-				});
+					alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int whichButton) {
+							// Canceled.
+						}
+					});
 
-				alert.show();
+					alert.show();
+				}
 
 			}
 
