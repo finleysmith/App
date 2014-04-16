@@ -62,7 +62,7 @@ public class SplashActivity extends Activity {
 				t.setText("Loading " + currentValue + "%");
 			}
 		});
-		animator.setDuration(2000);
+		animator.setDuration(1500);
 		animator.start();
 
 
@@ -94,7 +94,7 @@ public class SplashActivity extends Activity {
 	}
 
 	/**
-	 * Async Task to make http call
+	 * Async Task to make https call
 	 */
 	private class PrefetchData extends AsyncTask<Void, Void, Void> {
 
@@ -111,11 +111,6 @@ public class SplashActivity extends Activity {
              * Will make http call here This call will download required data
              * before launching the app
              * example:
-             * 1. Downloading and storing in SQLite
-             * 2. Downloading images
-             * 3. Fetching and parsing the xml / json
-             * 4. Sending device information to server
-             * 5. etc.,
              */
 			if(isNetworkAvailable()) {
 
