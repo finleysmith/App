@@ -19,6 +19,11 @@
 
 
 <changelog>
+	<release version="1.3" versioncode="3">
+		<change>Added contact</change>
+		<change>Redesigned Splash Screen</change>
+		<change>Added full twitter feed</change>
+	</release>
 	<release version="1" versioncode="2">
 		<change>Major Apperance Changes</change>
 		<change>Added Changelog</change>
