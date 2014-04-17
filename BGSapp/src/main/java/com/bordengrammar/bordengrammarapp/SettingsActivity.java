@@ -76,6 +76,11 @@ public class SettingsActivity extends PreferenceActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+			case android.R.id.home:
+				Intent home = new Intent(SettingsActivity.this, MainActivity.class);
+				startActivity(home);
+				ut.logIt("Used home button");
+				return true;
 			case R.id.facebook:
 				ut.logIt("Facebook button clicked");
 				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
