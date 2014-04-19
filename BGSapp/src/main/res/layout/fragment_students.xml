@@ -21,14 +21,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+	android:background="@color/bordenyellow">
 
-    <TableLayout
-        android:id="@id/timetable"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.47"
-        android:background="#b8b8b9"
-        android:baselineAligned="false"
-        android:divider="#fdfdfe"></TableLayout>
 </LinearLayout>
