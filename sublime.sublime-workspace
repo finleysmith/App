@@ -1,0 +1,820 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"borden",
+				"bordengrammar"
+			],
+			[
+				"bor",
+				"bordengrammarapp"
+			],
+			[
+				"bordengr",
+				"bordengrammarapp"
+			],
+			[
+				"bo",
+				"bordengrammarapp"
+			],
+			[
+				"borde",
+				"bordengrammar"
+			],
+			[
+				"SAN",
+				"SANS_BOLD"
+			],
+			[
+				"SANS",
+				"SANS_SEMIBOLD"
+			],
+			[
+				"SA",
+				"SANS_LIGHT"
+			],
+			[
+				"input",
+				"inputreverse"
+			],
+			[
+				"in",
+				"inputy"
+			],
+			[
+				"inp",
+				"inputy"
+			],
+			[
+				"sc",
+				"sch"
+			],
+			[
+				"Bor",
+				"Borden"
+			],
+			[
+				"w",
+				"will"
+			],
+			[
+				"ite",
+				"Item"
+			],
+			[
+				"T",
+				"TAG"
+			],
+			[
+				"A",
+				"MainActivity"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/HomeFragment.java",
+			"settings":
+			{
+				"buffer_size": 8205,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/MainActivity.java",
+			"settings":
+			{
+				"buffer_size": 7421,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/ParentsFragment.java",
+			"settings":
+			{
+				"buffer_size": 1324,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/PrivacyActivity.java",
+			"settings":
+			{
+				"buffer_size": 3966,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/SettingsActivity.java",
+			"settings":
+			{
+				"buffer_size": 7024,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/SplashActivity.java",
+			"settings":
+			{
+				"buffer_size": 5607,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/StudentsFragment.java",
+			"settings":
+			{
+				"buffer_size": 1353,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/TwitterActivity.java",
+			"settings":
+			{
+				"buffer_size": 8310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/AboutActivity.java",
+			"settings":
+			{
+				"buffer_size": 4888,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/FancyTextView.java",
+			"settings":
+			{
+				"buffer_size": 2064,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/FancyTypefaceManager.java",
+			"settings":
+			{
+				"buffer_size": 2261,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/res/values/strings.xml",
+			"settings":
+			{
+				"buffer_size": 5594,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/res/values/strings_activity_settings.xml",
+			"settings":
+			{
+				"buffer_size": 1376,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BGSapp/src/main/AndroidManifest.xml",
+			"settings":
+			{
+				"buffer_size": 5981,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 347,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/S/web]/index.html",
+		"/A/My website/assets/Preview 7.html",
+		"/C/Program Files (x86)/Windows MultiPoint Mouse SDK/Samples/TicTacToe/App.xaml.cs",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/drawable/main_selector.xml",
+		"/A/My website/assets/boilerplate.css",
+		"/A/My website/assets/css.css",
+		"/C/Users/Finley/AppData/Local/Temp/7zO4AA9.tmp/KILLME.CPP",
+		"/C/Users/Finley/AppData/Local/Temp/7zOF0A1.tmp/GOOF.C",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/drawable/tab_indicator_ab_example.xml",
+		"/C/Users/Finley/AppData/Local/Temp/7zOA8C8.tmp/SONGYACC.C",
+		"/C/Users/Finley/.gradle/gradle.properties",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/README.md",
+		"/A/Desktop/Java Coding/Learning/Triangle area/src/area.java",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/values/attrs.xml",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/drawable/triangle.xml",
+		"/A/Desktop/Java Coding/Learning/Learn Java/src/Test.java",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/values/attrs_fancy_text_view.xml",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_twitter4j-4.0.1.zip/lib/readme-libs.txt",
+		"/A/Desktop/FINLEY-LAPTOP.txt",
+		"/C/Program Files (x86)/Steam/SteamApps/common/Team Fortress 2/tf/gameinfo.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/Application.java",
+		"/C/Users/Finley/AppData/Local/Android/android-studio/sdk/tools/adb_has_moved.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/GMapV2Direction.java",
+		"/F/Crack/Install.txt",
+		"/C/Users/Finley/Documents/routerpassword.txt",
+		"/C/Users/Finley/Documents/Torrents/StartIsBackPlus_for_Windows_8.1_v1.5.1_Final_ML_-_SceneDL/StartIsBackPlus for Windows 8.1 v1.5.1 Final ML - SceneDL/Follow Me.txt",
+		"/C/Users/Finley/Documents/Torrents/StartIsBackPlus_for_Windows_8.1_v1.5.1_Final_ML_-_SceneDL/StartIsBackPlus for Windows 8.1 v1.5.1 Final ML - SceneDL/Medicine/Install Notes.txt",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_ShowcaseView-4.0.zip/ShowcaseView-4.0/README.md",
+		"/A/BGSApp115/AndroidManifest.xml",
+		"/A/App/java/lang/annotations.xml",
+		"/C/Users/Finley/Downloads/twitter4j-4.0.1/twitter4j-core/src/main/java/twitter4j/TwitterFactory.java",
+		"/C/Users/Finley/Downloads/twitter4j-4.0.1/twitter4j-examples/src/main/java/twitter4j/examples/user/ShowUser.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_twitter4j-4.0.1.zip/twitter4j-examples/src/main/java/twitter4j/examples/timeline/GetUserTimeline.java",
+		"/C/Program Files (x86)/Steam/SteamApps/common/Team Fortress 2/tf/cfg/config.cfg",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/splash.java",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/xml/pref_headers.xml",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/xml/pref_general.xml",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/xml/pref_about.xml",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/SettingsActivity.java",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/AndroidManifest.xml",
+		"/C/Program Files (x86)/Steam/SteamApps/common/Team Fortress 2/tf/custom/readme.txt",
+		"/C/Users/Finley/Documents/Pikyes.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/TODO.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/proguard-rules.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/res/values/strings_activity_settings.xml",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/MainActivity.java",
+		"/A/ShowcaseView/sample/src/com/espian/showcaseview/sample/SampleActivity.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_Parse-Starter-Project-1.4.1.zip/ParseStarterProject/src/com/parse/starter/ParseApplication.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_FragmentBasics (1).zip/FragmentBasics/src/com/example/android/fragments/ArticleFragment.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_FragmentBasics (1).zip/FragmentBasics/src/com/example/android/fragments/HeadlinesFragment.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_FragmentBasics (1).zip/FragmentBasics/src/com/example/android/fragments/MainActivity.java",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_SU2KT_3_17+.zip/su2kt_Install.txt",
+		"/A/KSP with KMP/2014-03-14_172356/output_log.txt",
+		"/C/Users/Finley/AppData/Local/Temp/Temp1_FragmentBasics (1).zip/FragmentBasics/src/com/example/android/fragments/Ipsum.java",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/BGSapp/airshipconfig.properties",
+		"/C/Users/Finley/Downloads/Timetable/Timetable/src/com/timetable/app/InternalDB.java",
+		"/C/Users/Finley/Documents/Rainmeter/Skins/Torn paper/System/Sys.ini",
+		"/C/Users/Finley/Documents/Rainmeter/Skins/Torn paper/Weather/Weather.ini",
+		"/C/Users/Finley/Documents/Torrents/The Foundry NUKEX 8.0v1 (Win 64 bit) (crack XForce) [ChingLiu]/Crack/xf_foundry1.lic",
+		"/A/My Repo/sfdhg nghggh.txt",
+		"/A/My Repo/gfnfhgf.uy.txt",
+		"/A/My Repo/FOlder/fil.txt",
+		"/C/Users/Finley/Documents/Torrents/The Foundry NUKEX 8.0v1 (Win 64 bit) (crack XForce) [ChingLiu]/Crack/install-windows.txt",
+		"/C/Users/Finley/Documents/Visual Studio 2012/Projects/TestFormApp/TestFormApp/Form1.cs",
+		"/C/Users/Finley/Documents/Visual Studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/LICENSE.txt",
+		"/C/Users/Finley/AndroidStudioProjects/BordenGrammarApp/README",
+		"/C/Users/Finley/AppData/Roaming/livestreamer/livestreamerrc",
+		"/C/Users/Finley/Downloads/UrbanTerror42_full015/UrbanTerror42/q3ut4/tets.js",
+		"/F/Crack/install.txt",
+		"/A/Watch Twitchy.bat.txt",
+		"/C/Users/Finley/Downloads/UrbanTerror42_full015/UrbanTerror42/q3ut4/q3config.cfg",
+		"/C/Users/Finley/Downloads/squandered.tar/squandered/index.php",
+		"/C/Users/Finley/Desktop/App/adt-bundle-windows-x86_64-20131030/adt-bundle-windows-x86_64-20131030/sdk/sources/android-19/com/android/tools/layoutlib/create/AsmAnalyzer.java",
+		"/C/Users/Finley/Desktop/App/adt-bundle-windows-x86_64-20131030/adt-bundle-windows-x86_64-20131030/sdk/sources/android-19/com/android/tools/layoutlib/java/IntegralToString.java",
+		"/C/Users/Finley/Desktop/Website/wpscripts/wpstyles.css",
+		"/A/schat.sql",
+		"/C/Users/Finley/Desktop/Desktop/Java Coding/Learning/Learn Java/src/Test.java",
+		"/C/Users/Finley/Downloads/VU Meter_125/VU Meter/Form1.cs",
+		"/C/Users/Finley/Downloads/VU Meter_125/VU Meter/About.cs",
+		"/C/Users/Finley/Google Drive/App/Borden Grammar App/src/com/bordengrammar/bordengrammarapp/MainActivity.java",
+		"/C/Users/Finley/Desktop/pythontest.py",
+		"/C/Users/Finley/Desktop/Monkai_Sublime.xml",
+		"/C/Users/Finley/Downloads/widgets_adsense-0.1.tar/widgets_adsense-0.1/web.config",
+		"/C/Users/Finley/Desktop/code.java",
+		"/C/Users/Finley/Downloads/widgets_adsense-0.1.tar/widgets_adsense-0.1/widgets_adsense/README",
+		"/C/Users/Finley/Downloads/squandered.tar/squandered/_config.php",
+		"/C/Users/Finley/Downloads/widgets_adsense-0.1.tar/widgets_adsense-0.1/_config.php",
+		"/C/Users/Finley/Downloads/squandered.tar/squandered/squandered/README.md",
+		"/C/Users/Finley/Google Drive/App/BGSAPP/src/com/bordengrammar/bgsapp/MainActivity.java",
+		"/C/Users/Finley/Google Drive/App/Borden Grammar App/res/layout/fragment_top_rated.xml"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fov",
+			"funstuff"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 14,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/HomeFragment.java",
+					"settings":
+					{
+						"buffer_size": 8205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8205,
+								8205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4212.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/MainActivity.java",
+					"settings":
+					{
+						"buffer_size": 7421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4212.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/ParentsFragment.java",
+					"settings":
+					{
+						"buffer_size": 1324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/PrivacyActivity.java",
+					"settings":
+					{
+						"buffer_size": 3966,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1782.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/SettingsActivity.java",
+					"settings":
+					{
+						"buffer_size": 7024,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3456.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/SplashActivity.java",
+					"settings":
+					{
+						"buffer_size": 5607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2916.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/StudentsFragment.java",
+					"settings":
+					{
+						"buffer_size": 1353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/TwitterActivity.java",
+					"settings":
+					{
+						"buffer_size": 8310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3564.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/AboutActivity.java",
+					"settings":
+					{
+						"buffer_size": 4888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2322.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/FancyTextView.java",
+					"settings":
+					{
+						"buffer_size": 2064,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1052,
+								1052
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "BGSapp/src/main/java/com/bordengrammar/bordengrammarapp/FancyTypefaceManager.java",
+					"settings":
+					{
+						"buffer_size": 2261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "BGSapp/src/main/res/values/strings.xml",
+					"settings":
+					{
+						"buffer_size": 5594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "BGSapp/src/main/res/values/strings_activity_settings.xml",
+					"settings":
+					{
+						"buffer_size": 1376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1362,
+								1362
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "BGSapp/src/main/AndroidManifest.xml",
+					"settings":
+					{
+						"buffer_size": 5981,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 558.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								346,
+								346
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
