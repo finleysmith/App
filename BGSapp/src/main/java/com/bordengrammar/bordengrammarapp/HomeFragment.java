@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
 					AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
 					alert.setTitle("Send a email to Borden Grammar");
-					alert.setMessage("Your Message:");
+					alert.setMessage("Message:");
 
 					final EditText input = new EditText(getActivity());
 					alert.setView(input);
