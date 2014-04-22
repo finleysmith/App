@@ -48,6 +48,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 
 public class HomeFragment extends Fragment {
 	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
@@ -60,6 +63,7 @@ public class HomeFragment extends Fragment {
 	LinearLayout call;
 	LinearLayout mail;
 	boolean click;
+	String status;
 
 
 	@Override
@@ -85,7 +89,21 @@ public class HomeFragment extends Fragment {
 			e.printStackTrace();
 		}
 		TextView t = (TextView) myInflatedView.findViewById(R.id.tweet);
-		t.setText('"' + readPrefs("twitter") + '"');
+		if(readPrefs("twitter")=="error"){
+			//crouton
+			Style style = new Style.Builder()
+					.setImageResource(R.drawable.ic_launcher)
+					.setTextSize(20)
+					.setPaddingInPixels(20)
+					.setTextColor(R.color.bordenyellow)
+					.setBackgroundColor(R.color.bordenpurple)
+					.build();
+
+			Crouton.makeText(getActivity(), R.string.tweeterror, style);
+		} else {
+			status = readPrefs("twitter");
+		}
+		t.setText('"' + status + '"');
 		TextView t1;
 		t1 = (TextView) myInflatedView.findViewById(R.id.date);
 		String source2 = "&#64;";
@@ -176,6 +194,18 @@ public class HomeFragment extends Fragment {
 		});
 		return myInflatedView;
 	}
+
+	@Override
+	public void onDestroy() {
+		Crouton.cancelAllCroutons();
+	}
+
+	private void savePrefs(String key, String value) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+		SharedPreferences.Editor edit = sp.edit();
+		edit.putString(key, value);
+		edit.commit();
+	}
 	private class PhoneCallListener extends PhoneStateListener {
 
 		private boolean isPhoneCalling = false;
@@ -236,7 +266,7 @@ public class HomeFragment extends Fragment {
 
 	public String readPrefs(String key) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-		return sp.getString(key, "Error.");
+		return sp.getString(key, "error");
 
 	}
 

@@ -80,7 +80,7 @@ public class SplashActivity extends Activity {
 				if ( prefetchData.getStatus() == AsyncTask.Status.RUNNING )
 					prefetchData.cancel(true);
 					if(readPrefs("twitter").isEmpty()){
-					savePrefs("twitter", "Timed out when getting tweets, do you have internet or is it slow?");
+					savePrefs("twitter", "error");
 
 					}
 
@@ -134,6 +134,9 @@ public class SplashActivity extends Activity {
 					statuses = twitter.getUserTimeline(user);
 				} catch (TwitterException e) {
 					e.printStackTrace();
+					if(readPrefs("twitter")==null){
+						savePrefs("twitter", "error");
+					}
 				}
 
 				assert statuses != null;
@@ -145,6 +148,9 @@ public class SplashActivity extends Activity {
 
 			} else {
 				Log.e(LOG_TAG, "No internet");
+				if(readPrefs("twitter")==null){
+					savePrefs("twitter", "error");
+				}
 
 			}
 
@@ -159,7 +165,7 @@ public class SplashActivity extends Activity {
 
 
 			if(readPrefs("twitter").isEmpty()){
-				savePrefs("twitter", "Error retriving tweets");
+				savePrefs("twitter", "error");
 			}
 
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
