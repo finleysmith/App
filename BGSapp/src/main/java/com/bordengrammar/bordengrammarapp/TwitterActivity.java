@@ -140,7 +140,7 @@ public class TwitterActivity extends Activity {
 		TextView text8 = (TextView)findViewById(R.id.text8);
 		TextView text9 = (TextView)findViewById(R.id.text9);
 		TextView text10 = (TextView)findViewById(R.id.text10);
-		text1.setText(status1.getText());
+		text1.setText(readPrefs("twitter"));
 		text2.setText(status2.getText());
 		text3.setText(status3.getText());
 		text4.setText(status4.getText());

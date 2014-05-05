@@ -36,6 +36,7 @@
 		<ImageView
 			android:layout_width="150dp"
 			android:layout_height="150dp"
+			android:layout_marginTop="5dp"
 			android:id="@+id/imageView"
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/homelogo"/>
@@ -82,8 +83,8 @@
 			android:layout_height="250dp"
 			android:name="com.google.android.gms.maps.SupportMapFragment"
 			android:layout_gravity="center_horizontal"
-			android:layout_marginLeft="25dp"
-			android:layout_marginRight="25dp"/>
+			android:layout_marginLeft="35dp"
+			android:layout_marginRight="35dp"/>
 
 		<LinearLayout
 			android:orientation="horizontal"
@@ -122,7 +123,7 @@
 					<com.bordengrammar.bordengrammarapp.FancyTextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="this is a tweet.doneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. WOW it is a big one delibratwely"
+						android:text="A tweet is a short message sent out that can be around 140 charecters."
 						android:id="@+id/tweet"
 						android:layout_column="1"
 						android:layout_marginTop="5dp"
@@ -149,7 +150,7 @@
 						android:layout_marginTop="5dp"
 						android:layout_marginRight="-20dp"
 						android:layout_marginBottom="3dp"
-						app:typeface="SANS_BOLD"/>
+						app:typeface="SANS_LIGHT"/>
 
 				</TableRow>
 
@@ -166,105 +167,20 @@
 		<com.bordengrammar.bordengrammarapp.FancyTextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Read previous tweets..."
+			android:text="More tweets..."
 			android:id="@+id/textView"
 			android:textSize="15dp"
 			android:layout_gravity="center_horizontal"
-			android:layout_marginBottom="3dp"
 			app:typeface="SANS_BOLD"
 			android:clickable="true"
 			android:onClick="twitactiv"
 			android:textIsSelectable="false"
 			android:textColor="@color/bordenpurple"
-			android:layout_marginTop="3dp"/>
-		<View
-			android:layout_width="fill_parent"
-			android:layout_height="1dp"
-			android:background="@color/bordenpurple"
-			android:layout_marginRight="25dp"
-			android:layout_marginLeft="25dp"
-			android:clickable="true"
-			android:layout_marginBottom="5dp"
-			android:layout_marginTop="5dp"/>
+			android:singleLine="false"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="10dp"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:id="@+id/contacttext"
-			android:layout_gravity="center_horizontal"
-			android:layout_marginLeft="25dp"
-			android:layout_marginRight="25dp"
-			android:text="Contact Us"
-			android:padding="5dp"/>
 
-		<LinearLayout
-			android:orientation="vertical"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-			<LinearLayout
-				android:orientation="horizontal"
-				android:layout_width="fill_parent"
-				android:layout_height="fill_parent"
-				android:weightSum="1"
-				android:id="@+id/lincall">
-				<ImageView
-					android:layout_width="50dp"
-					android:layout_height="50dp"
-					android:id="@+id/callimage"
-					android:layout_marginLeft="25dp"
-					android:layout_marginRight="25dp"
-					android:src="@drawable/call"
-					/>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:textAppearance="?android:attr/textAppearanceMedium"
-					android:text="01795 424192"
-					android:id="@+id/calltext"
-					android:background="@color/bordenpurple"
-					android:clickable="false"
-					android:textColor="@color/bordenyellow"
-					android:paddingTop="7.5dp"
-					android:paddingRight="10dp"
-					android:paddingBottom="7.5dp"
-					android:paddingLeft="10dp"
-					android:layout_marginTop="5dp"/>
-			</LinearLayout>
-
-			<LinearLayout
-				android:orientation="horizontal"
-				android:layout_width="fill_parent"
-				android:id="@+id/linmail"
-				android:layout_height="fill_parent">
-
-				<ImageView
-					android:layout_width="50dp"
-					android:layout_height="50dp"
-					android:id="@+id/mailimage"
-					android:layout_marginLeft="25dp"
-					android:layout_marginRight="25dp"
-					android:src="@drawable/email"/>
-
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:textAppearance="?android:attr/textAppearanceMedium"
-					android:text="school@bordengrammar.kent.sch.uk"
-					android:id="@+id/mailtext"
-					android:background="@color/bordenpurple"
-					android:clickable="false"
-					android:textColor="@color/bordenyellow"
-					android:paddingTop="7.5dp"
-					android:paddingRight="10dp"
-					android:paddingBottom="7.5dp"
-					android:paddingLeft="10dp"
-					android:layout_marginTop="5dp"/>
-
-			</LinearLayout>
-		</LinearLayout>
 
 
 	</LinearLayout>

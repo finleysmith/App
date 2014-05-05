@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014.  Finley Smith -->
-<!-- -->
-<!-- This program is free software; you can redistribute it and/or -->
-<!-- modify it under the terms of the GNU General Public License -->
+<!-- Copyright (C) 2014.  Finley Smith 								-->
+<!-- 																-->
+<!-- This program is free software; you can redistribute it and/or 	-->
+<!-- modify it under the terms of the GNU General Public License 	-->
 <!-- as published by the Free Software Foundation; either version 2 -->
-<!-- of the License, or (at your option) any later version. -->
-<!-- -->
-<!-- This program is distributed in the hope that it will be useful, -->
+<!-- of the License, or (at your option) any later version.			-->
+<!-- 																-->
+<!-- This program is distributed in the hope that it will be useful,-->
 <!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
-<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
-<!-- GNU General Public License for more details. -->
-<!-- -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 	-->
+<!-- GNU General Public License for more details.				    -->
+<!-- 																-->
 <!-- You should have received a copy of the GNU General Public License -->
-<!-- along with this program; if not, write to the Free Software -->
+<!-- along with this program; if not, write to the Free Software 	-->
 <!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
 <!-- Also add information on how to contact you by electronic and paper mail. -->
 
@@ -31,7 +31,8 @@
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="50dp"/>
+		android:layout_marginTop="50dp"
+		android:contentDescription="Borden Logo"/>
 	<com.bordengrammar.bordengrammarapp.FancyTextView
 		android:id="@+id/splashtitle"
 		android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
 		android:textColor="#1b094f"
 		android:textSize="48dp"
 		app:typeface="SANS_LIGHT"/>
-	<com.bordengrammar.bordengrammarapp.FancyTextView
+	<!--<com.bordengrammar.bordengrammarapp.FancyTextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Loading ."
@@ -49,7 +50,24 @@
 		android:textColor="#1b094f"
 		android:textSize="12dp"
 		app:typeface="SANS_LIGHT"
-		android:id="@+id/splashprog"/>
+		android:id="@+id/splashprog"/> -->
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<ProgressBar
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="2dp"
+			android:id="@+id/progressBar"
+			android:layout_gravity="center_horizontal|bottom"
+			android:mirrorForRtl="false"
+			android:progress="0"
+			android:progressDrawable="@drawable/progressbar2"
+			android:layout_marginBottom="35dp"/>
+	</LinearLayout>
 
 
 </LinearLayout>

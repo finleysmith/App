@@ -30,7 +30,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -52,17 +52,19 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		final TextView t = (TextView) findViewById(R.id.splashprog);
-		t.setText("Loading");
+		//final TextView t = (TextView) findViewById(R.id.splashprog);
+		final ProgressBar p = (ProgressBar) findViewById(R.id.progressBar);
+		//t.setText("Loading");
 		ValueAnimator animator = ValueAnimator.ofInt(0, 100);
 		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
 				int currentValue = (Integer) animation.getAnimatedValue();
-				t.setText("Loading " + currentValue + "%");
+				//t.setText("Loading " + currentValue + "%");
+				p.setProgress(currentValue);
 			}
 		});
-		animator.setDuration(1500);
+		animator.setDuration(2500);
 		animator.start();
 
 

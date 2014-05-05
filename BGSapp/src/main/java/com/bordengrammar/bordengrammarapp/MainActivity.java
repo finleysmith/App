@@ -49,6 +49,9 @@ import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /* Variable/Object Declaration */
@@ -140,6 +143,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    feedbackSettings.setToast("We value your feedback");
 	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 
+	    /* TODO
+	    finish testing of crutons
+	    ask developer how to make it light
+	     */
+
+
+
+
+	    if(readPrefs("twitter")=="error"){
+		    //crouton
+		    Style style = new Style.Builder()
+				    //.setImageResource(R.drawable.ic_launcher)
+				    .setTextColor(R.color.bordenyellow)
+				    .setBackgroundColor(R.color.bordenpurple)
+				    .build();
+
+		    Crouton.makeText(this, R.string.tweeterror, style).show();
+	    }
+
+
 
 
 
@@ -226,6 +249,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		Intent y = new Intent(MainActivity.this, TwitterActivity.class);
 		startActivity(y);
 		return;
+	}
+	public String readPrefs(String key) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		return sp.getString(key, "error");
+
 	}
 
 

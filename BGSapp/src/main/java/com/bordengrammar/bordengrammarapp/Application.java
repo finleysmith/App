@@ -25,7 +25,6 @@ import com.parse.PushService;
 
 public class Application extends android.app.Application {
 
-	public String TAG = "Application";
 
 	public Application() {
 	}

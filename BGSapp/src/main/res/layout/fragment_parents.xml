@@ -21,5 +21,95 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:background="@color/bordenyellow">
+
+	<com.bordengrammar.bordengrammarapp.FancyTextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:id="@+id/contacttext"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginLeft="25dp"
+		app:typeface="SANS_LIGHT"
+		android:layout_marginRight="25dp"
+		android:text="Contact Us"
+		android:textColor="#1b094f"
+		android:textSize="48dp"
+		android:layout_marginTop="10dp"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:weightSum="1"
+			android:id="@+id/lincall">
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:id="@+id/callimage"
+				android:layout_marginLeft="25dp"
+				android:contentDescription="phone"
+				android:layout_marginRight="20dp"
+				android:src="@drawable/call"
+				/>
+
+			<com.bordengrammar.bordengrammarapp.FancyTextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:text="01795 424192"
+				android:id="@+id/calltext"
+				android:background="@color/bordenpurple"
+				android:clickable="false"
+				android:textColor="@color/bordenyellow"
+				android:paddingTop="7.5dp"
+				android:paddingRight="10dp"
+				android:paddingBottom="7.5dp"
+				android:paddingLeft="10dp"
+				android:layout_marginTop="5dp"
+				android:layout_marginRight="25dp"
+				app:typeface="SANS_LIGHT"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:id="@+id/linmail"
+			android:layout_height="fill_parent"
+			android:layout_marginBottom="25dp"
+			android:layout_marginRight="25dp">
+
+			<ImageView
+				android:contentDescription="mail"
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:id="@+id/mailimage"
+				android:layout_marginLeft="25dp"
+				android:layout_marginRight="20dp"
+				android:src="@drawable/email"/>
+
+			<com.bordengrammar.bordengrammarapp.FancyTextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:text="school@bordengrammar.kent.sch.uk"
+				android:id="@+id/mailtext"
+				android:background="@color/bordenpurple"
+				android:clickable="false"
+				android:textColor="@color/bordenyellow"
+				android:paddingTop="7.5dp"
+				android:paddingRight="10dp"
+				android:paddingBottom="7.5dp"
+				android:paddingLeft="10dp"
+				android:layout_marginTop="5dp"
+				app:typeface="SANS_LIGHT"/>
+
+		</LinearLayout>
+	</LinearLayout>
 </LinearLayout>

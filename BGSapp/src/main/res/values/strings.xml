@@ -18,6 +18,13 @@
 <resources>
 
     <string name="app_name">BGS App</string>
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
+    <string name="sunday">SUN</string>
     <string name="action_settings">About</string>
     <string name="hello_world">Hello world!</string>
     <string name="welcome">Welcome!</string>
@@ -44,6 +51,8 @@
     <string name="title_activity_privacy">Privacy Policy</string>
 	<string name="title_changelog">Change log</string>
 	<string name="changelog_close">Close</string>
+	<string name="des">The offical app for Borden Grammar School</string>
+	<string name="wig">BGSWidget</string>
 	<string name="tweeterror">Could not refresh tweets from Borden Grammar</string>
 	<string name="privacy">We use technologies like cookies (small files stored by your browser), web beacons, or unique device identifiers to anonymously identify your computer or device so we can deliver a better experience. Our systems also log information like your browser, operating system and IP address.
 

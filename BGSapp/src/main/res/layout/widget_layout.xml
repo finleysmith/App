@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2014.  Finley Smith -->
+<!-- -->
+<!-- This program is free software; you can redistribute it and/or -->
+<!-- modify it under the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation; either version 2 -->
+<!-- of the License, or (at your option) any later version. -->
+<!-- -->
+<!-- This program is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+<!-- -->
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with this program; if not, write to the Free Software -->
+<!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. -->
+<!-- Also add information on how to contact you by electronic and paper mail. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:id="@+id/layout"
+			  android:orientation="horizontal"
+			  android:layout_width="250dp"
+			  android:layout_height="72dp"
+			  android:background="@color/bordenpurple">
+
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="10"
+		android:textSize="60dp"
+		android:paddingTop="5dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:textColor="@color/white"
+		android:typeface="normal"
+		android:id="@+id/hours"
+		android:phoneNumber="false"
+		android:password="false"
+		android:fontFamily="sans-serif-light"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Hours"
+		android:id="@+id/textView"
+		android:textColor="@color/white"
+		android:padding="5dp"
+		android:layout_marginLeft="-10dp"
+		android:typeface="normal"
+		android:phoneNumber="false"
+		android:password="false"
+		android:fontFamily="sans-serif-light"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="10"
+		android:textSize="60dp"
+		android:paddingTop="5dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:textColor="@color/white"
+		android:id="@+id/minutes"
+		android:phoneNumber="false"
+		android:password="false"
+		android:fontFamily="sans-serif-light"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:text="Minutes"
+		android:id="@+id/textView3"
+		android:textColor="@color/white"
+		android:padding="5dp"
+		android:layout_marginLeft="-7dp"
+		android:typeface="normal"
+		android:phoneNumber="false"
+		android:password="false"
+		android:fontFamily="sans-serif-light"/>
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/refresh"
+		android:src="@drawable/refresh"/>
+
+</LinearLayout>
