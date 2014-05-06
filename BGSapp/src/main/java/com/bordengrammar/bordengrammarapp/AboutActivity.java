@@ -17,17 +17,22 @@
 
 package com.bordengrammar.bordengrammarapp;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.bordengrammar.bordengrammarapp.utils.ut;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
@@ -43,6 +48,12 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+		    setTranslucentStatus(true);
+	    }
+	    SystemBarTintManager tintManager = new SystemBarTintManager(this);
+	    tintManager.setStatusBarTintEnabled(true);
+	    tintManager.setStatusBarTintResource(R.color.bordenpurple);
 	    FeedbackSettings feedbackSettings = new FeedbackSettings();
 	    feedbackSettings.setCancelButtonText("Cancel");
 	    feedbackSettings.setSendButtonText("Send");
@@ -138,6 +149,19 @@ public class AboutActivity extends Activity {
 
 	public void feedbackapp(View view) {
 		feedBack.show();
+	}
+
+	@TargetApi(19)
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
 	}
 
 }

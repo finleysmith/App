@@ -27,12 +27,14 @@ package com.bordengrammar.bordengrammarapp;
 
 //android imports
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
@@ -43,9 +45,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.bordengrammar.bordengrammarapp.utils.ut;
+import com.parse.ParseAnalytics;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
 
@@ -57,91 +63,82 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     /* Variable/Object Declaration */
 
 
-
-    public String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
-    private ViewPager viewPager; //For the viewpager used to render the swyping
-    private ActionBar actionBar; //Action bar
-    private FeedbackDialog feedBack; //Feedback
-    private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
-
+	public String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
+	private ViewPager viewPager; //For the viewpager used to render the swyping
+	private ActionBar actionBar; //Action bar
+	private FeedbackDialog feedBack; //Feedback
+	private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
 
 
-    //onCreate Method - Majority of code
+	//onCreate Method - Majority of code
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-	    ut.startup();
-	    SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
-	    /*
-	    Boolean stats = mainsettings.getBoolean("stats", false);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-	    if(stats) {
-		    ParseAnalytics.trackAppOpened(getIntent());
-	    }
-	    */
-	    super.onCreate(savedInstanceState);
-        final String PREFS_NAME = "MyPrefsFile";
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        setContentView(R.layout.activity_main);
-
-	    if (android.os.Build.VERSION.SDK_INT > 9) {
-		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		    StrictMode.setThreadPolicy(policy);
-	    }
-
-	    
-
-	    if (settings.getBoolean("my_first_time", true)) {
-            settings.edit().putBoolean("my_first_time", false).commit();
-        }
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.bordenpurple);
+		tintManager.setNavigationBarTintEnabled(false);
 
 
+		//SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
+		//final String PREFS_NAME = "firsttime";
+		//SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
 
-
-	    viewPager = (ViewPager) findViewById(R.id.pager);
-        TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(mAdapter);
-
-
-
-	    actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	    actionBar.setDisplayShowTitleEnabled(false);
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
 
 
-        for (String tab_name : tabs) {
-            actionBar.addTab(actionBar.newTab().setText(tab_name)
-                    .setTabListener(this));
-        }
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
+		//if (settings.getBoolean("my_first_time", true)) {
+		//    settings.edit().putBoolean("my_first_time", false).commit();
+		//}
 
 
-
-            }
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-            }
-        });
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+		viewPager.setAdapter(mAdapter);
+		actionBar = getActionBar();
+		actionBar.setHomeButtonEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayShowTitleEnabled(false);
 
 
-	    FeedbackSettings feedbackSettings = new FeedbackSettings();
-	    feedbackSettings.setCancelButtonText("Cancel");
-	    feedbackSettings.setSendButtonText("Send");
-	    feedbackSettings.setText("Send feedback to improve the app");
-	    feedbackSettings.setTitle("Feedback");
-	    feedbackSettings.setToast("We value your feedback");
-	    feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+		for (String tab_name : tabs) {
+			actionBar.addTab(actionBar.newTab().setText(tab_name)
+					.setTabListener(this));
+		}
+		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				actionBar.setSelectedNavigationItem(position);
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+			}
+		});
+
+
+		FeedbackSettings feedbackSettings = new FeedbackSettings();
+		feedbackSettings.setCancelButtonText("Cancel");
+		feedbackSettings.setSendButtonText("Send");
+		feedbackSettings.setText("Send feedback to improve the app");
+		feedbackSettings.setTitle("Feedback");
+		feedbackSettings.setToast("We value your feedback");
+		feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 
 	    /* TODO
 	    finish testing of crutons
@@ -149,117 +146,121 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	     */
 
 
+		if (readPrefs("twitter").equals("error")) {
+			//crouton
+			Style style = new Style.Builder()
+					//.setImageResource(R.drawable.ic_launcher)
+					.setTextColor(R.color.bordenyellow)
+					.setBackgroundColor(R.color.bordenpurple)
+					.build();
+
+			Crouton.makeText(this, R.string.tweeterror, style).show();
+		}
+		ParseAnalytics.trackAppOpened(getIntent());
+		//throw new NullPointerException("Random crash");
 
 
-	    if(readPrefs("twitter")=="error"){
-		    //crouton
-		    Style style = new Style.Builder()
-				    //.setImageResource(R.drawable.ic_launcher)
-				    .setTextColor(R.color.bordenyellow)
-				    .setBackgroundColor(R.color.bordenpurple)
-				    .build();
-
-		    Crouton.makeText(this, R.string.tweeterror, style).show();
-	    }
+	}
 
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_activity_actions, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	@TargetApi(19)
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				viewPager.setCurrentItem(0);
+				ut.logIt("Used home button");
+				return true;
+			case R.id.facebook:
+				ut.logIt("Facebook button clicked");
+				Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
+				startActivity(faceBrowserIntent);
+				return true;
+			case R.id.website:
+				Log.i(TAG, "Website Clicked");
+				Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
+				startActivity(websiteBrowserIntent);
+				return true;
+			case R.id.action_settings:
+				ut.logIt("clicked about");
+				Intent i = new Intent(MainActivity.this, AboutActivity.class);
+				startActivity(i);
+
+				return true;
+			case R.id.action_feedback:
+				ut.logIt("feedback");
+				feedBack.show();
+				return true;
+			case R.id.action_realsettings:
+				ut.logIt("settings");
+				Intent s = new Intent(MainActivity.this, SettingsActivity.class);
+				startActivity(s);
+				return true;
+			case R.id.action_privacy:
+				Intent ss = new Intent(MainActivity.this, PrivacyActivity.class);
+				startActivity(ss);
+				return true;
+			case R.id.action_change:
+				ChangeLogDialog dia = new ChangeLogDialog(this);
+				dia.show();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+
+	}
+
+	public void onPause() {
+		super.onPause();
+		feedBack.dismiss();
+	}
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+	}
+
+	@Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		viewPager.setCurrentItem(tab.getPosition());
+
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	}
 
 
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_actions, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                viewPager.setCurrentItem(0);
-                ut.logIt("Used home button");
-                return true;
-            case R.id.facebook:
-                ut.logIt("Facebook button clicked");
-                Intent faceBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/BordenGrammarSchool"));
-                startActivity(faceBrowserIntent);
-                return true;
-            case R.id.website:
-                Log.i(TAG, "Website Clicked");
-                Intent websiteBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://website.bordengrammar.kent.sch.uk/"));
-                startActivity(websiteBrowserIntent);
-                return true;
-            case R.id.action_settings:
-                ut.logIt("clicked about");
-	            Intent i = new Intent(MainActivity.this, AboutActivity.class);
-	            startActivity(i);
-
-	            return true;
-            case R.id.action_feedback:
-                ut.logIt("feedback");
-                feedBack.show();
-                return true;
-	        case R.id.action_realsettings:
-		        ut.logIt("settings");
-		        Intent s = new Intent(MainActivity.this, SettingsActivity.class);
-		        startActivity(s);
-		        return true;
-	        case R.id.action_privacy:
-		        Intent ss = new Intent(MainActivity.this, PrivacyActivity.class);
-		        startActivity(ss);
-		        return true;
-	        case R.id.action_change:
-		        ChangeLogDialog dia = new ChangeLogDialog(this);
-		        dia.show();
-		        return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
-
-    public void onPause() {
-        super.onPause();
-        feedBack.dismiss();
-    }
-
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-    }
-
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(tab.getPosition());
-
-    }
-
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-    }
-
-
-    //public void logIt(String it) {
-    //    Log.w(TAG, it);
-    //}
-	public void twitactiv(View view){
+	//public void logIt(String it) {
+	//    Log.w(TAG, it);
+	//}
+	public void twitactiv(View view) {
 		Intent y = new Intent(MainActivity.this, TwitterActivity.class);
 		startActivity(y);
-		return;
 	}
+
 	public String readPrefs(String key) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		return sp.getString(key, "error");
 
 	}
-
-
-
-
-
 
 
 }

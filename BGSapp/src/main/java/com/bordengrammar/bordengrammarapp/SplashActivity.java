@@ -32,6 +32,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ProgressBar;
 
+import com.crashlytics.android.Crashlytics;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -51,7 +54,14 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Crashlytics.start(this);
+
 		setContentView(R.layout.activity_splash);
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.bordenyellow);
+		tintManager.setNavigationBarTintEnabled(true);
+		tintManager.setNavigationBarTintResource(R.color.bordenyellow);
 		//final TextView t = (TextView) findViewById(R.id.splashprog);
 		final ProgressBar p = (ProgressBar) findViewById(R.id.progressBar);
 		//t.setText("Loading");
