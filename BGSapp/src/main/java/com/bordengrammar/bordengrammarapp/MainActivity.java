@@ -27,6 +27,7 @@ package com.bordengrammar.bordengrammarapp;
 
 //android imports
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -47,6 +48,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.bordengrammar.bordengrammarapp.utils.ut;
@@ -54,9 +56,6 @@ import com.parse.ParseAnalytics;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.suredigit.inappfeedback.FeedbackDialog;
 import com.suredigit.inappfeedback.FeedbackSettings;
-
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -73,45 +72,29 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	//onCreate Method - Majority of code
 
 
+	@SuppressLint("AppCompatMethod")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			setTranslucentStatus(true);
 		}
 		SystemBarTintManager tintManager = new SystemBarTintManager(this);
 		tintManager.setStatusBarTintEnabled(true);
 		tintManager.setStatusBarTintResource(R.color.bordenpurple);
-		tintManager.setNavigationBarTintEnabled(false);
-
-
-		//SharedPreferences mainsettings = PreferenceManager.getDefaultSharedPreferences(this);
-		//final String PREFS_NAME = "firsttime";
-		//SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-
-
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
-
-
-		//if (settings.getBoolean("my_first_time", true)) {
-		//    settings.edit().putBoolean("my_first_time", false).commit();
-		//}
-
-
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(mAdapter);
 		actionBar = getActionBar();
+		assert actionBar != null;
 		actionBar.setHomeButtonEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(false);
-
-
 		for (String tab_name : tabs) {
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
@@ -120,12 +103,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			@Override
 			public void onPageSelected(int position) {
 				actionBar.setSelectedNavigationItem(position);
-			}
 
+			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 			}
-
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 			}
@@ -148,13 +130,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 		if (readPrefs("twitter").equals("error")) {
 			//crouton
-			Style style = new Style.Builder()
-					//.setImageResource(R.drawable.ic_launcher)
-					.setTextColor(R.color.bordenyellow)
-					.setBackgroundColor(R.color.bordenpurple)
-					.build();
-
-			Crouton.makeText(this, R.string.tweeterror, style).show();
+			Toast.makeText(this, "Error retreving tweets", Toast.LENGTH_LONG).show();
 		}
 		ParseAnalytics.trackAppOpened(getIntent());
 		//throw new NullPointerException("Random crash");
