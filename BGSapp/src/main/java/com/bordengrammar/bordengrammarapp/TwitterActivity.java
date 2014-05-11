@@ -35,7 +35,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bordengrammar.bordengrammarapp.utils.ut;
@@ -58,9 +57,7 @@ public class TwitterActivity extends Activity {
 
 	public String TAG = "MainActivity";
 	private FeedbackDialog feedBack;
-	private ActionBar actionBar;
 	public static String PACKAGE_NAME;
-	ListView listView;
 
 
 	@Override
@@ -80,7 +77,8 @@ public class TwitterActivity extends Activity {
 		feedbackSettings.setTitle("Feedback");
 		feedbackSettings.setToast("We value your feedback");
 		feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
-		actionBar = getActionBar();
+		ActionBar actionBar = getActionBar();
+		assert actionBar != null;
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		PACKAGE_NAME = getApplicationContext().getPackageName();
 
@@ -233,9 +231,6 @@ public class TwitterActivity extends Activity {
 
 	}
 
-	public void logIt(String it) {
-		Log.i(TAG, it);
-	}
 	private void savePrefs(String key, String value) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		SharedPreferences.Editor edit = sp.edit();
