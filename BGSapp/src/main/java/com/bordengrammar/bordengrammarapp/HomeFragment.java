@@ -38,20 +38,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-
 
 public class HomeFragment extends Fragment {
 	static final LatLng BORDEN = new LatLng(51.337692, 0.734823);
-	private GoogleMap map;
 	//String status;
+	//GoogleMap map;
 
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View myInflatedView = inflater.inflate(R.layout.fragment_home, container, false);
-		map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+		GoogleMap map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
 				.getMap();
 		ut.logIt("1");
 		try {
@@ -69,7 +67,7 @@ public class HomeFragment extends Fragment {
 		}
 
 
-
+		assert myInflatedView != null;
 		TextView t = (TextView) myInflatedView.findViewById(R.id.tweet);
 		t.setText('"' + readPrefs("twitter") + '"');
 		TextView t1;
@@ -90,12 +88,6 @@ public class HomeFragment extends Fragment {
 
 
 		return myInflatedView;
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Crouton.cancelAllCroutons();
 	}
 
 
