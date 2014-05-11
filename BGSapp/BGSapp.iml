@@ -79,7 +79,6 @@
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-4.3.23" level="project" />
     <orderEntry type="library" exported="" name="crashlytics-1.1.11" level="project" />
-    <orderEntry type="library" exported="" name="crouton-1.8.4" level="project" />
   </component>
 </module>
 
