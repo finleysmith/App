@@ -41,6 +41,7 @@ import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,6 +49,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
@@ -66,7 +68,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	private ViewPager viewPager; //For the viewpager used to render the swyping
 	private ActionBar actionBar; //Action bar
 	private FeedbackDialog feedBack; //Feedback
-	private String[] tabs = {"Home", "Parents", "Students"}; //Array so we can use a for loop to define action bar tabs
+	private String[] tabs = {"Home", "Parents", "Prospectus"}; //Array so we can use a for loop to define action bar tabs
 
 
 	//onCreate Method - Majority of code
@@ -119,13 +121,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		feedbackSettings.setSendButtonText("Send");
 		feedbackSettings.setText("Send feedback to improve the app");
 		feedbackSettings.setTitle("Feedback");
-		feedbackSettings.setToast("We value your feedback");
+		feedbackSettings.setToast("Thanks for your feedback");
 		feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
 
-	    /* TODO
-	    finish testing of crutons
-	    ask developer how to make it light
-	     */
 
 
 		if (readPrefs("twitter").equals("error")) {
@@ -133,7 +131,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			Toast.makeText(this, "Error retreving tweets", Toast.LENGTH_LONG).show();
 		}
 		ParseAnalytics.trackAppOpened(getIntent());
-		//throw new NullPointerException("Random crash");
 
 
 	}
@@ -157,6 +154,21 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 		win.setAttributes(winParams);
 	}
+	private void setTabsMaxWidth() {
+		DisplayMetrics displaymetrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+		int screenWidth = displaymetrics.widthPixels;
+		final ActionBar actionBar = getActionBar();
+		final View tabView = actionBar.getTabAt(0).getCustomView();
+		final View tabContainerView = (View) tabView.getParent();
+		final int tabPadding = tabContainerView.getPaddingLeft() + tabContainerView.getPaddingRight();
+		final int tabs = actionBar.getTabCount();
+		for(int i=0 ; i < tabs ; i++){
+			View tab = actionBar.getTabAt(i).getCustomView();
+			TextView text1 = (TextView) tab.findViewById(R.id.text1);
+			text1.setMaxWidth(screenWidth/tabs-tabPadding-1);
+		}
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -179,7 +191,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				ut.logIt("clicked about");
 				Intent i = new Intent(MainActivity.this, AboutActivity.class);
 				startActivity(i);
-
 				return true;
 			case R.id.action_feedback:
 				ut.logIt("feedback");
@@ -215,6 +226,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+
 		viewPager.setCurrentItem(tab.getPosition());
 
 	}
@@ -223,10 +235,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 
-
-	//public void logIt(String it) {
-	//    Log.w(TAG, it);
-	//}
 	public void twitactiv(View view) {
 		Intent y = new Intent(MainActivity.this, TwitterActivity.class);
 		startActivity(y);
