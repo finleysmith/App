@@ -20,13 +20,13 @@
     android:versionCode="1"
     android:versionName="1" >
 
-	<!-- OpenGL For Map -->
+    <!-- OpenGL For Map -->
 
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
-	<!-- Permmisions -->
+    <!-- Permmisions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -39,9 +39,9 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-	<!-- Maps -->
+    <!-- Maps -->
 
     <permission
         android:name="com.bordengrammar.bordengrammarapp.permission.MAPS_RECEIVE"
@@ -49,8 +49,7 @@
 
     <uses-permission android:name="com.bordengrammar.bordengrammarapp.permission.MAPS_RECEIVE" />
 
-	<!-- Push notifcation -->
-
+    <!-- Push notifcation -->
 
     <permission
         android:name="com.bordengrammar.bordengrammarapp.permission.C2D_MESSAGE"
@@ -58,24 +57,25 @@
 
     <uses-permission android:name="com.bordengrammar.bordengrammarapp.permission.C2D_MESSAGE" />
 
-	<!-- Android 3.0+ -->
+    <!-- Android 3.0+ -->
 
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
-	<!-- Main settings for application -->
+    <!-- Main settings for application -->
 
     <application
-        android:name="com.bordengrammar.bordengrammarapp.Application"
+        android:name=".Application"
         android:allowBackup="true"
-		android:description="@string/des"
+        android:description="@string/des"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Example" >
-		<!-- Splash screen -->
+
+        <!-- Splash screen -->
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.SplashActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/FullBleedTheme" >
             <intent-filter>
@@ -85,35 +85,37 @@
             </intent-filter>
         </activity>
 
-		<!-- Main Activity -->
+        <!-- Main Activity -->
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
         </activity>
 
-		<!-- Push Stuff -->
-		<service android:name=".BGSWidgetService">
-		</service>
-		<receiver
-			android:icon="@drawable/ic_launcher"
-			android:label="BGS Widget"
-			android:name="BGSWidgetProvider" >
-			<intent-filter >
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-				<category android:name="android.intent.category.DEFAULT"></category>
-				<category android:name="android.intent.category.ALTERNATIVE"></category>
-			</intent-filter>
-			<intent-filter>
-				<action android:name="com.bordengrammar.bordengrammarapp.BGSWidgetService.MOODY" />
-			</intent-filter>
+        <!-- Push Stuff -->
+        <service android:name=".BGSWidgetService" >
+        </service>
 
+        <receiver
+            android:name=".BGSWidgetProvider"
+            android:icon="@drawable/ic_launcher"
+            android:label="BGS Widget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 
-			<meta-data
-				android:name="android.appwidget.provider"
-				android:resource="@xml/widget_info" />
-		</receiver>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.bordengrammar.bordengrammarapp.BGSWidgetService.MOODY" />
+            </intent-filter>
 
-		<service android:name="com.parse.PushService" />
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <service android:name="com.parse.PushService" />
+
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -126,22 +128,23 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
                 <category android:name="com.bordengrammar.bordengrammarapp" />
             </intent-filter>
         </receiver>
 
-		<!-- Other activitys -->
+        <!-- Other activitys -->
 
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.AboutActivity"
+            android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
 
-		<!-- Meta-data (keys etc) -->
+        <!-- Meta-data (keys etc) -->
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -151,25 +154,35 @@
             android:value="AIzaSyB7Vi7qBh0Ui0jC5A_cJkeCG2-jB6mQJ0w" />
 
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.TwitterActivity"
+            android:name=".TwitterActivity"
             android:label="@string/title_activity_twitter"
-            android:parentActivityName="com.bordengrammar.bordengrammarapp.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="com.bordengrammar.bordengrammarapp.PrivacyActivity"
+            android:name=".PrivacyActivity"
             android:label="@string/title_activity_privacy"
-            android:parentActivityName="com.bordengrammar.bordengrammarapp.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <meta-data android:name="com.crashlytics.ApiKey" android:value="3100c5a6401376fafb134b3000e78233a9a7f693"/>
 
-		<!-- For widget -->
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="3100c5a6401376fafb134b3000e78233a9a7f693" />
 
-	</application>
+        <!-- For widget -->
+        <activity
+            android:name=".Licenses"
+            android:label="@string/title_activity_licenses"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
+        </activity>
+    </application>
 
 </manifest>
