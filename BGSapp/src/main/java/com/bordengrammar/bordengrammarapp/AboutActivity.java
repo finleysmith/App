@@ -141,6 +141,10 @@ public class AboutActivity extends Activity {
 		Intent sourcecodeintent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.github.com/epicfinley/Borden-App"));
 		startActivity(sourcecodeintent);
 	}
+	public void opensource(View view){
+		Intent open = new Intent(this, Licenses.class);
+		startActivity(open);
+	}
 	public void rateapp(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + PACKAGE_NAME)));
 
