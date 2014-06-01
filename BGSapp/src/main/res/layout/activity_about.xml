@@ -19,7 +19,9 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/scrollView">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/scrollView"
+	android:background="@color/bordenyellow">
 
 	<LinearLayout
 		android:orientation="vertical"
@@ -36,23 +38,27 @@
 		android:id="@+id/imageView"
 		android:layout_gravity="center_horizontal"
 		android:src="@drawable/homelogo"
-		android:layout_marginTop="25dp"
+		android:layout_marginTop="100dp"
 		android:contentDescription="@string/app_name"
 		android:clickable="false"
 		/>
 
-	<TextView
+	<com.bordengrammar.bordengrammarapp.FancyTextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:text="@string/aboutdetail"
 		android:id="@+id/textView"
+		app:typeface="SANS_REGULAR"
+		android:textColor="@color/bordenpurple"
 		android:layout_gravity="center_horizontal"/>
 
-	<TextView
+	<com.bordengrammar.bordengrammarapp.FancyTextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textSize="15dp"
+		app:typeface="SANS_LIGHT"
+		android:textColor="@color/bordenpurple"
 		android:text="@string/copyright"
 		android:id="@+id/textView2"
 		android:layout_gravity="center"
@@ -61,13 +67,15 @@
 		<View
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@android:color/darker_gray"
+			android:background="@color/bordenpurple"
 			android:layout_marginRight="25dp"
 			android:layout_marginLeft="25dp"
 			android:layout_marginTop="10dp"/>
 
-		<TextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
+			app:typeface="SANS_REGULAR"
 			android:layout_width="wrap_content"
+			android:textColor="@color/bordenpurple"
 			android:layout_height="wrap_content"
 			android:text="This is the offical Borden Grammar School App. This app is licensed under the GPLv2 License."
 			android:id="@+id/textView3"
@@ -77,19 +85,21 @@
 			android:layout_marginRight="25dip"/>
 
 		<Button
-		style="?android:attr/buttonStyleSmall"
-		android:layout_width="188dp"
+		android:background="@color/bordenpurple"
+		android:textColor="@color/bordenyellow"
+		android:layout_width="250dp"
 		android:layout_height="35dp"
 		android:text="Source Code on GitHub"
 		android:id="@+id/button"
 		android:layout_gravity="center_horizontal"
 		android:layout_marginTop="175dip"
 		android:onClick="sourcecode"
-		/>
+			/>
 
 		<Button
-			style="?android:attr/buttonStyleSmall"
-			android:layout_width="188dp"
+			android:background="@color/bordenpurple"
+			android:textColor="@color/bordenyellow"
+			android:layout_width="250dp"
 			android:layout_height="35dp"
 			android:text="Send feedback"
 			android:id="@+id/button2"
@@ -98,24 +108,35 @@
 			android:onClick="feedbackapp"/>
 
 		<Button
-			style="?android:attr/buttonStyleSmall"
-			android:layout_width="188dp"
+			android:background="@color/bordenpurple"
+			android:textColor="@color/bordenyellow"
+			android:layout_width="250dp"
 			android:layout_height="35dp"
 			android:text="Rate App"
 			android:id="@+id/button3"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="0dp"
 			android:onClick="rateapp"/>
+		<Button
+			android:background="@color/bordenpurple"
+			android:textColor="@color/bordenyellow"
+			android:layout_width="250dp"
+			android:layout_height="35dp"
+			android:text="Libaries and Open Source"
+			android:id="@+id/button4"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="0dp"
+			android:onClick="opensource"/>
 
-		<TextView
+		<com.bordengrammar.bordengrammarapp.FancyTextView
+			app:typeface="SANS_LIGHT"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:text="@string/build"
 			android:id="@+id/textView5"
 			android:layout_gravity="center_horizontal|bottom"
 			android:layout_marginTop="15dip"
-			android:textColor="@color/darkgray"
+			android:textColor="@color/bordenpurple"
 			android:layout_weight="0.26"/>
 
 	</LinearLayout>

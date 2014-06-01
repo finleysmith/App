@@ -63,6 +63,8 @@
 
 	<style name="ActionBarTabStyle.Example" parent="@android:style/Widget.Holo.ActionBar.TabView">
 		<item name="android:background">@drawable/tab_indicator_ab_example</item>
+		<item name="android:paddingLeft">2dp</item>
+		<item name="android:paddingRight">2dp</item>
 	</style>
 
 	<style name="DropDownNav.Example" parent="@android:style/Widget.Holo.Spinner">

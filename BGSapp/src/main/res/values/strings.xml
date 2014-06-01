@@ -43,18 +43,18 @@
     <string name="title_activity_about">About</string>
     <string name="aboutdetail">Borden Grammar School App</string>
     <string name="copyright">© 2014 Finley Smith</string>
-    <string name="build">v1.1 BETA</string>
+    <string name="build">v2</string>
     <string name="where">Where we are</string>
     <string name="borden">"@borden  |"</string>
     <string name="error_when_retriving_data">Error.</string>
     <string name="title_activity_twitter">Twitter Feed</string>
     <string name="title_activity_privacy">Privacy Policy</string>
-	<string name="title_changelog">Change log</string>
-	<string name="changelog_close">Close</string>
-	<string name="des">The offical app for Borden Grammar School</string>
-	<string name="wig">BGSWidget</string>
-	<string name="tweeterror">Could not refresh tweets from Borden Grammar</string>
-	<string name="privacy">We use technologies like cookies (small files stored by your browser), web beacons, or unique device identifiers to anonymously identify your computer or device so we can deliver a better experience. Our systems also log information like your browser, operating system and IP address.
+    <string name="title_changelog">Change log</string>
+    <string name="changelog_close">Close</string>
+    <string name="des">The offical app for Borden Grammar School</string>
+    <string name="wig">BGSWidget</string>
+    <string name="tweeterror">Could not refresh tweets from Borden Grammar</string>
+    <string name="privacy">We use technologies like cookies (small files stored by your browser), web beacons, or unique device identifiers to anonymously identify your computer or device so we can deliver a better experience. Our systems also log information like your browser, operating system and IP address.
 
 We do not collect personally identifiable information about you. In other words, we do not collect information such as your name, address, phone number or email address.
 To customize our service for you, we may collect and store your precise geographic location as part of your user profile. This data generally is not shared with others. We may ask for your consent on your first use of the service.
@@ -71,5 +71,6 @@ This privacy policy was last updated on 5/4/14. Our privacy policy may change fr
 
 
 If you have any questions or concerns about our privacy policies, please contact us: school@bordengrammar.kent.sch.uk</string>
+    <string name="title_activity_licenses">Licenses</string>
 
 </resources>
