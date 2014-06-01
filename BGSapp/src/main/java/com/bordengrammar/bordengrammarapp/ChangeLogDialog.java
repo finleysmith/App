@@ -169,7 +169,6 @@ public class ChangeLogDialog {
 
 	//Returns change log in HTML format
 	public String getHTML() {
-		//TODO: Remove duplicate code with the method show()
 		//Get resources
 		final String packageName = mContext.getPackageName();
 		final Resources resources;
