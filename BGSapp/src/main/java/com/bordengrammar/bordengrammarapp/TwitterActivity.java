@@ -99,7 +99,7 @@ public class TwitterActivity extends Activity {
 		Twitter twitter = tf.getInstance();
 		List<Status> statuses = null;
 		String user;
-		user = "epicfinley";
+		user = "bordengrammar";
 		try {
 			statuses = twitter.getUserTimeline(user);
 		} catch (TwitterException e) {
