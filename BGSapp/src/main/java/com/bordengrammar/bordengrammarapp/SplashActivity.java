@@ -141,7 +141,7 @@ public class SplashActivity extends Activity {
 				List<twitter4j.Status> statuses = null;
 
 				String user;
-				user = "epicfinley";
+				user = "bordengrammar";
 				try {
 					statuses = twitter.getUserTimeline(user);
 				} catch (TwitterException e) {
