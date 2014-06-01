@@ -23,7 +23,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.bordengrammar.bordengrammarapp.HomeFragment;
 import com.bordengrammar.bordengrammarapp.ParentsFragment;
-import com.bordengrammar.bordengrammarapp.StudentsFragment;
+import com.bordengrammar.bordengrammarapp.ProspectusFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
@@ -43,7 +43,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
                 return new ParentsFragment();
             case 2:
                 // Students? fragment activity
-                return new StudentsFragment();
+                return new ProspectusFragment();
         }
 
         return null;
@@ -66,7 +66,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		}
 		if (position == 2)
 		{
-			return "Students";
+			return "Prospectus";
 		}
 		return null;
 	}
