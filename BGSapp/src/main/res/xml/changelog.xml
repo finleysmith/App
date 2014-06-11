@@ -19,13 +19,17 @@
 
 
 <changelog>
+	<release version="2" versioncode="5">
+		<change>First public release</change>
+		<change></change>
+	</release>
 	<release version="1.5" versioncode="4">
 		<change>New tinted status bar (Android 4.4+)</change>
 		<change>New colour scheme</change>
 		<change>Perfomace Improvements</change>
-		<change>Chnged splash screen progress indicator</change>
+		<change>Changed splash screen progress indicator</change>
 		<change>Smoother launch experience</change>
-		<change>Replaced Zebras with Girrages</change>
+		<change>Replaced Zebras with Girrafes</change>
 	</release>
 
 	<release version="1.3" versioncode="3">

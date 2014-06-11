@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\crashlytics-1.1.11-290e88ee8f5c4c8f1177f7433be8c5ce762776d2.jar"
+        jar="A:\Android Studio\Borden\caches\modules-2\files-2.1\com.crashlytics.android\crashlytics\1.1.11\b8189e9eef2f07fae743e05d7fe7e69daebe98d1\crashlytics-1.1.11.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="b8189e9eef2f07fae743e05d7fe7e69daebe98d1"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\Parse-1.5.0-638728698e58db3f8b89c15c9948597d7d300984.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\Parse-1.5.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2b6f88d4ab1161b98431c24bcab65dc84b34100e"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\dom4j-e034aef468253ce4acb083cd093155fb515093dc.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\dom4j.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="0ea7d5f5d4c88d69e73a7e5fec1a3942649d510d"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\classes-35df1186d68a5bc7aa712e7e960aaded102a693e.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\classes-cebbcf418fa742a144221636e617d46b8ae3d3ad.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.3.23\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7676c0cb230efa6ac41c47867d372ed5913029d4"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\classes-73d56331d7a5124d2ee8fb99a8704bb7fc71c887.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\feed4j-6fe12710f02952ebde609f2e5cf52a2d743e8603.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\feed4j.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f6b93ac8cd79614d192659cf6e5e79c5c45adacc"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\support-v4-19.1.0-33cfca1cd0b585a7e6d47e69e83b857d2784e76e.jar"
+        jar="C:\Users\Finley\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\twitter4j-core-4.0.1-f04213c3378255f6f160d827e4d15211752b67b8.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\twitter4j-core-4.0.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="34138fe734b03ae6e9ef978b41359b5fb6467047"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\systembartint-1.0.3-2e54f1dfe327b6ac1ec9e1c9f5afd1711b84fbee.jar"
+        jar="A:\Android Studio\Borden\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287"/>
+    <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\feedback_v6-d85016cea6dce51abd28d9fabbd3cbf9f4d5d3a3.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\feedback_v6.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="21e8cf4719568f3a82309d6c8b8b740da6ab2311"/>
+
+</pre-dex-items>

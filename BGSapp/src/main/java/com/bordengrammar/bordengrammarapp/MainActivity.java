@@ -41,7 +41,6 @@ import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,9 +48,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.bordengrammar.bordengrammarapp.adapter.TabsPagerAdapter;
 import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.parse.ParseAnalytics;
@@ -63,12 +62,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     /* Variable/Object Declaration */
 
-
+	private PagerSlidingTabStrip tabs;
 	public String TAG = "MainActivity"; //Used for logging (Usage log.i(TAG, "Message")
 	private ViewPager viewPager; //For the viewpager used to render the swyping
 	private ActionBar actionBar; //Action bar
 	private FeedbackDialog feedBack; //Feedback
-	private String[] tabs = {"Home", "Parents", "Prospectus"}; //Array so we can use a for loop to define action bar tabs
+	//private String[] tabs = {"Home", "Parents", "Prospectus"}; //Array so we can use a for loop to define action bar tabs
 
 
 	//onCreate Method - Majority of code
@@ -92,28 +91,36 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		TabsPagerAdapter mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(mAdapter);
+		tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+		tabs.setViewPager(viewPager);
+		tabs.setIndicatorColorResource(R.color.bordenyellow);
+		tabs.setShouldExpand(true);
+		tabs.setTextColorResource(R.color.white);
+
+
+
 		actionBar = getActionBar();
 		assert actionBar != null;
 		actionBar.setHomeButtonEnabled(true);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		//actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(false);
-		for (String tab_name : tabs) {
-			actionBar.addTab(actionBar.newTab().setText(tab_name)
-					.setTabListener(this));
-		}
-		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			@Override
-			public void onPageSelected(int position) {
-				actionBar.setSelectedNavigationItem(position);
-
-			}
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-			}
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-			}
-		});
+		//for (String tab_name : tabs) {
+		//	actionBar.addTab(actionBar.newTab().setText(tab_name)
+		//			.setTabListener(this));
+		//}
+		//viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		//	@Override
+		//	public void onPageSelected(int position) {
+		//		actionBar.setSelectedNavigationItem(position);
+//
+//			}
+//			@Override
+//			public void onPageScrolled(int arg0, float arg1, int arg2) {
+//			}
+//			@Override
+//			public void onPageScrollStateChanged(int arg0) {
+//			}
+//		});
 
 
 		FeedbackSettings feedbackSettings = new FeedbackSettings();
@@ -123,6 +130,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		feedbackSettings.setTitle("Feedback");
 		feedbackSettings.setToast("Thanks for your feedback");
 		feedBack = new FeedbackDialog(this, "AF-186C1F794D93-1A", feedbackSettings);
+
+
 
 
 
@@ -153,21 +162,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			winParams.flags &= ~bits;
 		}
 		win.setAttributes(winParams);
-	}
-	private void setTabsMaxWidth() {
-		DisplayMetrics displaymetrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-		int screenWidth = displaymetrics.widthPixels;
-		final ActionBar actionBar = getActionBar();
-		final View tabView = actionBar.getTabAt(0).getCustomView();
-		final View tabContainerView = (View) tabView.getParent();
-		final int tabPadding = tabContainerView.getPaddingLeft() + tabContainerView.getPaddingRight();
-		final int tabs = actionBar.getTabCount();
-		for(int i=0 ; i < tabs ; i++){
-			View tab = actionBar.getTabAt(i).getCustomView();
-			TextView text1 = (TextView) tab.findViewById(R.id.text1);
-			text1.setMaxWidth(screenWidth/tabs-tabPadding-1);
-		}
 	}
 
 	@Override

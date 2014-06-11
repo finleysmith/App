@@ -29,8 +29,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bordengrammar.bordengrammarapp.utils.ut;
+import android.widget.Toast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -93,6 +92,7 @@ public class ParentsFragment extends Fragment {
 
 
 	    });
+
 	    URL url = null;
 	    try {
 		    url = new URL("http://website.bordengrammar.kent.sch.uk/index.php?option=com_rubberdoc&view=category&id=63%3Aletters&Itemid=241&format=feed&type=rss");
@@ -110,51 +110,65 @@ public class ParentsFragment extends Fragment {
 	    } catch (UnsupportedFeedException e) {
 		    e.printStackTrace();
 	    }
-	    int items = feed.getItemCount();
+	    Boolean nully = false;
 	    for (int i = 0; i < 3; i++) {
-		    FeedItem item = feed.getItem(i);
-		    ut.logIt("Title: " + item.getTitle());
-		    ut.logIt("Link: " + item.getLink());
+		    try {
+			    FeedItem item = feed.getItem(i);
+		    } catch (NullPointerException e){
+			    e.printStackTrace();
+			    nully = true;
+			    Toast.makeText(getActivity().getApplicationContext(), "Some features of this app require a internet connection", Toast.LENGTH_LONG).show();
+			}
 	    }
-	    final FeedItem post1 = feed.getItem(1);
-	    final FeedItem post2 = feed.getItem(2);
-	    final FeedItem post3 = feed.getItem(3);
-	    TextView title1 = (TextView)root.findViewById(R.id.title1);
-	    TextView title2 = (TextView)root.findViewById(R.id.title2);
-	    TextView title3 = (TextView)root.findViewById(R.id.title3);
-	    title1.setText(post1.getTitle());
-	    title2.setText(post2.getTitle());
-	    title3.setText(post3.getTitle());
-	    TextView link1 = (TextView)root.findViewById(R.id.link1);
-	    TextView link2 = (TextView)root.findViewById(R.id.link2);
-	    TextView link3 = (TextView)root.findViewById(R.id.link3);
-	    link1.setOnClickListener(new View.OnClickListener() {
-		    @Override
-		    public void onClick(View v) {
-			    String url1 = post1.getLink().toString();
-			    Intent intent = new Intent(Intent.ACTION_VIEW);
-			    intent.setDataAndType(Uri.parse(url1), "text/html");
-			    startActivity(intent);
-		    }
-	    });
-	    link2.setOnClickListener(new View.OnClickListener() {
-		    @Override
-		    public void onClick(View v) {
-			    String url1 = post2.getLink().toString();
-			    Intent intent = new Intent(Intent.ACTION_VIEW);
-			    intent.setDataAndType(Uri.parse(url1), "text/html");
-			    startActivity(intent);
-		    }
-	    });
-	    link3.setOnClickListener(new View.OnClickListener() {
-		    @Override
-		    public void onClick(View v) {
-			    String url1 = post3.getLink().toString();
-			    Intent intent = new Intent(Intent.ACTION_VIEW);
-			    intent.setDataAndType(Uri.parse(url1), "text/html");
-			    startActivity(intent);
-		    }
-	    });
+	    if(!nully){
+		    final FeedItem post1 = feed.getItem(1);
+		    final FeedItem post2 = feed.getItem(2);
+		    final FeedItem post3 = feed.getItem(3);
+		    TextView title1 = (TextView)root.findViewById(R.id.title1);
+		    TextView title2 = (TextView)root.findViewById(R.id.title2);
+		    TextView title3 = (TextView)root.findViewById(R.id.title3);
+		    title1.setText(post1.getTitle());
+		    title2.setText(post2.getTitle());
+		    title3.setText(post3.getTitle());
+		    TextView link1 = (TextView)root.findViewById(R.id.link1);
+		    TextView link2 = (TextView)root.findViewById(R.id.link2);
+		    TextView link3 = (TextView)root.findViewById(R.id.link3);
+		    link1.setOnClickListener(new View.OnClickListener() {
+			    @Override
+			    public void onClick(View v) {
+				    String url1 = post1.getLink().toString();
+				    Intent intent = new Intent(Intent.ACTION_VIEW);
+				    intent.setDataAndType(Uri.parse(url1), "text/html");
+				    startActivity(intent);
+			    }
+		    });
+		    link2.setOnClickListener(new View.OnClickListener() {
+			    @Override
+			    public void onClick(View v) {
+				    String url1 = post2.getLink().toString();
+				    Intent intent = new Intent(Intent.ACTION_VIEW);
+				    intent.setDataAndType(Uri.parse(url1), "text/html");
+				    startActivity(intent);
+			    }
+		    });
+		    link3.setOnClickListener(new View.OnClickListener() {
+			    @Override
+			    public void onClick(View v) {
+				    String url1 = post3.getLink().toString();
+				    Intent intent = new Intent(Intent.ACTION_VIEW);
+				    intent.setDataAndType(Uri.parse(url1), "text/html");
+				    startActivity(intent);
+			    }
+		    });
+
+	    } else {
+		    TextView title1 = (TextView)root.findViewById(R.id.title1);
+		    TextView title2 = (TextView)root.findViewById(R.id.title2);
+		    TextView title3 = (TextView)root.findViewById(R.id.title3);
+		    title1.setText("No connection");
+		    title2.setText("No connection");
+		    title3.setText("No connection");
+	    }
 	    TextView reader = (TextView)root.findViewById(R.id.reader);
 	    reader.setOnClickListener(new View.OnClickListener() {
 		    @Override
@@ -173,5 +187,6 @@ public class ParentsFragment extends Fragment {
 
         return root;
     }
+
 
 }
