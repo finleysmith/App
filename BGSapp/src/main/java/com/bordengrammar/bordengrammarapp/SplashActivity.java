@@ -32,6 +32,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ProgressBar;
 
+import com.bordengrammar.bordengrammarapp.utils.ut;
 import com.crashlytics.android.Crashlytics;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -154,6 +155,55 @@ public class SplashActivity extends Activity {
 				assert statuses != null;
 				twitter4j.Status status = statuses.get(0);
 				Format formatter = new SimpleDateFormat("MMM d, K:mm");
+				String link = status.getText().toLowerCase();
+				StringBuilder reallink = new StringBuilder();
+				String returny;
+				//if there is no link, we call reallink later and work whether it is null or not
+				for(int x=0; x < 160; x=x+1){
+					String h = "h";
+					String t = "t";
+					String p = "p";
+					String colon = ";";
+					if(link.charAt(x)==h.charAt(0)){
+						int x1 = x + 1;
+						if(link.charAt(x1)==t.charAt(0)){
+							int x2 = x1 + 1;
+							if(link.charAt(x2)==t.charAt(0)){
+								int x3 = x2 + 1;
+								if(link.charAt(x3)==p.charAt(0)){
+									//it is a link
+									if(link.charAt(0)==h.charAt(0)){
+										//we know that the whole entire tweet is a link
+										reallink.append(link);
+										break;
+									}
+
+									//if not, find the index where we started which is x
+									//a twitter photo link is 26 chars
+									int q = x + 26;
+
+									for(int xy=x; xy < q; xy = xy + 1){
+										try {
+											reallink.append(link.charAt(xy));
+										} catch (StringIndexOutOfBoundsException e){
+											e.printStackTrace();
+											break;
+										}
+
+									}
+									break;
+								}
+							}
+						}
+					}
+				}
+				if(reallink.toString().equals("")){
+					returny = null;
+				} else {
+					returny = reallink.toString();
+					ut.logIt(returny);
+				}
+
 				savePrefs("twitter", status.getText());
 				savePrefs("twittertime", formatter.format(status.getCreatedAt()));
 
