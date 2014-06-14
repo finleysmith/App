@@ -19,6 +19,11 @@
 
 
 <changelog>
+	<release version="2.1" versioncode="6">
+		<change>Added a "view link" function</change>
+		<change>App no longer needs data on launch</change>
+		<change>Now has slidy tabs</change>
+	</release>
 	<release version="2" versioncode="5">
 		<change>First public release</change>
 		<change></change>
