@@ -18,6 +18,7 @@
 package com.bordengrammar.bordengrammarapp;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -69,13 +70,28 @@ public class HomeFragment extends Fragment {
 
 		assert myInflatedView != null;
 		TextView t = (TextView) myInflatedView.findViewById(R.id.tweet);
-		t.setText('"' + readPrefs("twitter") + '"');
+		//t.setText('"' + readPrefs("twitter") + '"');
+		if(!readPrefs("link").isEmpty()){
+			t.setText('"' + readPrefs("twitter") + '"' + " - View Link");
+			t.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getActivity().getApplicationContext(), LinkActivity.class);
+					intent.putExtra("link", readPrefs("link"));
+					startActivity(intent);
+				}
+			});
+		} else {
+
+		}
 		TextView t1;
 
 
 		t1 = (TextView) myInflatedView.findViewById(R.id.date);
 		String t1source = "<b>" + "&#64;" + "bordengrammar" + "</b>" + " | " + readPrefs("twittertime");
 		t1.setText(Html.fromHtml(t1source));
+
+
 
 
 		TextView info = (TextView) myInflatedView.findViewById(R.id.info);
