@@ -8,6 +8,12 @@
         revision="19.1.0"
         sha1="b8189e9eef2f07fae743e05d7fe7e69daebe98d1"/>
     <item
+        dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\json-d67e0b6618070c93396f8b0ee1b4b88e30bd29e4.jar"
+        jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\json.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5"/>
+    <item
         dex="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\build\intermediates\pre-dexed\debug\Parse-1.5.0-638728698e58db3f8b89c15c9948597d7d300984.jar"
         jar="C:\Users\Finley\AndroidStudioProjects\BordenGrammarApp\BGSapp\libs\Parse-1.5.0.jar"
         jumboMode="false"
