@@ -156,6 +156,7 @@ public class SplashActivity extends Activity {
 				twitter4j.Status status = statuses.get(0);
 				Format formatter = new SimpleDateFormat("MMM d, K:mm");
 				String link = status.getText().toLowerCase();
+				String linky = "https://twitter.com/Bordengrammar/status/" + String.valueOf(status.getId());
 				StringBuilder reallink = new StringBuilder();
 				String returny;
 				//if there is no link, we call reallink later and work whether it is null or not
@@ -163,16 +164,16 @@ public class SplashActivity extends Activity {
 					String h = "h";
 					String t = "t";
 					String p = "p";
-					String colon = ";";
 					if(link.charAt(x)==h.charAt(0)){
 						int x1 = x + 1;
+						Integer hy = x;
 						if(link.charAt(x1)==t.charAt(0)){
 							int x2 = x1 + 1;
 							if(link.charAt(x2)==t.charAt(0)){
 								int x3 = x2 + 1;
 								if(link.charAt(x3)==p.charAt(0)){
 									//it is a link
-									if(link.charAt(0)==h.charAt(0)){
+									if(hy==0){
 										//we know that the whole entire tweet is a link
 										reallink.append(link);
 										break;
@@ -194,16 +195,23 @@ public class SplashActivity extends Activity {
 									break;
 								}
 							}
+						} else {
+							hy = null;
 						}
 					}
 				}
-				if(reallink.toString().equals("")){
+				if(reallink.toString().isEmpty()){
 					returny = null;
 				} else {
 					returny = reallink.toString();
+					if(returny.contains("t.co")){
+						returny = linky;
+					}
+
+
 					ut.logIt(returny);
 				}
-
+				savePrefs("link", returny);
 				savePrefs("twitter", status.getText());
 				savePrefs("twittertime", formatter.format(status.getCreatedAt()));
 
@@ -228,6 +236,9 @@ public class SplashActivity extends Activity {
 
 			if(readPrefs("twitter").isEmpty()){
 				savePrefs("twitter", "error");
+			}
+			if(readPrefs("link").isEmpty()){
+				savePrefs("link", "error");
 			}
 
 			Intent i = new Intent(SplashActivity.this, MainActivity.class);
