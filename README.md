@@ -7,3 +7,7 @@ This was made in android studio(the replacement to eclipse)
 Work it out yourself how to build it, for latests ones just look under releases
 
 Licensed under gplv2
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/epicfinley/borden-app/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
